@@ -4,6 +4,8 @@
                       by clicking on Event tab under Activity Stream.
 
     Background: Login
-      Given users should login with valid credentials
+      Given users should login with valid credentials as "hr"
+
 
       Scenario: Event module
+        Then users click event button

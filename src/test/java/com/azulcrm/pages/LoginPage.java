@@ -48,31 +48,13 @@ public class LoginPage {
      * explanation : ready method for HR User
      *
      */
-    public void loginAsHR() {
+    public void login(String userType) {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        this.usernameInputBox.sendKeys(ConfigurationReader.getProperty("usernameHR"));
+        this.usernameInputBox.sendKeys(ConfigurationReader.getProperty(userType));
         this.passwordInputBox.sendKeys(ConfigurationReader.getProperty("password"));
+        this.loginButton.click();
     }
 
-    /**
-     * explanation : ready method for HELPDESK User
-     *
-     */
-    public void loginAsHelpdesk() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        this.usernameInputBox.sendKeys(ConfigurationReader.getProperty("usernameHELPDESK"));
-        this.passwordInputBox.sendKeys(ConfigurationReader.getProperty("password"));
-    }
-
-    /**
-     * explanation : ready method for MARKETING User
-     *
-     */
-    public void loginAsMarketing() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        this.usernameInputBox.sendKeys(ConfigurationReader.getProperty("usernameMARKETING"));
-        this.passwordInputBox.sendKeys(ConfigurationReader.getProperty("password"));
-    }
 
 
 }
