@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class Omer_US_1584_EventPage {
 
-    public HomePage(){
+    public Omer_US_1584_EventPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
