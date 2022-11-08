@@ -14,5 +14,7 @@ IMPORTANT REMINDER
   - If there is something wrong in the common folders or classes, please contact the administrator of the project
   - Once you merge one pull request, please do not forget to click "delete branch" button in the same page
   - Right before commit and push your code, please update your main local and merge it your local branch to make sure the there is no conflict
+  - Do not forget restore the "tags" after running your code to avoid facing conflict ( tags = "" as default )
+  - After running your code before commit and push, please click "clear" option that is located maven lifecycle
   
 Have a good work...
