@@ -8,8 +8,8 @@ IMPORTANT REMINDER
 ![image](https://user-images.githubusercontent.com/105225726/200518153-b2ffb71f-c1cb-4747-aabf-eee0184301b6.png)
 
 
-  - When you start to work on project, firstly create your individual step definition class under step_definitions folder                                        ("YourName"-"UserStoryNo"-"ModuleName") 
-  - After then create your individual feature file features folder for your own cucumber scenarios ("yourName"-"UserStoryNo"-"ModuleName")
+  - When you start to work on project, firstly create your individual step definition class under step_definitions folder                                           ("YourName"-"UserStoryNo"-"ModuleName") 
+  - After then create your individual feature file features folder for your own cucumber scenarios                                                                 ("yourName"-"UserStoryNo"-"ModuleName")
   - As Background, you can use ready method in the LoginPage class for logging in with valid credentials
   - If there is something wrong in the common folders or classes, please contact the administrator of the project
   - Once you merge one pull request, please do not forget to click "delete branch" button in the same page
