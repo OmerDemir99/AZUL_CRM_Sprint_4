@@ -26,4 +26,6 @@ public class adnan_AZUL_1584_sendMessage {
 
     @FindBy(xpath = "//a[@class=\"feed-add-destination-link\"]")
     public WebElement addMoreLink;
+
+    // test
 }
