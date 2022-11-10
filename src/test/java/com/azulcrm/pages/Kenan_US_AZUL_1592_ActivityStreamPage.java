@@ -54,6 +54,9 @@ public class Kenan_US_AZUL_1592_ActivityStreamPage {
    @FindBy(xpath = "//input[@value='Wonderful Life']")
     public WebElement iframeValueMessage;
 
+   //@FindBy()
+   //
+
 
 
 

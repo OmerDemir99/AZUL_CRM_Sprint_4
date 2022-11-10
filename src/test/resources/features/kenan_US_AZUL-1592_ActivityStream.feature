@@ -25,6 +25,7 @@ Feature: AZUL-1592 As a user, I should be able to interact with employees on the
     And Users click the kiss emoji image
     Then Users should be able to see the kiss emoji icon is activated and is displayed on the page.
 
+
   #AC1-TC4
 
   Scenario:User should be able to unfollow other employees' posts.
