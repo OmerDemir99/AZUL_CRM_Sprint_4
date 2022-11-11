@@ -91,6 +91,15 @@ public class Hanife_US09_FilterSearch_StepDef {
 
         filterPage.tag.click();
         BrowserUtils.sleep(1);
+        filterPage.type.click();
+        BrowserUtils.sleep(1);
+
+//        filterPage.date.click();
+//        BrowserUtils.sleep(1);
+        filterPage.to.click();
+        BrowserUtils.sleep(1);
+
+
 
 
 
@@ -100,10 +109,17 @@ public class Hanife_US09_FilterSearch_StepDef {
 
         BrowserUtils.sleep(1);
 
+        Assert.assertTrue(filterPage.inboxDate.isDisplayed());
+        Assert.assertTrue(filterPage.inboxAuthor.isDisplayed());
         Assert.assertTrue(filterPage.inboxFavorites.isDisplayed());
-
         Assert.assertTrue(filterPage.inboxExtranet.isDisplayed());
 
+
+    }
+    @And("user click an empty area")
+    public void userClickAnEmptyArea() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(filterPage.restoreLink);
     }
 
 
@@ -118,27 +134,69 @@ public class Hanife_US09_FilterSearch_StepDef {
     @And("user clicks the x sign near the fields input boxes")
     public void userClicksTheXSignNearTheFieldsInputBoxes() {
 
-        BrowserUtils.sleep(1);
         Actions actions = new Actions(Driver.getDriver());
+
+
+
+
         actions.moveToElement(filterPage.inboxFavorites).perform();
-        BrowserUtils.sleep(1);
-        filterPage.xSignFavorites.click();
+        BrowserUtils.sleep(4);
+        actions.moveToElement(filterPage.xSign).click().perform();
+        BrowserUtils.sleep(4);
+        System.out.println("1");
 
-        BrowserUtils.sleep(1);
         actions.moveToElement(filterPage.inboxTag).perform();
-        BrowserUtils.sleep(1);
-        filterPage.xSignTag.click();
+        BrowserUtils.sleep(4);
+        actions.moveToElement(filterPage.xSign).click().perform();
+        BrowserUtils.sleep(4);
+        System.out.println("2");
 
-
-        BrowserUtils.sleep(1);
+        // filterPage.xSignFavorites.click();
+        BrowserUtils.sleep(4);
         actions.moveToElement(filterPage.inboxExtranet).perform();
-        BrowserUtils.sleep(1);
-        filterPage.xSignExtranet.click();
+        BrowserUtils.sleep(4);
+        actions.moveToElement(filterPage.xSign).click().perform();
+        BrowserUtils.sleep(4);
+        System.out.println("3");
+        //filterPage.xSignExtranet.click();
+
+
+
+
+
+
+
 
 
 
     }
 
+    //specifying date
+    @When("user click the date inbox user see different options")
+    public void user_click_the_date_inbox_user_see_different_options() {
+
+    }
+    @When("user choose the exact date")
+    public void user_choose_the_exact_date() {
+
+    }
+    @When("user click the date on calendar")
+    public void user_click_the_date_on_calendar() {
+
+    }
+    @When("user click search button")
+    public void user_click_search_button() {
+
+    }
+    @Then("user verify searching by specifying Date")
+    public void user_verify_searching_by_specifying_date() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 
+    @And("user choose and click a {string}")
+    public void userChooseAndClickA(String dateOption) {
+
+    }
 }

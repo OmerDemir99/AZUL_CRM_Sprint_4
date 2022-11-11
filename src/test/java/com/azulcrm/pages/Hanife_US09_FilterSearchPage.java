@@ -57,6 +57,9 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "//span[.='Restore default fields']")
     public WebElement restoreLink;
 
+    @FindBy(xpath = "//div[@class='main-ui-filter-bottom-controls']")
+    public WebElement bottomBlank;
+
     //Fields
 
 
@@ -105,29 +108,17 @@ public class Hanife_US09_FilterSearchPage {
 
 
     //fields x sign for removing
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignDate;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignType;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignAuthor;
+    @FindBy(xpath = "(//span[@title='Hide field'])[5]")
+    public WebElement xSign;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignTo;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignFavorites;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignTag;
 
-    @FindBy(xpath = "(//span[@title='Hide field'])[1]")
-    public WebElement xSignExtranet;
 
-    @FindBy(xpath = "//span[@title='Hide field']")
-    public List<WebElement> fields ;
+//    @FindBy(xpath = "//span[@title='Hide field']")
+//    public List<WebElement> fields ;
 
 
 }
