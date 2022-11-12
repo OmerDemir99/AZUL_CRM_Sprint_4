@@ -28,22 +28,37 @@ public class Hanife_US09_FilterSearchPage {
     public WebElement favorites;
 
     @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[3]")
-    public WebElement myActivity;
+    public WebElement act;
+
+    @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[7]")
+    public WebElement like;
 
     @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[4]")
-    public WebElement announcements;
+    public WebElement myActivity;
 
     @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[5]")
+    public WebElement announcements;
+
+    @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[6]")
     public WebElement workflows;
 
 
+
     public List<WebElement> total(List<WebElement> allFilters) {
-        allFilters.addAll(Arrays.asList(work, favorites, myActivity, announcements, workflows));
+        allFilters.addAll(Arrays.asList(work, favorites, myActivity, announcements, workflows,act,like));
+        allFilters.removeIf(p-> p.getText().isBlank());
+
         return allFilters;
     }
 
     @FindBy(xpath = "//span[.='Add field']")
     public WebElement addFieldLink;
+
+    @FindBy(xpath = "//span[.='Restore default fields']")
+    public WebElement restoreLink;
+
+    @FindBy(xpath = "//div[@class='main-ui-filter-bottom-controls']")
+    public WebElement bottomBlank;
 
     //Fields
 
@@ -51,26 +66,59 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[1]")
     public WebElement date;
 
+    @FindBy(xpath = "//div[@data-name='DATE_CREATE_datesel']")
+    public WebElement inboxDate;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[2]")
     public WebElement type;
+
+    @FindBy(xpath = "//div[@data-name='EVENT_ID']")
+    public WebElement inboxType;
 
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[3]")
     public WebElement author;
 
+    @FindBy(name = "CREATED_BY_ID_label")
+    public WebElement inboxAuthor;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[4]")
     public WebElement to;
+
+    @FindBy(name = "TO_label")
+    public WebElement inboxTo;
 
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[5]")
     public WebElement favoritesField;
 
+    @FindBy(xpath = "//div[@data-name='FAVORITES_USER_ID']")
+    public WebElement inboxFavorites;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[6]")
     public WebElement tag;
+
+    @FindBy(xpath = "//input[@name='TAG']")
+    public WebElement inboxTag;
 
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[7]")
     public WebElement extranet;
 
-    @FindBy(xpath = "//span[.='Restore default fields']")
-    public WebElement restoreLink;
+    @FindBy(xpath = "//div[@data-name='EXTRANET']")
+    public WebElement inboxExtranet;
+
+
+
+    //fields x sign for removing
+
+
+    @FindBy(xpath = "(//span[@title='Hide field'])[5]")
+    public WebElement xSign;
+
+
+
+
+
+//    @FindBy(xpath = "//span[@title='Hide field']")
+//    public List<WebElement> fields ;
 
 
 }
