@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -198,5 +199,54 @@ public class Hanife_US09_FilterSearch_StepDef {
     @And("user choose and click a {string}")
     public void userChooseAndClickA(String dateOption) {
 
+    }
+
+
+
+    //save filter part
+
+    @When("user click the save filter text")
+    public void user_click_the_save_filter_text() {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,200)");
+        BrowserUtils.sleep(1);
+       filterPage.saveFilterText.click();
+    }
+    @When("user click filter name inbox")
+    public void user_click_filter_name_inbox() {
+      filterPage.inboxAddingFilter.click();
+    }
+    @When("user types {string} as new filter")
+    public void user_types_as_new_filter(String string) {
+        BrowserUtils.sleep(1);
+        filterPage.inboxAddingFilter.sendKeys(string);
+    }
+    @When("user click save button")
+    public void user_click_save_button() {
+        BrowserUtils.sleep(1);
+       filterPage.saveButton.click();
+    }
+    @Then("user verify saving new filter")
+    public void user_verify_saving_new_filter() {
+       Assert.assertTrue(filterPage.newFilter.isDisplayed());
+    }
+
+    //restore default filters
+    @And("user click the reset to default link")
+    public void userClickTheResetToDefaultLink() {
+        BrowserUtils.sleep(1);
+        filterPage.resetFilterLink.click();
+    }
+
+    @And("user click continue button")
+    public void userClickContinueButton() {
+        BrowserUtils.sleep(2);
+        filterPage.continueButton.click();
+    }
+
+
+    @Then("user verify to reset filters to default")
+    public void userVerifyToResetFiltersToDefault() {
+        Assert.assertFalse(filterPage.newFilter.isDisplayed());
     }
 }
