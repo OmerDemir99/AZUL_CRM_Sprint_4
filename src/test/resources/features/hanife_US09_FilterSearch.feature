@@ -73,10 +73,27 @@ Feature: Filter and Search Functionality
 #    Then user verify searching by specifying Date
 
 
+  #ac4
+  Scenario:User should be able to search by selecting single or multiple types,
+
+
+  # @wip #ac5
+  Scenario:User should be able to save the filter.
+    When user click the save filter text
+    And user click filter name inbox
+    And user types "GOOD NEWS" as new filter
+    And user click save button
+    Then user verify saving new filter
+
+
+  @wip #ac7
+  Scenario:User should be able to reset filters to default.
+    When user click the save filter text
+    And user click the reset to default link
+    And user click continue button
+    Then user verify to reset filters to default
 
 
 
-#    4. User should be able to search by selecting single or multiple types,
-#    5. User should be able to save the filter.
 
-#    7. User should be able to reset filters to default.
+

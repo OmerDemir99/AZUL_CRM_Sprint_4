@@ -115,10 +115,27 @@ public class Hanife_US09_FilterSearchPage {
 
 
 
-
-
 //    @FindBy(xpath = "//span[@title='Hide field']")
 //    public List<WebElement> fields ;
+
+    // saving filter part
+    @FindBy(xpath = "//span[.='Save filter']")
+    public WebElement saveFilterText;
+
+    @FindBy(xpath = "//input[@class='main-ui-filter-sidebar-edit-control']")
+    public WebElement inboxAddingFilter;
+
+    @FindBy(xpath = "//span[@class='ui-btn ui-btn-success main-ui-filter-field-button main-ui-filter-save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//span[.='good News']")
+    public WebElement newFilter;
+
+    @FindBy(xpath = "//span[.='Reset to default']")
+    public WebElement resetFilterLink;
+
+    @FindBy(xpath = "//span[@class='popup-window-button']")
+    public WebElement continueButton;
 
 
 }
