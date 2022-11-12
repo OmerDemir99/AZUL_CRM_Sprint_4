@@ -1,9 +1,8 @@
 Feature: As a user, I should be able to send messages by clicking on Message tab under Active Stream.
 
   Background: User is already logged in.
-    Given User goes to the login page
-    Then User login to the application successfully
-    When User clicks MESSAGE module
+    Given users should login with valid credentials as "helpdesk"
+    Then User clicks MESSAGE module
 
 
   Scenario: User should be able to send a message by filling in the mandatory fields.
@@ -33,6 +32,7 @@ Feature: As a user, I should be able to send messages by clicking on Message tab
     And User add some recipients for this message
     Then User cancels sending this message
 
+  @wip
   Scenario: User should be able to delete messages after sending.
     When User searches the message that he wants to delete
     Then User clicks the MORE button at the bottom of that message

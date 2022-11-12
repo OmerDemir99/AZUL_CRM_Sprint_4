@@ -5,7 +5,7 @@ Feature: Filter and Search Functionality
     Given users should login with valid credentials as "hr"
     When user click the filter and search input box
 
-    @wip #ac1,ac2,ac6
+    #ac1,ac2,ac6
     Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
       Then user should see and verify below filters as default filters
         | WORK          |

@@ -99,7 +99,7 @@ public class Adnan_AZUL_1584_sendMessage_StepDefs{
     @When("User searches the message that he wants to delete")
     public void user_searches_the_message_that_he_wants_to_delete() {
 
-        messageModule.searchBox.sendKeys("Please specify at least one person." + Keys.ENTER);
+        messageModule.searchBox.sendKeys("HI GUYS..." + Keys.ENTER);
 
     }
     @Then("User clicks the MORE button at the bottom of that message")

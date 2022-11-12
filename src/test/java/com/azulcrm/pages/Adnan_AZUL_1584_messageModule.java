@@ -62,7 +62,7 @@ public class Adnan_AZUL_1584_messageModule {
     public WebElement searchBox;
 
 
-    @FindBy (css = "span[id=\"feed-post-more-2571\"]")
+    @FindBy (css = "span[id=\"feed-post-more-2573\"]")
     public WebElement moreBtn;
 
 
