@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -173,33 +174,43 @@ public class Hanife_US09_FilterSearch_StepDef {
     }
 
     //specifying date
-    @When("user click the date inbox user see different options")
-    public void user_click_the_date_inbox_user_see_different_options() {
+
+    @And("user click the date inbox,user choose a date and click search button")
+    public void userClickTheDateInboxUserChooseADateAndClickSearchButton() {
+
+        BrowserUtils.sleep(2);
+         filterPage.inboxDate.click();
+        System.out.println("date");
+        Actions actions = new Actions(Driver.getDriver());
+        BrowserUtils.sleep(4);
+        actions.moveToElement(filterPage.inboxDate).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+       // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        System.out.println("yesterday");
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,150)");
+        BrowserUtils.sleep(2);
+        actions.moveToElement(filterPage.searchButton).click().perform();
+      //   filterPage.searchButton.click();
 
     }
-    @When("user choose the exact date")
-    public void user_choose_the_exact_date() {
 
-    }
-    @When("user click the date on calendar")
-    public void user_click_the_date_on_calendar() {
 
-    }
-    @When("user click search button")
-    public void user_click_search_button() {
-
-    }
     @Then("user verify searching by specifying Date")
     public void user_verify_searching_by_specifying_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        System.out.println("search");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(filterPage.searchCloseSign).perform();
+        System.out.println("aaa");
+        Assert.assertTrue(filterPage.searchCloseSign.isDisplayed());
+        BrowserUtils.sleep(2);
+        filterPage.filterSearchInputBox.click();
+        System.out.println("bbb");
     }
 
 
-    @And("user choose and click a {string}")
-    public void userChooseAndClickA(String dateOption) {
 
-    }
 
 
 
@@ -248,5 +259,58 @@ public class Hanife_US09_FilterSearch_StepDef {
     @Then("user verify to reset filters to default")
     public void userVerifyToResetFiltersToDefault() {
         Assert.assertFalse(filterPage.newFilter.isDisplayed());
+    }
+
+// verify searching by types
+    @When("user click the types inbox, user choose a type")
+    public void userClickTheTypesInboxUserChooseAType() {
+        BrowserUtils.sleep(2);
+        filterPage.inboxType.click();
+        BrowserUtils.sleep(2);
+        filterPage.typePosts.click();
+        filterPage.space.click();
+
+    }
+
+
+    @And("user click search button")
+    public void userClickSearchButton() {
+        BrowserUtils.sleep(2);
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,150)");
+
+        BrowserUtils.sleep(3);
+        filterPage.searchButton.click();
+        BrowserUtils.sleep(2);
+
+    }
+
+    @Then("user verify searching by specifying single type")
+    public void userVerifySearchingBySpecifyingSingleType() {
+
+        BrowserUtils.sleep(1);
+        Assert.assertTrue(filterPage.searchResult.isDisplayed());
+        filterPage.deleteResult.click();
+    }
+
+
+    @When("user click the types inbox, user choose multiple types")
+    public void userClickTheTypesInboxUserChooseMultipleTypes() {
+
+        BrowserUtils.sleep(2);
+        filterPage.inboxType.click();
+        BrowserUtils.sleep(2);
+        filterPage.typeAnnouncements.click();
+        BrowserUtils.sleep(2);
+        filterPage.typeAppretiations.click();
+        filterPage.space.click();
+    }
+
+    @Then("user verify searching by selecting multiple types")
+    public void userVerifySearchingBySelectingMultipleTypes() {
+        BrowserUtils.sleep(1);
+        Assert.assertTrue(filterPage.searchResult.isDisplayed());
+        filterPage.deleteResult.click();
+
     }
 }
