@@ -182,16 +182,25 @@ public class Hanife_US09_FilterSearch_StepDef {
          filterPage.inboxDate.click();
         System.out.println("date");
         Actions actions = new Actions(Driver.getDriver());
-        BrowserUtils.sleep(4);
-        actions.moveToElement(filterPage.inboxDate).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        BrowserUtils.sleep(2);
+      //  filterPage.yesterdayDate.click();
+        actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
+        BrowserUtils.sleep(2);
+
+       actions.sendKeys(Keys.RETURN).perform();
+     //   actions.keyDown(Keys.RETURN).keyUp(Keys.RETURN).perform();
+       // actions.sendKeys(Keys.ENTER).perform();
        // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         System.out.println("yesterday");
 
+        BrowserUtils.sleep(4);
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("window.scrollBy(0,150)");
-        BrowserUtils.sleep(2);
-        actions.moveToElement(filterPage.searchButton).click().perform();
-      //   filterPage.searchButton.click();
+        jse.executeScript("window.scrollBy(0,200)");
+
+        BrowserUtils.sleep(4);
+       // actions.moveToElement(filterPage.searchButton).click().perform();
+        filterPage.searchButton.click();
+        System.out.println("basti");
 
     }
 
@@ -200,12 +209,14 @@ public class Hanife_US09_FilterSearch_StepDef {
     public void user_verify_searching_by_specifying_date() {
 
         System.out.println("search");
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(filterPage.searchCloseSign).perform();
-        System.out.println("aaa");
-        Assert.assertTrue(filterPage.searchCloseSign.isDisplayed());
+//        Actions actions = new Actions(Driver.getDriver());
+//        actions.moveToElement(filterPage.searchCloseSign).perform();
+//
+        Assert.assertTrue(filterPage.searchResult.isDisplayed());
         BrowserUtils.sleep(2);
-        filterPage.filterSearchInputBox.click();
+        System.out.println("aaa");
+        filterPage.deleteResult.click();
+        //filterPage.filterSearchInputBox.click();
         System.out.println("bbb");
     }
 

@@ -36,7 +36,7 @@ Feature: Filter and Search Functionality
     And user clicks the x sign near the fields input boxes
     Then user see default selected fields and nonselected fields
 
-  # @wip   #ac3 does not specfy the date
+   @wip   #ac3 does not specfy the date
    Scenario:User should be able to search by specifying the Date,
      And user click the date inbox,user choose a date and click search button
      Then user verify searching by specifying Date

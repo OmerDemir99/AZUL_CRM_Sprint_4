@@ -69,6 +69,12 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "//div[@data-name='DATE_CREATE_datesel']")
     public WebElement inboxDate;
 
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[1]")
+    public WebElement yesterdayDate;
+
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[4]")
+    public WebElement currentdayDate;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[2]")
     public WebElement type;
 
