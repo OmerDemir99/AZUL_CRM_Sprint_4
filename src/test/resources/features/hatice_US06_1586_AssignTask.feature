@@ -22,7 +22,8 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that you see error message
 
-  #@AZUL1586
+
+    #PASS
   #ac2
   Scenario: HR User should be able to assign a task to more than one user (Test with adding 3 users max.)
     When User clicks TASK menu
@@ -35,6 +36,7 @@ Feature: Task assign function in quick navigate menu.
       | marketing84@cybertekschool.com |
       | helpdesk29@cybertekschool.com  |
     Then click send button
+    Then see task created alert
 
   #PASS
   #ac2/NEGATİVE - Error message: "A user specified in the field "Responsible Person" was not found."
@@ -47,7 +49,7 @@ Feature: Task assign function in quick navigate menu.
     Then verify that you see responsible person error message
 
 
-  #PASS
+  #@AZUL1586
   #ac3
   Scenario: When task(s) is(are) created, they can be seen on the count on the homepage under "MY TASKS" table.
     When user clicks on tasks menu under activity stream

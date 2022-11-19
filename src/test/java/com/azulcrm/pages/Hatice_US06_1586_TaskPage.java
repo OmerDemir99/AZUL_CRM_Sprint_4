@@ -16,14 +16,14 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-tasks']")
     public WebElement taskMenu;
 
-    @FindBy(xpath = "//a[@title='Tasks']")
-    public WebElement tasksModule;
+    //@FindBy(xpath = "//a[@title='Tasks']")
+    //public WebElement tasksModule;
 
-    @FindBy(xpath = "//span[@id='pagetitle']")
-    public WebElement myTasksText;
+    //@FindBy(xpath = "//span[@id='pagetitle']")
+    //public WebElement myTasksText;
 
-    @FindBy(xpath = "(//span[@class='main-buttons-item-counter'])[1]")
-    public WebElement countAllTasks;
+    //@FindBy(xpath = "(//span[@class='main-buttons-item-counter'])[1]")
+    //public WebElement countAllTasks;
 
     @FindBy(xpath = "//input[@name='ACTION[0][ARGUMENTS][data][TITLE]']")
     public WebElement taskNameInput;
@@ -34,14 +34,17 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "(//span[@title='Cancel selection'])[1]")
     public WebElement defaultNameDlt;
 
-    @FindBy(xpath = "//div[@id='bx-component-scope-lifefeed_task_form-responsible']")
+    @FindBy(xpath = "(//input[@class='js-id-tdp-mem-sel-is-search js-id-network-selector-search task-form-field-search task-form-field-input'])[1]")
     public WebElement responsiblePersonInputBox;
 
-    @FindBy(xpath = "//div[@id='popup-window-content-BXSocNetLogDestination']")
+    @FindBy(xpath = "//div[@class='feed-create-task-popup-title']")
+    public WebElement taskCreatedPopup;
+
+    @FindBy(xpath = "//table[@class='bx-finder-box-tabs-content-table']//td//a")
     public WebElement personPopup;
 
-    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
-    public WebElement personPopupDlt;
+    //@FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    //public WebElement personPopupDlt;
 
     @FindBy(xpath = "//table[@class='bx-finder-box-tabs-content-table']//tr//td//a")
     public WebElement anyUser;

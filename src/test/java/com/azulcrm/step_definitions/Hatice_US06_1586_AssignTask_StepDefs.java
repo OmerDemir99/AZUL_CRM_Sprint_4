@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+
 import java.util.List;
 
 public class Hatice_US06_1586_AssignTask_StepDefs {
@@ -53,7 +54,17 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
     }
     @And("click add more and add three users")
     public void clickAddMoreAndAddThreeUsers(List<String> users) {
-        BrowserUtils.sleep(5);
+        for (String each : users) {
+            taskPage.responsiblePersonInputBox.sendKeys(each);
+            BrowserUtils.sleep(3);
+            taskPage.personPopup.click();
+
+        }
+        BrowserUtils.sleep(3);
+    }
+    @Then("see task created alert")
+    public void seeTaskCreatedAlert() {
+        Assert.assertTrue(taskPage.taskCreatedPopup.isDisplayed());
     }
     @Then("verify that you see responsible person error message")
     public void verifyThatYouSeeResponsiblePersonErrorMessage() {
@@ -62,18 +73,15 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
     }
     @When("user clicks on tasks menu under activity stream")
     public void user_clicks_on_tasks_menu_under_activity_stream() {
-        taskPage.tasksModule.click();
-        BrowserUtils.sleep(2);
+
     }
     @When("sees my tasks text")
     public void sees_my_tasks_text() {
-        Assert.assertEquals("My tasks", taskPage.myTasksText.getText());
+
     }
     @Then("verify that the number of all has increased")
     public void verifyThatTheNumberOfAllHasIncreased() {
-        if (!(taskPage.countAllTasks.getText().equals(taskPage.countAllTasks.getText()))){
-            Assert.assertTrue(taskPage.countAllTasks.isDisplayed());
-        }
+
     }
     @When("click on checklist and write something in the things to do")
     public void click_on_checklist_and_write_something_in_the_things_to_do() {
@@ -86,6 +94,8 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
     public void verify_that_checklist_has_been_added() {
 
     }
+
+
 
 
 
