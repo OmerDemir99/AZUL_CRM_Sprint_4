@@ -175,32 +175,36 @@ public class Hanife_US09_FilterSearch_StepDef {
 
     //specifying date
 
-    @And("user click the date inbox,user choose a date and click search button")
-    public void userClickTheDateInboxUserChooseADateAndClickSearchButton() {
+    @And("user click the date inbox,user choose a date")
+    public void userClickTheDateInboxUserChooseADate() {
 
         BrowserUtils.sleep(2);
          filterPage.inboxDate.click();
         System.out.println("date");
         Actions actions = new Actions(Driver.getDriver());
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(1);
       //  filterPage.yesterdayDate.click();
-        actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
-        BrowserUtils.sleep(2);
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        BrowserUtils.sleep(1);
+        actions.sendKeys(Keys.ARROW_DOWN).perform();
+        BrowserUtils.sleep(1);
 
        actions.sendKeys(Keys.RETURN).perform();
      //   actions.keyDown(Keys.RETURN).keyUp(Keys.RETURN).perform();
        // actions.sendKeys(Keys.ENTER).perform();
        // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-        System.out.println("yesterday");
 
-        BrowserUtils.sleep(4);
+    }
+
+    @And("user click search button")
+    public void userClickSearchButton() {
+        BrowserUtils.sleep(2);
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("window.scrollBy(0,200)");
 
-        BrowserUtils.sleep(4);
-       // actions.moveToElement(filterPage.searchButton).click().perform();
+        BrowserUtils.sleep(1);
         filterPage.searchButton.click();
-        System.out.println("basti");
+        BrowserUtils.sleep(1);
 
     }
 
@@ -208,24 +212,102 @@ public class Hanife_US09_FilterSearch_StepDef {
     @Then("user verify searching by specifying Date")
     public void user_verify_searching_by_specifying_date() {
 
-        System.out.println("search");
-//        Actions actions = new Actions(Driver.getDriver());
-//        actions.moveToElement(filterPage.searchCloseSign).perform();
-//
         Assert.assertTrue(filterPage.searchResult.isDisplayed());
         BrowserUtils.sleep(2);
-        System.out.println("aaa");
+
         filterPage.deleteResult.click();
-        //filterPage.filterSearchInputBox.click();
-        System.out.println("bbb");
+
+    }
+
+//exact date
+    @When("user click the date inbox,user choose exact date")
+    public void userClickTheDateInboxUserChooseExactDate() {
+        BrowserUtils.sleep(2);
+        filterPage.inboxDate.click();
+        System.out.println("date");
+        Actions actions = new Actions(Driver.getDriver());
+        BrowserUtils.sleep(2);
+        //  filterPage.yesterdayDate.click();
+      //  actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
+        for (int i = 0; i <= 14; i++) {
+            actions.sendKeys(Keys.ARROW_DOWN).perform();
+            BrowserUtils.sleep(1);
+        }
+
+        BrowserUtils.sleep(1);
+        actions.sendKeys(Keys.RETURN).perform();
+
+    }
+
+    @And("user click the calendar box and click a specific date")
+    public void userClickTheCalendarBoxAndClickASpecificDate() {
+
+        BrowserUtils.sleep(1);
+        filterPage.calendarInbox.click();
+        BrowserUtils.sleep(1);
+        filterPage.november19.click();
+    }
+
+    //by typing date
+    @And("user click the calendar box and type a {string}")
+    public void userClickTheCalendarBoxAndTypeA(String date) {
+
+        BrowserUtils.sleep(1);
+        filterPage.calendarInbox.click();
+        BrowserUtils.sleep(1);
+        filterPage.calendarInbox.sendKeys(date);
+    }
+
+
+
+    // verify searching by types
+    @When("user click the types inbox, user choose a type")
+    public void userClickTheTypesInboxUserChooseAType() {
+        BrowserUtils.sleep(2);
+        filterPage.inboxType.click();
+        BrowserUtils.sleep(2);
+        filterPage.typePosts.click();
+        filterPage.space.click();
+
+    }
+
+
+
+
+    @Then("user verify searching by specifying single type")
+    public void userVerifySearchingBySpecifyingSingleType() {
+
+        BrowserUtils.sleep(1);
+        Assert.assertTrue(filterPage.searchResult.isDisplayed());
+        filterPage.deleteResult.click();
+    }
+
+
+    @When("user click the types inbox, user choose multiple types")
+    public void userClickTheTypesInboxUserChooseMultipleTypes() {
+
+        BrowserUtils.sleep(2);
+        filterPage.inboxType.click();
+        BrowserUtils.sleep(2);
+        filterPage.typeAnnouncements.click();
+        BrowserUtils.sleep(2);
+        filterPage.typeAppretiations.click();
+        filterPage.space.click();
+    }
+
+    @Then("user verify searching by selecting multiple types")
+    public void userVerifySearchingBySelectingMultipleTypes() {
+        BrowserUtils.sleep(1);
+        Assert.assertTrue(filterPage.searchResult.isDisplayed());
+        filterPage.deleteResult.click();
+
     }
 
 
 
 
 
-
-    //save filter part
+        //save filter part
 
     @When("user click the save filter text")
     public void user_click_the_save_filter_text() {
@@ -234,6 +316,7 @@ public class Hanife_US09_FilterSearch_StepDef {
         BrowserUtils.sleep(1);
        filterPage.saveFilterText.click();
     }
+
     @When("user click filter name inbox")
     public void user_click_filter_name_inbox() {
       filterPage.inboxAddingFilter.click();
@@ -272,56 +355,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         Assert.assertFalse(filterPage.newFilter.isDisplayed());
     }
 
-// verify searching by types
-    @When("user click the types inbox, user choose a type")
-    public void userClickTheTypesInboxUserChooseAType() {
-        BrowserUtils.sleep(2);
-        filterPage.inboxType.click();
-        BrowserUtils.sleep(2);
-        filterPage.typePosts.click();
-        filterPage.space.click();
-
-    }
 
 
-    @And("user click search button")
-    public void userClickSearchButton() {
-        BrowserUtils.sleep(2);
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("window.scrollBy(0,150)");
-
-        BrowserUtils.sleep(3);
-        filterPage.searchButton.click();
-        BrowserUtils.sleep(2);
-
-    }
-
-    @Then("user verify searching by specifying single type")
-    public void userVerifySearchingBySpecifyingSingleType() {
-
-        BrowserUtils.sleep(1);
-        Assert.assertTrue(filterPage.searchResult.isDisplayed());
-        filterPage.deleteResult.click();
-    }
-
-
-    @When("user click the types inbox, user choose multiple types")
-    public void userClickTheTypesInboxUserChooseMultipleTypes() {
-
-        BrowserUtils.sleep(2);
-        filterPage.inboxType.click();
-        BrowserUtils.sleep(2);
-        filterPage.typeAnnouncements.click();
-        BrowserUtils.sleep(2);
-        filterPage.typeAppretiations.click();
-        filterPage.space.click();
-    }
-
-    @Then("user verify searching by selecting multiple types")
-    public void userVerifySearchingBySelectingMultipleTypes() {
-        BrowserUtils.sleep(1);
-        Assert.assertTrue(filterPage.searchResult.isDisplayed());
-        filterPage.deleteResult.click();
-
-    }
 }

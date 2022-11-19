@@ -36,20 +36,25 @@ Feature: Filter and Search Functionality
     And user clicks the x sign near the fields input boxes
     Then user see default selected fields and nonselected fields
 
-   @wip   #ac3 does not specfy the date
+   #@wip   #ac3
    Scenario:User should be able to search by specifying the Date,
-     And user click the date inbox,user choose a date and click search button
+     And user click the date inbox,user choose a date
+     And user click search button
      Then user verify searching by specifying Date
 
+    # @wip   #ac3
+  Scenario:User should be able to search by specifying the Exact Date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and click a specific date
+    And user click search button
+    Then user verify searching by specifying Date
 
-
-
-#  Scenario:User should be able to search by specifying the Date,
-#    When user click the date inbox user see different options
-#    And user choose the exact date
-#    And user click the date on calendar
-#    And user click search button
-#    Then user verify searching by specifying Date
+  #@wip   #ac3
+  Scenario:User should be able to search by typing the exact date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and type a "11/15/2022"
+    And user click search button
+    Then user verify searching by specifying Date
 
 
   #@wip #ac4
