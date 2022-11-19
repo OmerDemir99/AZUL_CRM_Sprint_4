@@ -69,6 +69,12 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "//div[@data-name='DATE_CREATE_datesel']")
     public WebElement inboxDate;
 
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[1]")
+    public WebElement yesterdayDate;
+
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[4]")
+    public WebElement currentdayDate;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[2]")
     public WebElement type;
 
@@ -162,5 +168,13 @@ public class Hanife_US09_FilterSearchPage {
 
     @FindBy(xpath = "//div[@class='main-ui-item-icon main-ui-square-delete']")
     public  WebElement deleteResult;
+
+    //calendar part
+    @FindBy(name = "DATE_CREATE_from")
+    public WebElement calendarInbox;
+
+    @FindBy(css = "a[data-date='1668816000000']")
+    public WebElement november19;
+
 
 }
