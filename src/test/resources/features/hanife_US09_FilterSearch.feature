@@ -5,7 +5,9 @@ Feature: Filter and Search Functionality
     Given users should login with valid credentials as "hr"
     When user click the filter and search input box
 
+
     #ac1,ac2,ac6
+
     Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
       Then user should see and verify below filters as default filters
         | WORK          |
@@ -31,7 +33,7 @@ Feature: Filter and Search Functionality
 #    6. User should be able to restore the default field,
 #    7. User should be able to reset filters to default.
 
-  #@wip  #ac2, ac6
+ # @wip  #ac2, ac6
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
@@ -54,44 +56,39 @@ Feature: Filter and Search Functionality
     Then user see default selected fields and nonselected fields
 
    #@wip   #ac3
-   Scenario Outline:User should be able to search by specifying the Date,
-     When user click the date inbox user see different options
-     And user choose and click a "<Date Option>"
-     And user click the date on calendar
+   Scenario:User should be able to search by specifying the Date,
+     And user click the date inbox,user choose a date
      And user click search button
      Then user verify searching by specifying Date
-  Examples: date options
-    | Date Option     |
-    | Any date        |
-    | Yesterday       |
-    | Current day     |
-    | This week       |
-    | This month      |
-    | Current quarter |
-    | Last 7 days     |
-    | Last 30 days    |
-    | Last 60 days    |
-    | Last 90 days    |
-    | Last N days     |
-    | Month           |
-    | Quarter         |
-    | Year            |
-    | Exact date      |
-    | Last week       |
-    | Last month      |
-    | Custom Range    |
+
+    # @wip   #ac3
+  Scenario:User should be able to search by specifying the Exact Date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and click a specific date
+    And user click search button
+    Then user verify searching by specifying Date
+
+  #@wip   #ac3
+  Scenario:User should be able to search by typing the exact date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and type a "11/15/2022"
+    And user click search button
+    Then user verify searching by specifying Date
 
 
-#  Scenario:User should be able to search by specifying the Date,
-#    When user click the date inbox user see different options
-#    And user choose the exact date
-#    And user click the date on calendar
-#    And user click search button
-#    Then user verify searching by specifying Date
-
-
-  #ac4
+  #@wip #ac4
   Scenario:User should be able to search by selecting single or multiple types,
+    When user click the types inbox, user choose a type
+    And user click search button
+    Then user verify searching by specifying single type
+
+
+  #@wip #ac4
+  Scenario:User should be able to search by selecting single or multiple types,
+    When user click the types inbox, user choose multiple types
+    And user click search button
+    Then user verify searching by selecting multiple types
+
 
 
   # @wip #ac5
@@ -103,7 +100,7 @@ Feature: Filter and Search Functionality
     Then user verify saving new filter
 
 
-  @wip #ac7
+  #@wip #ac7
   Scenario:User should be able to reset filters to default.
     When user click the save filter text
     And user click the reset to default link

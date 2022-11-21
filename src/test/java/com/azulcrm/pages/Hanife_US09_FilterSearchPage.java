@@ -69,6 +69,12 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "//div[@data-name='DATE_CREATE_datesel']")
     public WebElement inboxDate;
 
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[1]")
+    public WebElement yesterdayDate;
+
+    @FindBy(xpath = "(//span[@class='main-ui-select-name'])[4]")
+    public WebElement currentdayDate;
+
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[2]")
     public WebElement type;
 
@@ -136,6 +142,39 @@ public class Hanife_US09_FilterSearchPage {
 
     @FindBy(xpath = "//span[@class='popup-window-button']")
     public WebElement continueButton;
+
+
+    @FindBy(css = "#popup-window-content-LIVEFEED_search_container > div > div > div.main-ui-filter-bottom-controls > div.main-ui-filter-field-preset-button-container > div > button")
+    public WebElement searchButton;
+
+    @FindBy(css = "#LIVEFEED_search_container > div.main-ui-filter-search-square.main-ui-square > div.main-ui-item-icon.main-ui-square-delete")
+    public WebElement searchCloseSign;
+
+    //types
+    @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[1]")
+    public WebElement typePosts;
+
+    @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[2]")
+    public WebElement typeAnnouncements;
+
+    @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[3]")
+    public WebElement typeAppretiations;
+
+    @FindBy(xpath = "//*[@id=\"popup-window-content-LIVEFEED_search_container\"]/div/div/div[2]/div[1]/div[2]/span[2]")
+    public WebElement space;
+
+    @FindBy(xpath = "//div[@class='main-ui-square-item']")
+    public WebElement searchResult;
+
+    @FindBy(xpath = "//div[@class='main-ui-item-icon main-ui-square-delete']")
+    public  WebElement deleteResult;
+
+    //calendar part
+    @FindBy(name = "DATE_CREATE_from")
+    public WebElement calendarInbox;
+
+    @FindBy(css = "a[data-date='1668816000000']")
+    public WebElement november19;
 
 
 }
