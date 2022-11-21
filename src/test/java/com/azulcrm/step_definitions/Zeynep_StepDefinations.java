@@ -80,5 +80,39 @@ Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("guru"));
 
 
     }
+    @When("User click insert video link")
+    public void user_click_insert_video_link() {
+  zeynep_azul1583.insertVideoLink.click();
+    }
+    @When("user write URL link of video")
+    public void user_write_url_link_of_video() throws InterruptedException {
+        zeynep_azul1583.videoURL.sendKeys("https://www.youtube.com/watch?v=AlOPXqXncWw");
+        Thread.sleep(2000);
+    }
+    @When("User verify not take any errorMessage after write URL")
+    public void user_verify_not_take_any_error_message_after_write_url() {
+       Assert.assertTrue(!zeynep_azul1583.errorMessage.isDisplayed());
+    }
+    @Then("user click saveButton")
+    public void user_click_save_button() {
+
+    }
+
+    @When("User click add quotes")
+    public void user_click_add_quotes() {
+      zeynep_azul1583.addQuote.click();
+
+    }
+    @When("user write sentences in quotes")
+    public void user_write_sentences_in_quotes() {
+      zeynep_azul1583.quoteTextArea.sendKeys("This is Quote Test Area");
+
+    }
+    @Then("user verify adding new quotes")
+    public void user_verify_adding_new_quotes() {
+
+    }
+
+
 
 }
