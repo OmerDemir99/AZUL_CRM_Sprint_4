@@ -7,6 +7,7 @@ Feature: Filter and Search Functionality
 
     #@wip #ac1
   @AZUL-1625
+    @smoke
     Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
       Then user should see and verify below filters as default filters
         | WORK          |
@@ -17,7 +18,6 @@ Feature: Filter and Search Functionality
 
 
  # @wip  #ac2, ac6
-
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
@@ -53,6 +53,7 @@ Feature: Filter and Search Functionality
     Then user verify searching by specifying Date
 
   #@wip   #ac3
+  @smoke
   Scenario:User should be able to search by typing the exact date
     When user click the date inbox,user choose exact date
     And user click the calendar box and type a "11/15/2022"
@@ -76,6 +77,7 @@ Feature: Filter and Search Functionality
 
 
   # @wip #ac5
+  @smoke
   Scenario:User should be able to save the filter.
     When user click the save filter text
     And user click filter name inbox
