@@ -16,11 +16,10 @@ public class Hanife_US09_FilterSearchPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
     @FindBy(xpath = "//input[@id='LIVEFEED_search']")
     public WebElement filterSearchInputBox;
 
-//default filters
+    //default filters
     @FindBy(xpath = "(//span[@class='main-ui-filter-sidebar-item-text'])[1]")
     public WebElement work;
 
@@ -175,6 +174,9 @@ public class Hanife_US09_FilterSearchPage {
 
     @FindBy(css = "a[data-date='1668816000000']")
     public WebElement november19;
+
+
+
 
 
 }
