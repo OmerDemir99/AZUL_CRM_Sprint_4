@@ -32,7 +32,9 @@ Feature: Filter and Search Functionality
 
 
 
+
  # @wip  #ac2, ac6
+
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
