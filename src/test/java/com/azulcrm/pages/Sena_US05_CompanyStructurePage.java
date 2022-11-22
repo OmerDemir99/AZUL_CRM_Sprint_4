@@ -94,8 +94,4 @@ public class Sena_US05_CompanyStructurePage {
     public WebElement editBar;
 
 
-
-    //(//div[@class="structure-designate-text structure-add-dept-text"])[2]
-
-    // (//div[@class="structure-dept-title"])[2]
 }

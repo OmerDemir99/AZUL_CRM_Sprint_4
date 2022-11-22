@@ -264,7 +264,6 @@ public class Sena_US05_CompanyStructure_StepDef {
        /* if (! (companyStructurePage.addDepartmentButton.isDisplayed())){
 
         }
-
         */
         //Assert.assertFalse(companyStructurePage.addDepartmentButton.isDisplayed());
 
