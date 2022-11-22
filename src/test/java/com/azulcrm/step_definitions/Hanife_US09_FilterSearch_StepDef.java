@@ -252,7 +252,11 @@ public class Hanife_US09_FilterSearch_StepDef {
     @And("user click the calendar box and type a {string}")
     public void userClickTheCalendarBoxAndTypeA(String date) {
 
+
         BrowserUtils.sleep(2);
+
+        BrowserUtils.sleep(1);
+
         filterPage.calendarInbox.click();
         BrowserUtils.sleep(1);
         filterPage.calendarInbox.sendKeys(date);
