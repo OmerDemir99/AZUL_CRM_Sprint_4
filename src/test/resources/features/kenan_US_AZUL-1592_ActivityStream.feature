@@ -3,7 +3,7 @@ Feature: AZUL-1592 As a user, I should be able to interact with employees on the
   Background: Login
     Given users should login with valid credentials as "hr"
 
-
+@smoke
   #AC1-TC1
   @AC1TC1 @kg
   Scenario:Users should be able to make a comment other employees' posts.
