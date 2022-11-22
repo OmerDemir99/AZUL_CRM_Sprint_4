@@ -17,7 +17,8 @@ public class Sena_US05_CompanyStructurePage {
     @FindBy(xpath = "//span[@id=\"pagetitle\"]")
     public WebElement companyStructure;
 
-    @FindBy(xpath = "//a[@class=\"webform-small-button webform-small-button-blue webform-small-button-add\"]")
+    @FindBy(css = "#pagetitle-menu > a")
+            //(xpath = "//a[@class=\"webform-small-button webform-small-button-blue webform-small-button-add\"]")
     public WebElement addDepartmentButton;
     @FindBy(xpath = "//span[@class=\"popup-window-button popup-window-button-accept\"]")
     public WebElement addButton;
@@ -33,7 +34,6 @@ public class Sena_US05_CompanyStructurePage {
     @FindBy(xpath = "//select[@name=\"IBLOCK_SECTION_ID\"]")
     public WebElement changeParDep;
 
-
     @FindBy(xpath = "//a[@id=\"single-user-choice\"]")
     public WebElement structureArticle;
 
@@ -46,19 +46,21 @@ public class Sena_US05_CompanyStructurePage {
     @FindBy(xpath = "(//span[@class=\"finder-box-tab-text\"])[3]")
     public WebElement search;
 
-    @FindBy(xpath = "//span[@class=\"popup-window-button popup-window-button-link popup-window-button-link-cancel\"]")
+    @FindBy(xpath = "//*[@id=\"BXStructure\"]/div[3]/span[2]")
+            //(xpath = "//span[@class=\"popup-window-button popup-window-button-link popup-window-button-link-cancel\"]")
     public WebElement closeButton;
 
-    @FindBy(xpath = "(//span[@class=\"popup-window-close-icon popup-window-titlebar-close-icon\"])[2]")
+    @FindBy(xpath = "//*[@id=\"tasks-iframe-popup\"]/span")
+            //xpath = "(//span[@class=\"popup-window-close-icon popup-window-titlebar-close-icon\"])[2]")
     public WebElement xForClose;
 
-    @FindBy()
+    @FindBy(xpath = "(//div[@class=\"structure-edit-icon\"])[1]")
     public WebElement pencilMark;
 
-    @FindBy()
+    @FindBy(xpath = "(//div[@title=\"Add child department\"])[1]")
     public WebElement plusMark;
 
-    @FindBy()
+    @FindBy(xpath = "(//div[@class=\"structure-delete-icon\"])[1]")
     public WebElement xMark;
 
     @FindBy()
@@ -72,6 +74,11 @@ public class Sena_US05_CompanyStructurePage {
 
     @FindBy(xpath = "(//div[@class=\"finder-box-item-text\"])[1]")
     public WebElement getRecent;
+    @FindBy(xpath= "(//div[@class=\"company-department-text\"])[1]")
+    public WebElement companyItem;
+
+    @FindBy(xpath = "(//div[@class=\"company-department-employee\"])[3]")
+    public WebElement getCompany;
 
     @FindBy(xpath = "//span[@class=\"popup-window-titlebar-text\"]")
     public WebElement editPage;
