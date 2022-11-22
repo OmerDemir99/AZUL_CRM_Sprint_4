@@ -23,8 +23,7 @@ Feature: Task assign function in quick navigate menu.
     Then verify that you see error message
 
 
-    #PASS
-  #ac2
+  #ac2 PASS
   Scenario: HR User should be able to assign a task to more than one user (Test with adding 3 users max.)
     When User clicks TASK menu
     And clicks task name field and write
@@ -49,15 +48,14 @@ Feature: Task assign function in quick navigate menu.
     Then verify that you see responsible person error message
 
 
-  #@AZUL1586
+
   #ac3
   Scenario: When task(s) is(are) created, they can be seen on the count on the homepage under "MY TASKS" table.
-    When user clicks on tasks menu under activity stream
-    And sees my tasks text
-    Then verify that the number of all has increased
+    When user sees the my tasks table on the homepage
+    Then check and verify created task counts
 
 
-  #ac4
+  #ac4 PASS
   Scenario: Checklist should be able to be added while creating a task.
     When User clicks TASK menu
     And clicks task name field and write
@@ -65,8 +63,24 @@ Feature: Task assign function in quick navigate menu.
     And go to responsible person field remove the default value if any and add user
     And click on checklist and write something in the things to do
     And click on checkmark or add
+    And click send button
     Then verify that checklist has been added
 
+
+    #ac5 PASS
+  Scenario: Deadline should be able to be added while creating a task.
+    When User clicks TASK menu
+    And clicks task name field and write
+    And ticks the high priority box
+    And go to responsible person field remove the default value if any and add user
+    And click on the deadline input
+    And set valid day, month, year
+    And set time using arrows
+    And click the select button
+    Then click send button
+    Then see task created alert
+
+  @AZUL1586
     #ac5
   Scenario: Deadline should be able to be added while creating a task.
     When User clicks TASK menu
@@ -74,6 +88,12 @@ Feature: Task assign function in quick navigate menu.
     And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
     And click on the deadline input
+    And set valid day, month, year
+    And set time by typing
+    And click the select button
+    Then click send button
+    Then see task created alert
+    Then make sure the deadline is correct
 
 
 
