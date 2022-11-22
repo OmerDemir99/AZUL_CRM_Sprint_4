@@ -166,7 +166,7 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(xpath = "//div[@class='main-ui-square-item']")
     public WebElement searchResult;
 
-    @FindBy(xpath = "//div[@class='main-ui-item-icon main-ui-square-delete']")
+    @FindBy(xpath ="//div[@class='main-ui-item-icon main-ui-square-delete']")
     public  WebElement deleteResult;
 
     //calendar part

@@ -6,6 +6,10 @@ Feature: Filter and Search Functionality
     When user click the filter and search input box
 
 
+    #@wip #ac1
+  @AZUL-1625
+
+
     #ac1,ac2,ac6
 
     Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
@@ -26,12 +30,7 @@ Feature: Filter and Search Functionality
       Then user should be able to restore the default field
 
 
-#    2. User should be able to add and remove fields.
-#    3. User should be able to search by specifying the Date,
-#    4. User should be able to search by selecting single or multiple types,
-#    5. User should be able to save the filter.
-#    6. User should be able to restore the default field,
-#    7. User should be able to reset filters to default.
+
 
  # @wip  #ac2, ac6
   Scenario:User should be able to add and remove fields and restore the default fields
