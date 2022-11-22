@@ -6,10 +6,6 @@ import io.cucumber.java.en.When;
 
 public class Gulsum_US07_1587_pollTab_StepDef {
 
-    @Given("users should login with valid credentials as {string}")
-    public void users_should_login_with_valid_credentials_as(String string) {
-
-    }
     @When("user click the Poll button")
     public void user_click_the_poll_button() {
 
