@@ -27,7 +27,6 @@ Feature: Task assign function in quick navigate menu.
   Scenario: HR User should be able to assign a task to more than one user (Test with adding 3 users max.)
     When User clicks TASK menu
     And clicks task name field and write
-    And ticks the high priority box
     And go to responsible person field remove the default value if any
     And click add more and add three users
 
@@ -42,7 +41,6 @@ Feature: Task assign function in quick navigate menu.
   Scenario: HR user should get an error message if the responsible person field is empty.
     When User clicks TASK menu
     And clicks task name field and write
-    And ticks the high priority box
     And go to responsible person field remove the default value if any
     And click send button
     Then verify that you see responsible person error message
@@ -59,7 +57,6 @@ Feature: Task assign function in quick navigate menu.
   Scenario: Checklist should be able to be added while creating a task.
     When User clicks TASK menu
     And clicks task name field and write
-    And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
     And click on checklist and write something in the things to do
     And click on checkmark or add
@@ -71,7 +68,6 @@ Feature: Task assign function in quick navigate menu.
   Scenario: Deadline should be able to be added while creating a task.
     When User clicks TASK menu
     And clicks task name field and write
-    And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
     And click on the deadline input
     And set valid day, month, year
@@ -80,20 +76,39 @@ Feature: Task assign function in quick navigate menu.
     Then click send button
     Then see task created alert
 
-  @AZUL1586
+
     #ac5
   Scenario: Deadline should be able to be added while creating a task.
     When User clicks TASK menu
     And clicks task name field and write
-    And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
     And click on the deadline input
     And set valid day, month, year
     And set time by typing
     And click the select button
+    And make sure the deadline is correct
     Then click send button
     Then see task created alert
-    Then make sure the deadline is correct
+
+  @AZUL1586
+  #ac6 PASS
+  Scenario: Time planning function should be able to be used in the setting of deadline.
+    When User clicks TASK menu
+    And clicks task name field and write
+    And go to responsible person field remove the default value if any and add user
+    And click time planning button
+    Then set task start and finish time
+
+  #ac6
+  Scenario: Time planning function should be able to be used in the setting of deadline.
+    When User clicks TASK menu
+    And clicks task name field and write
+    And go to responsible person field remove the default value if any and add user
+    And click time planning button
+    And set task start time
+    Then verify that day, hour, minute can be changed as set duration
+
+
 
 
 

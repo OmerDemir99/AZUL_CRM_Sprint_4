@@ -40,6 +40,9 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "(//span[@title='Cancel selection'])[1]")
     public WebElement defaultNameDlt;
 
+    @FindBy(xpath = "//div[@class='task-message-label error']")
+    public WebElement taskNameErrorMessage;
+
     @FindBy(xpath = "(//input[@class='js-id-tdp-mem-sel-is-search js-id-network-selector-search task-form-field-search task-form-field-input'])[1]")
     public WebElement responsiblePersonInputBox;
 
@@ -82,9 +85,6 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "(//input[@class='task-options-inp'])[1]")
     public WebElement deadlineInput;
 
-    @FindBy(xpath = "(//input[@class='task-options-inp'])[1]")
-    public WebElement deadlineBox;
-
     @FindBy(xpath = "//a[@class='bx-calendar-top-month']")
     public WebElement monthsList;
 
@@ -124,16 +124,23 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "(//a[@class='bx-calendar-form-arrow-top'])")
     public WebElement amArrow;
 
-
-
     @FindBy(xpath = "//a[@class='bx-calendar-button bx-calendar-button-select']")
     public WebElement selectBtn;
 
-    @FindBy(xpath = "//div[@class='task-message-label error']")
-    public WebElement taskNameErrorMessage;
+    @FindBy(xpath = "//span[.='Time planning']")
+    public WebElement timePlanningBtn;
 
-   // @FindBy(xpath = "(//div[@class='task-message-label error'])[2]")
-   // public WebElement responsiblePrsnErrorMessage;
+    @FindBy(xpath = "(//input[@class='task-options-inp'])[2]")
+    public WebElement startTaskInput;
+
+    @FindBy(xpath = "(//input[@class='task-options-inp'])[4]")
+    public WebElement finishInput;
+
+
+
+
+
+
 
 
 

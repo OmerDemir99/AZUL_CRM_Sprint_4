@@ -168,8 +168,66 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         taskPage.minuteInput.sendKeys("30");
     }
 
-    @Then("make sure the deadline is correct")
+    @And("make sure the deadline is correct")
     public void makeSureTheDeadlineIsCorrect() {
         String expected = "01/02/2023 03:30 ";
+        Assert.assertEquals(expected, taskPage.deadlineInput.getAttribute("value"));
+
+    }
+
+    @And("click time planning button")
+    public void clickTimePlanningButton() {
+        taskPage.timePlanningBtn.click();
+        BrowserUtils.sleep(3);
+    }
+
+    @Then("set task start and finish time")
+    public void setTaskStartAndFinishTime() {
+        taskPage.startTaskInput.click();
+        taskPage.monthsList.click();
+        BrowserUtils.sleep(2);
+        taskPage.anyMonth.click();
+        taskPage.yearList.click();
+        BrowserUtils.sleep(2);
+        taskPage.yearInput.sendKeys("2022");
+        taskPage.weekdays.click();
+
+        taskPage.hourUpArrow.click();
+        for (int i = 0; i < 10; i++) {
+            taskPage.minuteUpArrow.click();
+        }
+
+        taskPage.selectBtn.click();
+        Assert.assertEquals("01/03/2022 10:10 am", taskPage.startTaskInput.getAttribute("value"));
+
+        taskPage.finishInput.click();
+        taskPage.monthsList.click();
+        BrowserUtils.sleep(2);
+        taskPage.anyMonth.click();
+        taskPage.yearList.click();
+        BrowserUtils.sleep(2);
+        taskPage.yearInput.sendKeys("2022");
+        taskPage.weekdays.click();
+
+        taskPage.hourUpArrow.click();
+        for (int i = 0; i < 30; i++) {
+            taskPage.minuteDownArrow.click();
+        }
+
+        taskPage.selectBtn.click();
+        Assert.assertEquals("01/03/2022 07:30 pm", taskPage.finishInput.getAttribute("value"));
+
+
+
+
+
+    }
+
+    @And("set task start time")
+    public void setTaskStartTime() {
+    }
+
+    @Then("verify that day, hour, minute can be changed as set duration")
+    public void verifyThatDayHourMinuteCanBeChangedAsSetDuration() {
     }
 }
