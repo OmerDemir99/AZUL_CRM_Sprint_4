@@ -81,7 +81,6 @@ Feature: Functions on Company Structure under Employee menu
     Then verify that users should be able to click the close button and pop-up closed
 
 
-
   Scenario: US05-AC-5 Hr user should be able to close add department pop-up at any time before sending
     Given users should login with valid credentials as "hr"
     When users click the employee button
@@ -164,6 +163,7 @@ Feature: Functions on Company Structure under Employee menu
     And users write "Wooden Spoon" in department name input box
     And users click the add button
     And verify that user should be able to see child class
+
 
 
   Scenario: US05-AC-6 Hr user should be able to delete departments after adding the department

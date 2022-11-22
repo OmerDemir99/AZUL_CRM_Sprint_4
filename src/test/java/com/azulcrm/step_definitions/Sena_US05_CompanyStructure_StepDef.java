@@ -151,7 +151,6 @@ public class Sena_US05_CompanyStructure_StepDef {
     }
 
 
-
     @Then("verify that users should be able to click the close button and pop-up closed")
     public void verifyThatUsersShouldBeAbleToClickTheCloseButtonAndPopUpClosed() {
         BrowserUtils.sleep(2);
