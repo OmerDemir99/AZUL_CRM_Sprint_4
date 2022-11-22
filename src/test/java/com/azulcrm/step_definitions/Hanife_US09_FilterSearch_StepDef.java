@@ -24,7 +24,7 @@ public class Hanife_US09_FilterSearch_StepDef {
 
     @When("user click the filter and search input box")
     public void user_click_the_filter_and_search_input_box() {
-       filterPage.filterSearchInputBox.click();
+        filterPage.filterSearchInputBox.click();
         BrowserUtils.sleep(2);
     }
 
@@ -48,7 +48,7 @@ public class Hanife_US09_FilterSearch_StepDef {
 
         }
 
-      // Assert.assertEquals(expectedFilters, actualFilters);
+        // Assert.assertEquals(expectedFilters, actualFilters);
     }
 
     //adding and removing fields
@@ -179,20 +179,20 @@ public class Hanife_US09_FilterSearch_StepDef {
     public void userClickTheDateInboxUserChooseADate() {
 
         BrowserUtils.sleep(2);
-         filterPage.inboxDate.click();
+        filterPage.inboxDate.click();
         System.out.println("date");
         Actions actions = new Actions(Driver.getDriver());
         BrowserUtils.sleep(1);
-      //  filterPage.yesterdayDate.click();
+        //  filterPage.yesterdayDate.click();
         actions.sendKeys(Keys.ARROW_DOWN).perform();
         BrowserUtils.sleep(1);
         actions.sendKeys(Keys.ARROW_DOWN).perform();
         BrowserUtils.sleep(1);
 
-       actions.sendKeys(Keys.RETURN).perform();
-     //   actions.keyDown(Keys.RETURN).keyUp(Keys.RETURN).perform();
-       // actions.sendKeys(Keys.ENTER).perform();
-       // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        actions.sendKeys(Keys.RETURN).perform();
+        //   actions.keyDown(Keys.RETURN).keyUp(Keys.RETURN).perform();
+        // actions.sendKeys(Keys.ENTER).perform();
+        // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
 
     }
 
@@ -219,7 +219,7 @@ public class Hanife_US09_FilterSearch_StepDef {
 
     }
 
-//exact date
+    //exact date
     @When("user click the date inbox,user choose exact date")
     public void userClickTheDateInboxUserChooseExactDate() {
         BrowserUtils.sleep(2);
@@ -228,7 +228,7 @@ public class Hanife_US09_FilterSearch_StepDef {
         Actions actions = new Actions(Driver.getDriver());
         BrowserUtils.sleep(2);
         //  filterPage.yesterdayDate.click();
-      //  actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
+        //  actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
         for (int i = 0; i <= 14; i++) {
             actions.sendKeys(Keys.ARROW_DOWN).perform();
             BrowserUtils.sleep(1);
@@ -311,19 +311,19 @@ public class Hanife_US09_FilterSearch_StepDef {
 
 
 
-        //save filter part
+    //save filter part
 
     @When("user click the save filter text")
     public void user_click_the_save_filter_text() {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("window.scrollBy(0,200)");
         BrowserUtils.sleep(1);
-       filterPage.saveFilterText.click();
+        filterPage.saveFilterText.click();
     }
 
     @When("user click filter name inbox")
     public void user_click_filter_name_inbox() {
-      filterPage.inboxAddingFilter.click();
+        filterPage.inboxAddingFilter.click();
     }
     @When("user types {string} as new filter")
     public void user_types_as_new_filter(String string) {
@@ -333,11 +333,11 @@ public class Hanife_US09_FilterSearch_StepDef {
     @When("user click save button")
     public void user_click_save_button() {
         BrowserUtils.sleep(1);
-       filterPage.saveButton.click();
+        filterPage.saveButton.click();
     }
     @Then("user verify saving new filter")
     public void user_verify_saving_new_filter() {
-       Assert.assertTrue(filterPage.newFilter.isDisplayed());
+        Assert.assertTrue(filterPage.newFilter.isDisplayed());
     }
 
     //restore default filters
