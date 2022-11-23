@@ -2,21 +2,22 @@ Feature: Filter and Search Functionality
   US09:As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
   Background: Login with valid credentials ( hr - helpdesk - marketing )
-    Given users should login with valid credentials as "marketing"
+    Given users should login with valid credentials as "hr"
     When user click the filter and search input box
 
 
-  #@wip #ac1
+
+    #@wip #ac1
   @AZUL-1625
-  @smoke
-  Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
-      Then user should see and verify below filters as default filters
+ Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
+     Then user should see and verify below filters as default filters
         | WORK          |
         | FAVORITES     |
         | MY ACTIVITY   |
         | ANNOUNCEMENTS |
         | WORKFLOWS     |
-
+        
+  
 
   #@wip  #ac2, ac6
   @AZUL-1642
@@ -74,7 +75,7 @@ Feature: Filter and Search Functionality
     Then user verify searching by specifying single type
 
 
- #@wip #ac
+ #@wip #ac4
   @AZUL-1648
     Scenario: User should be able to search by selecting multiple types
     When user click the types inbox, user choose multiple types
@@ -99,8 +100,6 @@ Feature: Filter and Search Functionality
     And user click the reset to default link
     And user click continue button
     Then user verify to reset filters to default
-
-
 
 
 
