@@ -166,6 +166,22 @@ public class Omer_US_1584_EventPage {
     public WebElement questionMark;
 
 
+    @FindBy(id = "event-locationcal_3Jcl")
+    public WebElement selectingMeetingRoomButton;
+
+    @FindBy(id = "bxecmr_0")
+    public WebElement centralMeetingRoom;
+
+    @FindBy(id = "bxecmr_1")
+    public WebElement eastMeetingRoom;
+
+    @FindBy(id = "bxecmr_2")
+    public WebElement westMeetingRoom;
+
+    @FindBy(xpath = "//div[@class='calendar-slider-detail-place-name']")
+    public WebElement meetingRoomLocationName;
+
+
 
     @FindBy(id = "feed-event-dest-cont")
     public WebElement addPersonsInputBox;
@@ -188,6 +204,9 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//span[@class='feed-event-del-but']")
     public List<WebElement> deleteMembers;
 
+    @FindBy(xpath = "//div[@class='bx-finder-box-item-t7-name']")
+    public List<WebElement> peopleFromList;
+
 
 
     @FindBy(xpath = "//div[@class='calendar-planner-timeline-selector']")
@@ -201,6 +220,15 @@ public class Omer_US_1584_EventPage {
 
     @FindBy(xpath = "//div[@class='calendar-planner-timeline-wrapper']")
     public WebElement timeLineWrapper;
+
+    @FindBy(xpath = "//span[@class='calendar-planner-users-item']")
+    public WebElement attendees;
+
+    @FindBy(xpath = "(//div[@class='sidebar-widget-top-title'])[2]")
+    public WebElement popularPosts;
+
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeButtonForAddMembers;
 
 
 

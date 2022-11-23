@@ -4,6 +4,8 @@ import com.azulcrm.pages.Omer_US_1584_EventPage;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
 import com.azulcrm.utilities.Driver;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -461,6 +463,380 @@ public class Omer_US_1584_EventModule {
         eventPage.allDayButton.click();
         BrowserUtils.sleep(1);
         Assert.assertFalse(eventPage.allDayButton.isSelected());
+    }
+
+
+
+
+
+
+    @When("type the event start date {string} and event end date {string} different format with right order except the default format")
+    public void type_the_event_start_date_and_event_end_date_different_format_with_right_order_except_the_default_format(String string, String string2) {
+
+
+    }
+
+    @Then("click send button")
+    public void click_send_button() {
+
+
+    }
+
+    @Then("verify that dates turn into correct format automatically")
+    public void verify_that_dates_turn_into_correct_format_automatically() {
+
+
+    }
+
+
+    @When("type the event start {string} and end date {string} different format except the default format")
+    public void type_the_event_start_and_end_date_different_format_except_the_default_format(String string, String string2) {
+
+
+    }
+
+    @Then("verify that user should not be able to create event")
+    public void verify_that_user_should_not_be_able_to_create_event() {
+
+
+    }
+
+
+    @When("type different characters for event start date {string} and for event end date {string}")
+    public void type_different_characters_for_event_start_date_and_for_event_end_date(String string, String string2) {
+
+
+    }
+
+
+    @When("type different characters for event start time {string} and for event end time {string}")
+    public void type_different_characters_for_event_start_time_and_for_event_end_time(String string, String string2) {
+
+
+    }
+
+
+    @When("for event end date select a date earlier than event start date")
+    public void for_event_end_date_select_a_date_earlier_than_event_start_date(io.cucumber.datatable.DataTable dataTable) {
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+        // Double, Byte, Short, Long, BigInteger or BigDecimal.
+        //
+        // For other transformations you can register a DataTableType.
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+
+    @When("for event start date select a date earlier than current date")
+    public void for_event_start_date_select_a_date_earlier_than_current_date() {
+
+
+    }
+
+
+
+    @When("select impossible event start date and end date")
+    public void select_impossible_event_start_date_and_end_date(io.cucumber.datatable.DataTable dataTable) {
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+        // Double, Byte, Short, Long, BigInteger or BigDecimal.
+        //
+        // For other transformations you can register a DataTableType.
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+    @When("for event end time select a time earlier than event start time")
+    public void for_event_end_time_select_a_time_earlier_than_event_start_time() {
+
+
+    }
+
+
+
+    @When("click specify time zone button")
+    public void click_specify_time_zone_button() {
+
+
+    }
+
+
+    @Then("select appropriate time zone for beginning {string}")
+    public void select_appropriate_time_zone_for_beginning(String string) {
+
+
+    }
+
+    @Then("click time zone end button")
+    public void click_time_zone_end_button() {
+
+
+    }
+
+    @Then("select appropriate time zone for ending {string}")
+    public void select_appropriate_time_zone_for_ending(String string) {
+
+
+    }
+
+    @Then("verify that user should be able to select time zones correctly {string} and {string}")
+    public void verify_that_user_should_be_able_to_select_time_zones_correctly_and(String string, String string2) {
+
+
+    }
+
+
+    @Then("select not appropriate time zone for ending {string}")
+    public void select_not_appropriate_time_zone_for_ending(String string) {
+
+
+    }
+
+    @Then("verify that user should be able to see information message of question mark")
+    public void verify_that_user_should_be_able_to_see_information_message_of_question_mark() {
+
+
+    }
+
+    @Then("click hide time zone button")
+    public void click_hide_time_zone_button() {
+
+
+    }
+
+    @Then("verify that user should not be able to create event if the times don't match with the time zones")
+    public void verify_that_user_should_not_be_able_to_create_event_if_the_times_don_t_match_with_the_time_zones() {
+
+
+    }
+
+
+    @Then("click time zone start button")
+    public void click_time_zone_start_button() {
+
+
+    }
+
+
+    @When("verify that set reminder button is clickable")
+    public void verify_that_set_reminder_button_is_clickable() {
+
+
+    }
+
+    @Then("verify that all options are selectable")
+    public void verify_that_all_options_are_selectable() {
+
+
+    }
+
+    @Then("verify that reminder time is changeable by manually")
+    public void verify_that_reminder_time_is_changeable_by_manually() {
+
+
+    }
+
+
+    @When("create an event with inappropriate reminder {string}")
+    public void create_an_event_with_inappropriate_reminder(String string) {
+
+
+    }
+
+
+    @When("click select meeting room button")
+    public void click_select_meeting_room_button() {
+
+
+    }
+
+    @Then("verify that all room options are selectable")
+    public void verify_that_all_room_options_are_selectable() {
+
+
+    }
+
+    @Then("verify that the event can be created for all room option")
+    public void verify_that_the_event_can_be_created_for_all_room_option() {
+
+
+    }
+
+    @Then("type anything using keyboard by manually")
+    public void type_anything_using_keyboard_by_manually() {
+
+
+    }
+
+    @Then("verify that user should not be able to create event for different location")
+    public void verify_that_user_should_not_be_able_to_create_event_for_different_location() {
+
+
+    }
+
+
+    @When("click add person input box")
+    public void click_add_person_input_box() {
+
+
+    }
+
+    @Then("click to all employees option")
+    public void click_to_all_employees_option() {
+
+
+    }
+
+    @Then("click employees and department option")
+    public void click_employees_and_department_option() {
+
+
+    }
+
+    @Then("click all departments and select all department options")
+    public void click_all_departments_and_select_all_department_options() {
+
+
+    }
+
+    @Then("verify that all departments are added the member input box")
+    public void verify_that_all_departments_are_added_the_member_input_box() {
+
+
+    }
+
+    @Then("delete all options from member input box")
+    public void delete_all_options_from_member_input_box() {
+
+
+    }
+
+
+    @Then("select one people from the list")
+    public void select_one_people_from_the_list() {
+
+
+    }
+
+    @Then("click add more text")
+    public void click_add_more_text() {
+
+
+    }
+
+    @Then("select two people from the list")
+    public void select_two_people_from_the_list() {
+
+
+    }
+
+    @Then("click member input box and add new people by typing the email address manually")
+    public void click_member_input_box_and_add_new_people_by_typing_the_email_address_manually() {
+
+
+    }
+
+    @Then("type something for adding new people {string}")
+    public void type_something_for_adding_new_people(String string) {
+
+
+    }
+
+    @Then("verify that user should not be able to add new people if he or she not exist the member list")
+    public void verify_that_user_should_not_be_able_to_add_new_people_if_he_she_not_exist_the_member_list() {
+
+
+    }
+
+
+    @Then("click time wrapper and slide it to right and left")
+    public void click_time_wrapper_and_slide_it_to_right_and_left() {
+
+
+    }
+
+    @Then("click time line selector and slide it to right and left")
+    public void click_time_line_selector_and_slide_it_to_right_and_left() {
+
+
+    }
+
+    @Then("verify that event start and end time change according to act of time line selector")
+    public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_selector() {
+
+
+    }
+
+    @Then("verify that event start and end date change according to act of time line selector")
+    public void verify_that_event_start_and_end_date_change_according_to_act_of_time_line_selector() {
+
+
+    }
+
+    @Then("click time line resizer and increase the event time")
+    public void click_time_line_resizer_and_increase_the_event_time() {
+
+
+    }
+
+    @Then("click time line resizer and decrease the event time")
+    public void click_time_line_resizer_and_decrease_the_event_time() {
+
+
+    }
+
+    @When("click event name input box and give event name")
+    public void click_event_name_input_box_and_give_event_name() {
+
+
+    }
+
+
+    @Then("verify that user should be able to create event")
+    public void verify_that_user_should_be_able_to_create_event() {
+
+
+    }
+
+
+    @Then("click event message input box and type something")
+    public void click_event_message_input_box_and_type_something() {
+       String str = "1234567890*-\"é!'^^%&/()=?_,;.:<>£#$½§{[]}\\|@∑€®₺¥üiöπ¨~~ß∂ƒğ^∆¨¬´´``Ω≈ç√∫~µ≤≥qwertyuıopğüasdfghjklşizxcvbnmöç ";
+
+    }
+
+    @Then("verify that both of them accept all possible characters")
+    public void verify_that_both_of_them_accept_all_possible_characters() {
+
+
+    }
+
+    @Then("click cancel button")
+    public void click_cancel_button() {
+
+
+    }
+    @Then("verify that user should be able to access home page")
+    public void verify_that_user_should_be_able_to_access_home_page() {
+
+
+    }
+
+    @Then("click send button right after click cancel button")
+    public void click_send_button_right_after_click_cancel_button() {
+
+
+    }
+
+    @Then("verify that user should be able to cancel event sending")
+    public void verify_that_user_should_be_able_to_cancel_event_sending() {
+
+
     }
 
 }
