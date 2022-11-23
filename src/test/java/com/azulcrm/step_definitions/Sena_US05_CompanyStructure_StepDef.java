@@ -258,7 +258,6 @@ public class Sena_US05_CompanyStructure_StepDef {
 
     }
 
-
     @And("users choose the item from structure article")
     public void usersChooseTheItemFromStructureArticle() {
         Actions actions = new Actions(Driver.getDriver());
