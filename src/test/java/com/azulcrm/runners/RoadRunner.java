@@ -22,7 +22,7 @@ import java.util.List;
         features = "src/test/resources/features",
         glue = "com/azulcrm/step_definitions",
         dryRun = false,
-        tags = "@wip",
+        tags = "",
         publish = true
 
 )
