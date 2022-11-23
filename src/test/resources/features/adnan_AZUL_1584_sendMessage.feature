@@ -32,7 +32,7 @@ Feature: As a user, I should be able to send messages by clicking on Message tab
     And User add some recipients for this message
     Then User cancels sending this message
 
-  @wip
+
   Scenario: User should be able to delete messages after sending.
     When User searches the message that he wants to delete
     Then User clicks the MORE button at the bottom of that message
