@@ -116,7 +116,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         Assert.assertTrue(filterPage.inboxFavorites.isDisplayed());
         Assert.assertTrue(filterPage.inboxExtranet.isDisplayed());
 
-
     }
     @And("user click an empty area")
     public void userClickAnEmptyArea() {
@@ -130,8 +129,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         BrowserUtils.sleep(3);
         filterPage.restoreLink.click();
     }
-
-
 
     @And("user clicks the x sign near the fields input boxes")
     public void userClicksTheXSignNearTheFieldsInputBoxes() {
@@ -175,7 +172,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         // actions.moveToElement(filterPage.inboxDate).keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
 
     }
-
     @And("user click search button")
     public void userClickSearchButton() {
         BrowserUtils.sleep(2);
@@ -187,8 +183,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         BrowserUtils.sleep(1);
 
     }
-
-
     @Then("user verify searching by specifying Date")
     public void user_verify_searching_by_specifying_date() {
 
@@ -217,7 +211,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         actions.sendKeys(Keys.RETURN).perform();
 
     }
-
     @And("user click the calendar box and click a specific date")
     public void userClickTheCalendarBoxAndClickASpecificDate() {
 
@@ -237,11 +230,7 @@ public class Hanife_US09_FilterSearch_StepDef {
         filterPage.calendarInbox.sendKeys(date);
     }
 
-
-
     // verify searching by types
-
-
     @When("user click the types inbox, user choose a type")
     public void userClickTheTypesInboxUserChooseAType() {
         BrowserUtils.sleep(2);
@@ -251,8 +240,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         filterPage.space.click();
 
     }
-
-
     @Then("user verify searching by specifying single type")
     public void userVerifySearchingBySpecifyingSingleType() {
 
@@ -260,7 +247,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         Assert.assertTrue(filterPage.searchResult.isDisplayed());
         filterPage.deleteResult.click();
     }
-
 
     @When("user click the types inbox, user choose multiple types")
     public void userClickTheTypesInboxUserChooseMultipleTypes() {
