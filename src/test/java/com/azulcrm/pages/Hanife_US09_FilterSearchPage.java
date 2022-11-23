@@ -50,6 +50,8 @@ public class Hanife_US09_FilterSearchPage {
         return allFilters;
     }
 
+
+
     @FindBy(xpath = "//span[.='Add field']")
     public WebElement addFieldLink;
 
@@ -111,13 +113,9 @@ public class Hanife_US09_FilterSearchPage {
     public WebElement inboxExtranet;
 
 
-
     //fields x sign for removing
-
-
     @FindBy(xpath = "(//span[@title='Hide field'])[5]")
     public WebElement xSign;
-
 
 
 //    @FindBy(xpath = "//span[@title='Hide field']")
@@ -146,8 +144,8 @@ public class Hanife_US09_FilterSearchPage {
     @FindBy(css = "#popup-window-content-LIVEFEED_search_container > div > div > div.main-ui-filter-bottom-controls > div.main-ui-filter-field-preset-button-container > div > button")
     public WebElement searchButton;
 
-    @FindBy(css = "#LIVEFEED_search_container > div.main-ui-filter-search-square.main-ui-square > div.main-ui-item-icon.main-ui-square-delete")
-    public WebElement searchCloseSign;
+//    @FindBy(css = "#LIVEFEED_search_container > div.main-ui-filter-search-square.main-ui-square > div.main-ui-item-icon.main-ui-square-delete")
+//    public WebElement searchCloseSign;
 
     //types
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[1]")
@@ -158,6 +156,9 @@ public class Hanife_US09_FilterSearchPage {
 
     @FindBy(xpath = "(//div[@class='main-ui-select-inner-label'])[3]")
     public WebElement typeAppretiations;
+
+    @FindBy(xpath = "//div[@class='main-ui-select-inner-label']")
+    public List<WebElement> allTypesChecboxes;
 
     @FindBy(xpath = "//*[@id=\"popup-window-content-LIVEFEED_search_container\"]/div/div/div[2]/div[1]/div[2]/span[2]")
     public WebElement space;

@@ -137,39 +137,20 @@ public class Hanife_US09_FilterSearch_StepDef {
     public void userClicksTheXSignNearTheFieldsInputBoxes() {
 
         Actions actions = new Actions(Driver.getDriver());
-
-
-
-
         actions.moveToElement(filterPage.inboxFavorites).perform();
         BrowserUtils.sleep(4);
         actions.moveToElement(filterPage.xSign).click().perform();
         BrowserUtils.sleep(4);
-        System.out.println("1");
 
         actions.moveToElement(filterPage.inboxTag).perform();
         BrowserUtils.sleep(4);
         actions.moveToElement(filterPage.xSign).click().perform();
         BrowserUtils.sleep(4);
-        System.out.println("2");
 
-        // filterPage.xSignFavorites.click();
-        BrowserUtils.sleep(4);
         actions.moveToElement(filterPage.inboxExtranet).perform();
         BrowserUtils.sleep(4);
         actions.moveToElement(filterPage.xSign).click().perform();
         BrowserUtils.sleep(4);
-        System.out.println("3");
-        //filterPage.xSignExtranet.click();
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -183,7 +164,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         System.out.println("date");
         Actions actions = new Actions(Driver.getDriver());
         BrowserUtils.sleep(1);
-        //  filterPage.yesterdayDate.click();
         actions.sendKeys(Keys.ARROW_DOWN).perform();
         BrowserUtils.sleep(1);
         actions.sendKeys(Keys.ARROW_DOWN).perform();
@@ -227,8 +207,7 @@ public class Hanife_US09_FilterSearch_StepDef {
         System.out.println("date");
         Actions actions = new Actions(Driver.getDriver());
         BrowserUtils.sleep(2);
-        //  filterPage.yesterdayDate.click();
-        //  actions.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN).perform();
+
         for (int i = 0; i <= 14; i++) {
             actions.sendKeys(Keys.ARROW_DOWN).perform();
             BrowserUtils.sleep(1);
@@ -261,6 +240,8 @@ public class Hanife_US09_FilterSearch_StepDef {
 
 
     // verify searching by types
+
+
     @When("user click the types inbox, user choose a type")
     public void userClickTheTypesInboxUserChooseAType() {
         BrowserUtils.sleep(2);
@@ -270,8 +251,6 @@ public class Hanife_US09_FilterSearch_StepDef {
         filterPage.space.click();
 
     }
-
-
 
 
     @Then("user verify searching by specifying single type")
@@ -294,6 +273,7 @@ public class Hanife_US09_FilterSearch_StepDef {
         filterPage.typeAppretiations.click();
         filterPage.space.click();
     }
+
 
     @Then("user verify searching by selecting multiple types")
     public void userVerifySearchingBySelectingMultipleTypes() {

@@ -5,7 +5,8 @@ Feature: Filter and Search Functionality
     Given users should login with valid credentials as "marketing"
     When user click the filter and search input box
 
-    #@wip #ac1
+
+  #@wip #ac1
   @AZUL-1625
 
     Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
@@ -17,7 +18,7 @@ Feature: Filter and Search Functionality
         | WORKFLOWS     |
 
 
- # @wip  #ac2, ac6
+  #@wip  #ac2, ac6
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
@@ -39,20 +40,20 @@ Feature: Filter and Search Functionality
     And user clicks the x sign near the fields input boxes
     Then user see default selected fields and nonselected fields
 
-   #@wip   #ac3
+  # @wip   #ac3
    Scenario:User should be able to search by specifying the Date,
      And user click the date inbox,user choose a date
      And user click search button
      Then user verify searching by specifying Date
 
-    # @wip   #ac3
+     #@wip   #ac3 by clicking clendar
   Scenario:User should be able to search by specifying the Exact Date
     When user click the date inbox,user choose exact date
     And user click the calendar box and click a specific date
     And user click search button
     Then user verify searching by specifying Date
 
-  #@wip   #ac3
+ # @wip   #ac3 by typing
 
   Scenario:User should be able to search by typing the exact date
     When user click the date inbox,user choose exact date
@@ -62,21 +63,20 @@ Feature: Filter and Search Functionality
 
 
   #@wip #ac4
-  Scenario:User should be able to search by selecting single or multiple types,
+  Scenario:User should be able to search by selecting single type
     When user click the types inbox, user choose a type
     And user click search button
     Then user verify searching by specifying single type
 
 
-  #@wip #ac4
-  Scenario:User should be able to search by selecting single or multiple types,
+ #@wip #ac
+    Scenario: User should be able to search by selecting multiple types
     When user click the types inbox, user choose multiple types
     And user click search button
     Then user verify searching by selecting multiple types
 
 
-
-  # @wip #ac5
+  #@wip #ac5
 
   Scenario:User should be able to save the filter.
     When user click the save filter text
@@ -84,6 +84,8 @@ Feature: Filter and Search Functionality
     And user types "GOOD NEWS" as new filter
     And user click save button
     Then user verify saving new filter
+
+
 
 
   #@wip #ac7
