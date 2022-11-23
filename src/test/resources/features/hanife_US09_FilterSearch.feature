@@ -6,41 +6,21 @@ Feature: Filter and Search Functionality
     When user click the filter and search input box
 
 
+
     #@wip #ac1
   @AZUL-1625
-
-
-
-    
-
-
-
-    #ac1,ac2,ac6
-
-
-
-    Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
-      Then user should see and verify below filters as default filters
+ Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
+     Then user should see and verify below filters as default filters
         | WORK          |
         | FAVORITES     |
         | MY ACTIVITY   |
         | ANNOUNCEMENTS |
         | WORKFLOWS     |
         
-      And user click add field linktext
-      And user see selected fields and nonselected fields
-      When user click and select nonselected fields
-      Then user verify adding new fields
-      When user click default selected fields
-      Then user verify removing fields
-      When user click restore default filter link
-      Then user should be able to restore the default field
+  
 
-
-
-
-
- # @wip  #ac2, ac6
+  #@wip  #ac2, ac6
+  @AZUL-1642
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
@@ -53,7 +33,8 @@ Feature: Filter and Search Functionality
     When user click restore default filter link
     Then user see default selected fields and nonselected fields
 
-  #@wip #ac2, ac6
+  #@wip  #ac6
+  @AZUL-1643
   Scenario:User should be able to  restore the default fields by removing fields
     When user click restore default filter link
     When user click add field linktext
@@ -62,21 +43,23 @@ Feature: Filter and Search Functionality
     And user clicks the x sign near the fields input boxes
     Then user see default selected fields and nonselected fields
 
-   #@wip   #ac3
+  # @wip   #ac3
+  @AZUL-1644
    Scenario:User should be able to search by specifying the Date,
      And user click the date inbox,user choose a date
      And user click search button
      Then user verify searching by specifying Date
 
-    # @wip   #ac3
+     #@wip   #ac3 by clicking clendar
+  @AZUL-1645
   Scenario:User should be able to search by specifying the Exact Date
     When user click the date inbox,user choose exact date
     And user click the calendar box and click a specific date
     And user click search button
     Then user verify searching by specifying Date
 
-  #@wip   #ac3
-
+ # @wip   #ac3 by typing
+  @AZUL-1646
   Scenario:User should be able to search by typing the exact date
     When user click the date inbox,user choose exact date
     And user click the calendar box and type a "11/15/2022"
@@ -85,22 +68,23 @@ Feature: Filter and Search Functionality
 
 
   #@wip #ac4
-  Scenario:User should be able to search by selecting single or multiple types,
+  @AZUL-1647
+  Scenario:User should be able to search by selecting single type
     When user click the types inbox, user choose a type
     And user click search button
     Then user verify searching by specifying single type
 
 
-  #@wip #ac4
-  Scenario:User should be able to search by selecting single or multiple types,
+ #@wip #ac4
+  @AZUL-1648
+    Scenario: User should be able to search by selecting multiple types
     When user click the types inbox, user choose multiple types
     And user click search button
     Then user verify searching by selecting multiple types
 
 
-
-  # @wip #ac5
-
+  #@wip #ac5
+  @AZUL-1649
   Scenario:User should be able to save the filter.
     When user click the save filter text
     And user click filter name inbox
@@ -110,6 +94,7 @@ Feature: Filter and Search Functionality
 
 
   #@wip #ac7
+  @AZUL-1650
   Scenario:User should be able to reset filters to default.
     When user click the save filter text
     And user click the reset to default link
