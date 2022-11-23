@@ -14,7 +14,6 @@ Feature:  user, I should be able to add link, insert video, mention, quote, add 
     Then user dont see add new employee area
 
 
-  @wip22
 
   #2. User should be able to attach link to specified text.
   Scenario: User should be able to attach link to specified text.
