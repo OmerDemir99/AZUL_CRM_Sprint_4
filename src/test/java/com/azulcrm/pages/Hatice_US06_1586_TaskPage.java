@@ -146,13 +146,4 @@ public class Hatice_US06_1586_TaskPage {
     public WebElement durationMints;
 
 
-
-
-
-
-
-
-
-
-
 }
