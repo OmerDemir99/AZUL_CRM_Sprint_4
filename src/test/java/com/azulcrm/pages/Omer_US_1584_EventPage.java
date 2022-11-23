@@ -289,6 +289,10 @@ public class Omer_US_1584_EventPage {
         Assert.assertEquals(expectedTimeZone, select.getFirstSelectedOption().getText());
     }
 
+    public void deleteEvent(){
+
+    }
+
 
 
     public static void main(String[] args) {

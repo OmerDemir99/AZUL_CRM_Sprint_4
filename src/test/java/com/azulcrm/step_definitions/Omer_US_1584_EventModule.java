@@ -471,15 +471,22 @@ public class Omer_US_1584_EventModule {
 
 
     @When("type the event start date {string} and event end date {string} different format with right order except the default format")
-    public void type_the_event_start_date_and_event_end_date_different_format_with_right_order_except_the_default_format(String string, String string2) {
+    public void type_the_event_start_date_and_event_end_date_different_format_with_right_order_except_the_default_format(String startDate, String endDate) {
+        eventPage.startDate.clear();
+        eventPage.startDate.sendKeys(startDate);
+        Assert.assertEquals(startDate, eventPage.startDate.getAttribute("value"));
 
+        BrowserUtils.sleep(1);
+
+        eventPage.endDate.clear();
+        eventPage.endDate.sendKeys(endDate);
+        Assert.assertEquals(endDate, eventPage.startDate.getAttribute("value"));
 
     }
 
     @Then("click send button")
     public void click_send_button() {
-
-
+        eventPage.sendButton.click();
     }
 
     @Then("verify that dates turn into correct format automatically")
