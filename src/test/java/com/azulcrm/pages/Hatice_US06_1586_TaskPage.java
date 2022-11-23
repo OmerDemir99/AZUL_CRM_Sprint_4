@@ -16,20 +16,14 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-tasks']")
     public WebElement taskMenu;
 
+    @FindBy(xpath = "//span[@class='if-not-no']")
+    public WebElement highPriority;
+
     @FindBy(xpath = "//div[@class='sidebar-widget sidebar-widget-tasks']")
     public WebElement myTasks;
 
-    @FindBy(xpath = "(//span[@class='task-item-counter'])[1]")
-    public WebElement firstCount;
-
-    @FindBy(xpath = "(//span[@class='task-item-counter'])[2]")
-    public WebElement secondCount;
-
-    @FindBy(xpath = "(//span[@class='task-item-counter'])[3]")
-    public WebElement thirdCount;
-
-    @FindBy(xpath = "(//span[@class='task-item-counter'])[4]")
-    public WebElement fourthCount;
+    @FindBy(xpath = "//span[@id='menu-counter-tasks_total']")
+    public WebElement tasksCount;
 
     @FindBy(xpath = "//input[@name='ACTION[0][ARGUMENTS][data][TITLE]']")
     public WebElement taskNameInput;
@@ -41,7 +35,7 @@ public class Hatice_US06_1586_TaskPage {
     public WebElement defaultNameDlt;
 
     @FindBy(xpath = "//div[@class='task-message-label error']")
-    public WebElement taskNameErrorMessage;
+    public WebElement errorMessage;
 
     @FindBy(xpath = "(//input[@class='js-id-tdp-mem-sel-is-search js-id-network-selector-search task-form-field-search task-form-field-input'])[1]")
     public WebElement responsiblePersonInputBox;
@@ -54,9 +48,6 @@ public class Hatice_US06_1586_TaskPage {
 
     @FindBy(xpath = "//table[@class='bx-finder-box-tabs-content-table']//td//a")
     public WebElement personPopup;
-
-    //@FindBy(xpath = "//span[@class='popup-window-close-icon']")
-    //public WebElement personPopupDlt;
 
     @FindBy(xpath = "//table[@class='bx-finder-box-tabs-content-table']//tr//td//a[2]")
     public WebElement anyUser;
@@ -84,6 +75,9 @@ public class Hatice_US06_1586_TaskPage {
 
     @FindBy(xpath = "(//input[@class='task-options-inp'])[1]")
     public WebElement deadlineInput;
+
+    @FindBy(xpath = "//span[@id='task-detail-deadline']")
+    public WebElement deadlineCheck;
 
     @FindBy(xpath = "//a[@class='bx-calendar-top-month']")
     public WebElement monthsList;
@@ -135,6 +129,22 @@ public class Hatice_US06_1586_TaskPage {
 
     @FindBy(xpath = "(//input[@class='task-options-inp'])[4]")
     public WebElement finishInput;
+
+    @FindBy(xpath = "(//div[@class='task-detail-sidebar-item-value'])[5]")
+    public WebElement timePlanningCheck;
+
+    @FindBy(xpath = "//input[@data-bx-id='dateplanmanager-duration']")
+    public WebElement durationInput;
+
+    @FindBy(xpath = "//span[@data-unit='days']")
+    public WebElement durationDays;
+
+    @FindBy(xpath = "//span[@data-unit='hours']")
+    public WebElement durationHours;
+
+    @FindBy(xpath = "//span[@data-unit='mins']")
+    public WebElement durationMints;
+
 
 
 
