@@ -44,7 +44,7 @@ Feature: Task assign function in quick navigate menu.
     Then verify that you see responsible person error message
 
 
-  @AZUL1586
+  #@AZUL1586
   #ac3 #PASS
   Scenario: When task(s) is(are) created, they can be seen on the count on the homepage under "MY TASKS" table.
     And check the number of tasks
