@@ -70,6 +70,8 @@ public class Omer_US_1584_EventPage {
     @FindBy(id = "event-full-daycal_3Jcl")
     public WebElement allDayButton;
 
+
+
     @FindBy(id = "event-remindercal_3Jcl")
     public WebElement setReminderButton;
 
@@ -137,6 +139,9 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//span[@class='calendar-slider-sidebar-remind-warning-name']")
     public WebElement reminderText; // for zero(minutes) ==> When event starts
 
+    @FindBy(id = "calendar_view_slider_271982_time_inner_wrap")
+    public WebElement calenderSlideBar;
+
     @FindBy(id = "calendar_view_slider_90418_but_del")
     public WebElement deleteButton;
 
@@ -156,6 +161,9 @@ public class Omer_US_1584_EventPage {
 
     @FindBy(id = "feed-cal-tz-tocal_3Jcl")
     public WebElement timeZoneEnd;
+
+    @FindBy(xpath = "//div[@class='bx-panel-tooltip-text']/span" )
+    public WebElement questionMark;
 
 
 
