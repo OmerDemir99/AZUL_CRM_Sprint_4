@@ -61,9 +61,9 @@ public class Sena_US05_CompanyStructure_StepDef {
 
 
     @When("users write {string} in department name input box")
-    public void users_write_in_department_name_input_box(String string) {
+    public void users_write_in_department_name_input_box(String departmentName) {
 
-        companyStructurePage.nameInputBox.sendKeys("Catch The Bug");
+        companyStructurePage.nameInputBox.sendKeys(departmentName);
         BrowserUtils.sleep(2);
     }
 
@@ -171,19 +171,26 @@ public class Sena_US05_CompanyStructure_StepDef {
     @And("verify that users should be able to click the pencil mark on new department for editing")
     public void verifyThatUsersShouldBeAbleToClickThePencilMarkOnNewDepartmentForEditing() {
 
+
+        BrowserUtils.sleep(1);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(companyStructurePage.editPage).perform();
         BrowserUtils.sleep(2);
         companyStructurePage.pencilMark.click();
 
         BrowserUtils.sleep(1);
 
-        Assert.assertTrue(companyStructurePage.editPage.isDisplayed());
-        BrowserUtils.sleep(2);
+
     }
 
     @And("users click the plus mark on new department")
     public void usersClickThePlusMarkOnNewDepartment() {
 
+
         BrowserUtils.sleep(1);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(companyStructurePage.editPage).perform();
+        BrowserUtils.sleep(2);
         companyStructurePage.plusMark.click();
 
     }
@@ -196,14 +203,16 @@ public class Sena_US05_CompanyStructure_StepDef {
 
     @And("users click the x mark on new department")
     public void usersClickTheXMarkOnNewDepartment() {
-       /* BrowserUtils.sleep(1);
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(companyStructurePage.xMark).perform();
 
-        */
+        BrowserUtils.sleep(2);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(companyStructurePage.editPage).perform();
+
         BrowserUtils.sleep(2);
         companyStructurePage.xMark.click();
-        BrowserUtils.sleep(1);
+
+        BrowserUtils.sleep(2);
+
     }
 
     @And("users should be able to see warning message")
@@ -213,10 +222,6 @@ public class Sena_US05_CompanyStructure_StepDef {
 
     }
 
-    @Then("users click the ok button for delete the department")
-    public void usersClickTheOkButtonForDeleteTheDepartment() {
-
-    }
 
 
     @And("verify that user should be able to see child class")
@@ -243,11 +248,15 @@ public class Sena_US05_CompanyStructure_StepDef {
     public void verifyThatUsersShouldNotSeeTheAddDepartmentButton() {
         BrowserUtils.sleep(3);
 
-        Assert.assertFalse(companyStructurePage.addDepartmentButton.isDisplayed());
+        try {
+            Assert.assertFalse(companyStructurePage.addDepartmentButton.isDisplayed());
+        }catch (RuntimeException e){
+            System.out.println("Test passed! Add Department button not exist.");
+        }
+
         BrowserUtils.sleep(2);
 
     }
-
 
     @And("users choose the item from structure article")
     public void usersChooseTheItemFromStructureArticle() {
@@ -267,6 +276,33 @@ public class Sena_US05_CompanyStructure_StepDef {
         acts.moveToElement(companyStructurePage.structureArticle).perform();
         companyStructurePage.structureArticle.click();
         BrowserUtils.sleep(2);
+
+    }
+
+    @Then("users delete this departments")
+    public void usersDeleteThisDepartments() {
+        BrowserUtils.sleep(2);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(companyStructurePage.editPage).perform();
+
+        BrowserUtils.sleep(2);
+        companyStructurePage.xMark.click();
+
+        BrowserUtils.sleep(2);
+
+        Driver.getDriver().switchTo().alert().accept();
+
+        BrowserUtils.sleep(2);
+
+
+
+
+
+    }
+
+    @When("users click the {string} button")
+    public void usersClickTheButton(String string) {
+
 
     }
 }
