@@ -89,7 +89,7 @@ Feature: "Event" module on the Home page
       | $½§{[] | }\  -ş  |
       |        |         |
 
-  @wippp
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type different characters for event start time "<char1>" and for event end time "<char2>"
     Then click send button
@@ -124,7 +124,7 @@ Feature: "Event" module on the Home page
       | start date | 11/26/1700 |
       | end date   | 11/27/2300 |
     Then click send button
-    And verify that user should not be able to create event
+    And verify that user should not be able to create event successfully
 
 
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
@@ -162,7 +162,7 @@ Feature: "Event" module on the Home page
       | (UTC +05:00) Asia/Aqtau      | (UTC +02:00) Europe/Helsinki   |
       | (UTC -01:00) Atlantic/Azores | (UTC -03:00) America/Fortaleza |
 
-
+  @wippp
   Scenario: (AC-2) User should be able to set reminder.
     When verify that set reminder button is clickable
     Then verify that all options are selectable

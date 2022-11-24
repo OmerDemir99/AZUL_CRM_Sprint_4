@@ -163,6 +163,9 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//div[@class='calendar-timeline-stream-content-event-name']")
     public WebElement forDeletingEventFromCalender;
 
+    @FindBy(xpath = "//span[@class='calendar-timeline-stream-content-event-name-link']")
+    public WebElement myEventText;
+
 
 
     @FindBy(xpath = "//span[.='Specify time zone']")
@@ -331,6 +334,7 @@ public class Omer_US_1584_EventPage {
         Calender.click();
         Actions actions = new Actions(Driver.getDriver());
         actions.doubleClick(forDeletingEventFromCalender).perform();
+        BrowserUtils.sleep(2);
         deleteButton.click();
         BrowserUtils.sleep(1);
         jsAlertAccept();

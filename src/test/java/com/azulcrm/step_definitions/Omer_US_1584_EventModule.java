@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.it.Ma;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -18,6 +19,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Omer_US_1584_EventModule {
 
@@ -524,9 +526,10 @@ public class Omer_US_1584_EventModule {
        try {
            Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
        }catch (AssertionError r){
+           r.printStackTrace();
            System.out.println("------------The fail of event creation-------------");
        }finally {
-           if (eventPage.sidebarTopTitle.get(1).getText().equals("Upcoming Events")) {
+           if (eventPage.sidebarTopTitle.get(0).getText().equalsIgnoreCase("Upcoming Events")) {
                BrowserUtils.sleep(1);
                eventPage.deleteEvent();
                System.out.println("-----------Event is deleted successfully----------");
@@ -570,43 +573,81 @@ public class Omer_US_1584_EventModule {
 
 
     @When("for event end date select a date earlier than event start date")
-    public void for_event_end_date_select_a_date_earlier_than_event_start_date(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    public void for_event_end_date_select_a_date_earlier_than_event_start_date(Map<String, String> eventDate) {
+        eventPage.startDate.clear();
+        eventPage.startDate.sendKeys(eventDate.get("start date"));
+
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endDate).moveToElement(eventPage.startTime).sendKeys(Keys.BACK_SPACE).perform();
+        eventPage.endDate.sendKeys(eventDate.get("end date"));
     }
 
 
 
     @When("for event start date select a date earlier than current date")
     public void for_event_start_date_select_a_date_earlier_than_current_date() {
+        eventPage.startDate.click();
+        eventPage.calenderCells.get(10).click();
 
+        eventPage.endDate.click();
+        eventPage.calenderCells.get(11).click();
 
     }
-
 
 
     @When("select impossible event start date and end date")
-    public void select_impossible_event_start_date_and_end_date(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    public void select_impossible_event_start_date_and_end_date(Map<String, String> eventDate) {
+        eventPage.startDate.clear();
+        eventPage.startDate.sendKeys(eventDate.get("start date"));
+
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endDate).moveToElement(eventPage.startTime).sendKeys(Keys.BACK_SPACE).perform();
+        eventPage.endDate.sendKeys(eventDate.get("end date"));
     }
 
+    @Then("verify that user should not be able to create event successfully")
+    public void verify_that_user_should_not_be_able_to_create_event_successfully() {
+
+        BrowserUtils.sleep(1);
+        try {
+            Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
+        }catch (AssertionError r){
+            System.out.println("------------The fail of event creation-------------");
+        }finally {
+            if (eventPage.sidebarTopTitle.get(1).getText().equals("Upcoming Events")) {
+                BrowserUtils.sleep(2);
+                eventPage.upcomingEvents.click();
+                BrowserUtils.sleep(15);
+                eventPage.deleteButton.click();
+                BrowserUtils.sleep(10);
+                System.out.println("-----------Something went wrong while displaying this webpage----------");
+            }else {
+                BrowserUtils.sleep(2);
+                eventPage.Calender.click();
+                BrowserUtils.sleep(1);
+                eventPage.myEventText.click();
+                BrowserUtils.sleep(1);
+                eventPage.myEventText.click();
+                BrowserUtils.sleep(15);
+                eventPage.deleteButton.click();
+                BrowserUtils.sleep(10);
+                System.out.println("-----------Something went wrong while displaying this webpage----------");
+            }
+        }
+
+    }
 
     @When("for event end time select a time earlier than event start time")
     public void for_event_end_time_select_a_time_earlier_than_event_start_time() {
-
+    eventPage.endTime.click();
+    eventPage.decreaseDownButtons.get(0).click();
+    BrowserUtils.sleep(1);
+    eventPage.decreaseDownButtons.get(0).click();
+    eventPage.setTimeButtons.get(0).click();
 
     }
 
@@ -678,20 +719,30 @@ public class Omer_US_1584_EventModule {
 
     @When("verify that set reminder button is clickable")
     public void verify_that_set_reminder_button_is_clickable() {
-
+        eventPage.setReminderButton.click();
+        BrowserUtils.sleep(1);
+        eventPage.setReminderButton.click();
+        Assert.assertTrue(eventPage.setReminderButton.isSelected());
 
     }
 
     @Then("verify that all options are selectable")
     public void verify_that_all_options_are_selectable() {
-
+        List<String> reminder = new ArrayList<>(Arrays.asList("minutes", "hours", "days"));
+        for (int i = 0; i < reminder.size(); i++) {
+            eventPage.selectOption(eventPage.reminderOptions, reminder.get(i));
+        }
 
     }
 
     @Then("verify that reminder time is changeable by manually")
     public void verify_that_reminder_time_is_changeable_by_manually() {
-
-
+        String defaultValue = eventPage.remindCounter.getAttribute("value");
+        Actions actions = new Actions(Driver.getDriver());
+        actions.doubleClick(eventPage.remindCounter).sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(eventPage.remindCounter,"25").perform();
+        String actualValue = eventPage.remindCounter.getAttribute("value");
+        Assert.assertNotEquals(defaultValue, actualValue);
     }
 
 
