@@ -7,8 +7,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
 
@@ -18,9 +22,36 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     @When("Users click the comment button on the post that employee posted")
     public void users_click_the_comment_button_on_the_post_that_employee_posted() throws InterruptedException {
 
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+//        jse.executeScript("arguments[0].scrollIntoView(true)",activityStreamPage.moreEventsButton);
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+//        wait.until(ExpectedConditions.visibilityOf(activityStreamPage.commentButton));
+
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(2);
+//        jse.executeScript("window.scrollBy(0,100000)");
+
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+
+        BrowserUtils.sleep(3);
+
+
         activityStreamPage.commentButton.click();
-        Thread.sleep(2000);
-        // BrowserUtils.sleep(3);
+//        Thread.sleep(2000);
+        BrowserUtils.sleep(3);
+
+
+
 
     }
     @When("Users write a comment on the opening comment box")
@@ -38,6 +69,7 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
         BrowserUtils.sleep(2);
 
 
+
         //System.out.println(activityStreamPage.commentBoxFrame.getAttribute("style"));
         //activityStreamPage.commentBox.sendKeys("Wonderful Life");
 
@@ -51,35 +83,87 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     @Then("Users should be able to see the written comment on the post")
     public void users_should_be_able_to_see_the_written_comment_on_the_post() {
         Assert.assertTrue(activityStreamPage.wonderfulLifeMessage.isDisplayed());
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+        activityStreamPage.deleteButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(3);
+
+
 
     }
 
     @When("Users click the like button on the post that employee posted")
     public void users_click_the_like_button_on_the_post_that_employee_posted() {
 
-        activityStreamPage.likeButton.click();
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
         BrowserUtils.sleep(2);
+
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            }
+
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(2);
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(2);
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(4);
+
+        activityStreamPage.likeButton.click();
+        BrowserUtils.sleep(3);
 
     }
 
     @Then("Users should be able to see the kiss emoji icon is activated and is displayed on the page.")
     public void usersShouldBeAbleToSeeTheKissEmojiIconIsActivatedAndIsDisplayedOnThePage() {
 
-        Assert.assertTrue(activityStreamPage.kissEmojiAfterClick.isDisplayed());
+        Assert.assertTrue(activityStreamPage.kissEmojiReaction.isDisplayed());
         BrowserUtils.sleep(2);
 
+
+        activityStreamPage.likeButton.click();
+        BrowserUtils.sleep(2);
     }
 
 
     @When("Users mouse hover the like button on the post that employee posted")
     public void usersMouseHoverTheLikeButtonOnThePostThatEmployeePosted() {
 
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
         Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(activityStreamPage.likeButton).perform();
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
         BrowserUtils.sleep(2);
 
 
 
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(2);
+//        jse.executeScript("window.scrollBy(0,100000)");
+//        BrowserUtils.sleep(2);
+
+
+        actions.moveToElement(activityStreamPage.likeButton).perform();
+        BrowserUtils.sleep(4);
     }
 
 
@@ -95,14 +179,7 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     public void usersClickTheKissEmojiImage() {
 
         Actions actions = new Actions(Driver.getDriver());
-
         actions.moveToElement(activityStreamPage.kissEmoji).click().perform();
-
-
-
-        //activityStreamPage.kissEmojiAfterClick.click();
-
-
     }
 
 
@@ -110,7 +187,22 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     @When("Users click the unfollow button on the post that employee posted")
     public void usersClickTheUnfollowButtonOnThePostThatEmployeePosted() {
 
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+        BrowserUtils.sleep(2);
+
         activityStreamPage.unfollowButton.click();
+
+        BrowserUtils.sleep(2);
 
     }
 
@@ -126,10 +218,27 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     @Then("Users should be able to see the like icon")
     public void usersShouldBeAbleToSeeTheLikeIcon() {
 
+        Assert.assertTrue(activityStreamPage.likeReactionToLike.isDisplayed());
+        BrowserUtils.sleep(2);
+        activityStreamPage.likeButton.click();
+        BrowserUtils.sleep(2);
     }
 
     @When("Users click the like button under the comments posted by reviewers.")
     public void users_click_the_like_button_under_the_comments_posted_by_reviewers() {
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+        BrowserUtils.sleep(2);
 
         activityStreamPage.likeButtonUnderPost.click();
         BrowserUtils.sleep(2);
@@ -139,13 +248,33 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
     public void users_should_be_able_to_see_the_like_icon_is_being_activated_and_displayed() {
 
         Assert.assertTrue(activityStreamPage.likeIconAfterLikePost.isDisplayed());
+        BrowserUtils.sleep(2);
+        activityStreamPage.likeButtonUnderPost.click();
+        BrowserUtils.sleep(2);
     }
 
 
     @When("Users click the reply button under the comments posted by reviewers.")
     public void usersClickTheReplyButtonUnderTheCommentsPostedByReviewers() {
-        activityStreamPage.replyButton.click();
 
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+        BrowserUtils.sleep(2);
+
+//        JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
+//        jse2.executeScript("window.scrollBy(0,100000)");
+
+        activityStreamPage.replyButton.click();
+        BrowserUtils.sleep(2);
     }
 
     @And("Users write a reply comment under a comment on the opening box")
@@ -161,18 +290,141 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
         Driver.getDriver().switchTo().parentFrame();
         BrowserUtils.sleep(2);
 
-
-
     }
 
     @When("Users click the like button under their own comment")
     public void usersClickTheLikeButtonUnderTheirOwnComment() {
+
+
+
+//        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+//        jse.executeScript("window.scrollBy(0,50000)");
+//
+//        activityStreamPage.moreEventsButton.click();
+//        BrowserUtils.sleep(2);
+
+//        JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
+//        jse2.executeScript("window.scrollBy(0,100000)");
+//
+//        Actions actions = new Actions(Driver.getDriver());
+//
+//        for (int i = 0; i < 200; i++) {
+//            actions.sendKeys(Keys.PAGE_DOWN).perform();
+//        }
+//        BrowserUtils.sleep(2);
+//
+//        activityStreamPage.commentButton.click();
+//        BrowserUtils.sleep(2);
+//
+//        Driver.getDriver().switchTo().frame(1);
+//
+//        activityStreamPage.iframeBody.sendKeys("Wonderful Life");
+//
+//        Driver.getDriver().switchTo().parentFrame();
+//        BrowserUtils.sleep(2);
+
+//        activityStreamPage.commentBoxSendButton.click();
+//
+//        BrowserUtils.sleep(2);
+
         activityStreamPage.likeButtonUnderOwnComment.click();
         BrowserUtils.sleep(2);
+
+
+
+
     }
 
     @Then("Users should be able to see the like icon next to their own comment is being displayed")
     public void usersShouldBeAbleToSeeTheLikeIconNextToTheirOwnCommentIsBeingDisplayed() {
+
         Assert.assertTrue(activityStreamPage.likeReactionToOwnLike.isDisplayed());
+        BrowserUtils.sleep(2);
+
+        activityStreamPage.likeButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        activityStreamPage.deleteButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(3);
+
+
+    }
+
+    @Then("Users should be able to see the reply comment on the post")
+    public void usersShouldBeAbleToSeeTheReplyCommentOnThePost() {
+
+        Assert.assertTrue(activityStreamPage.letMeSeeYourReplyMessage.isDisplayed());
+        activityStreamPage.moreButtonUnderReplyButton.click();
+        BrowserUtils.sleep(2);
+        activityStreamPage.deleteButtonUnderReplyButton.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(2);
+
+    }
+
+    @And("Users see their written comment on the post")
+    public void usersSeeTheirWrittenCommentOnThePost() {
+
+        Assert.assertTrue(activityStreamPage.wonderfulLifeMessage.isDisplayed());
+    }
+
+
+    @And("Users write a reply comment to their own comment by clicking reply button under their own comment")
+    public void usersWriteAReplyCommentToTheirOwnCommentByClickingReplyButtonUnderTheirOwnComment() {
+
+        Driver.getDriver().switchTo().frame(1);
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,3500)");
+
+        activityStreamPage.iframeBody.sendKeys("I agree with you");
+
+        Driver.getDriver().switchTo().parentFrame();
+        BrowserUtils.sleep(2);
+    }
+
+    @And("Users click the reply button under their own comment")
+    public void usersClickTheReplyButtonUnderTheirOwnComment() {
+
+        activityStreamPage.replButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+    }
+
+    @Then("Users should be able to see the own reply comment on the post")
+    public void usersShouldBeAbleToSeeTheOwnReplyCommentOnThePost() {
+
+        Assert.assertTrue(activityStreamPage.IAgreeWithYouMessage.isDisplayed());
+
+
+
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        activityStreamPage.deleteButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(5);
+
+        activityStreamPage.moreButtonUnderReplyButtonAc3.click();
+        BrowserUtils.sleep(2);
+        activityStreamPage.deleteButtonUnderReplyButtonAc3.click();
+        BrowserUtils.sleep(2);
+        Alert alert2 = Driver.getDriver().switchTo().alert();
+        alert2.accept();
+        BrowserUtils.sleep(3);
+
     }
 }
