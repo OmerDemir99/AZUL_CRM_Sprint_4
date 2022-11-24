@@ -1,8 +1,14 @@
 package com.azulcrm.runners;
 
+import com.azulcrm.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
+
+import java.util.List;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -18,6 +24,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         tags = "",
         publish = true
+
 )
 public class RoadRunner {
 

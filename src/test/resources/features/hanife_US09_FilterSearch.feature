@@ -2,19 +2,25 @@ Feature: Filter and Search Functionality
   US09:As a user, I should be able to use "Filter and search" functionality on Active Stream.
 
   Background: Login with valid credentials ( hr - helpdesk - marketing )
-    Given users should login with valid credentials as "marketing"
+    Given users should login with valid credentials as "hr"
     When user click the filter and search input box
 
-   # @wip #ac1
-    Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
-      Then user should see and verify below filters as default filters
+
+
+    #@wip #ac1
+  @AZUL-1625
+ Scenario:User should be able to see default filters as "my activity, work, favorite, announcements, and workflows"
+     Then user should see and verify below filters as default filters
         | WORK          |
         | FAVORITES     |
         | MY ACTIVITY   |
         | ANNOUNCEMENTS |
         | WORKFLOWS     |
+        
+  
 
   #@wip  #ac2, ac6
+  @AZUL-1642
   Scenario:User should be able to add and remove fields and restore the default fields
     When user click restore default filter link
     And user see default selected fields and nonselected fields
@@ -27,7 +33,8 @@ Feature: Filter and Search Functionality
     When user click restore default filter link
     Then user see default selected fields and nonselected fields
 
-  #@wip #ac2, ac6
+  #@wip  #ac6
+  @AZUL-1643
   Scenario:User should be able to  restore the default fields by removing fields
     When user click restore default filter link
     When user click add field linktext
@@ -36,47 +43,63 @@ Feature: Filter and Search Functionality
     And user clicks the x sign near the fields input boxes
     Then user see default selected fields and nonselected fields
 
-   #@wip   #ac3
-   Scenario Outline:User should be able to search by specifying the Date,
-     When user click the date inbox user see different options
-     And user choose and click a "<Date Option>"
-     And user click the date on calendar
+  # @wip   #ac3
+  @AZUL-1644
+   Scenario:User should be able to search by specifying the Date,
+     And user click the date inbox,user choose a date
      And user click search button
      Then user verify searching by specifying Date
-  Examples: date options
-    | Date Option     |
-    | Any date        |
-    | Yesterday       |
-    | Current day     |
-    | This week       |
-    | This month      |
-    | Current quarter |
-    | Last 7 days     |
-    | Last 30 days    |
-    | Last 60 days    |
-    | Last 90 days    |
-    | Last N days     |
-    | Month           |
-    | Quarter         |
-    | Year            |
-    | Exact date      |
-    | Last week       |
-    | Last month      |
-    | Custom Range    |
+
+     #@wip   #ac3 by clicking clendar
+  @AZUL-1645
+  Scenario:User should be able to search by specifying the Exact Date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and click a specific date
+    And user click search button
+    Then user verify searching by specifying Date
+
+ # @wip   #ac3 by typing
+  @AZUL-1646
+  Scenario:User should be able to search by typing the exact date
+    When user click the date inbox,user choose exact date
+    And user click the calendar box and type a "11/15/2022"
+    And user click search button
+    Then user verify searching by specifying Date
 
 
-#  Scenario:User should be able to search by specifying the Date,
-#    When user click the date inbox user see different options
-#    And user choose the exact date
-#    And user click the date on calendar
-#    And user click search button
-#    Then user verify searching by specifying Date
+  #@wip #ac4
+  @AZUL-1647
+  Scenario:User should be able to search by selecting single type
+    When user click the types inbox, user choose a type
+    And user click search button
+    Then user verify searching by specifying single type
+
+
+ #@wip #ac4
+  @AZUL-1648
+    Scenario: User should be able to search by selecting multiple types
+    When user click the types inbox, user choose multiple types
+    And user click search button
+    Then user verify searching by selecting multiple types
+
+
+  #@wip #ac5
+  @AZUL-1649
+  Scenario:User should be able to save the filter.
+    When user click the save filter text
+    And user click filter name inbox
+    And user types "GOOD NEWS" as new filter
+    And user click save button
+    Then user verify saving new filter
+
+
+  #@wip #ac7
+  @AZUL-1650
+  Scenario:User should be able to reset filters to default.
+    When user click the save filter text
+    And user click the reset to default link
+    And user click continue button
+    Then user verify to reset filters to default
 
 
 
-
-
-#    4. User should be able to search by selecting single or multiple types,
-#    5. User should be able to save the filter.
-
-#    7. User should be able to reset filters to default.
