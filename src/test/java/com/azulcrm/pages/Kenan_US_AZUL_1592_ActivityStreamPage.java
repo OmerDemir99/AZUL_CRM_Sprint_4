@@ -143,6 +143,20 @@ public class Kenan_US_AZUL_1592_ActivityStreamPage {
     @FindBy(xpath = "(//div[starts-with(@bx-content-view-xml-id,'BLOG_COMMENT-6')])[2]")
     public WebElement IAgreeWithYouMessage;
 
+    @FindBy(xpath = "//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG')]/div/div/a")
+    public WebElement viewCommentButtonUnderOwnComment;
+
+    @FindBy(xpath = "//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG')]/div/div/span")
+    public WebElement copyLinkButtonUnderOwnComment;
+
+    @FindBy(xpath = "/html/body/a")
+    public WebElement copyLinkATagUnderOwnComment;
+
+    //https://qa.azulcrm.com/company/personal/user/693/blog/2630/?commentId=688#com688
+
+
+
+
 
 
 

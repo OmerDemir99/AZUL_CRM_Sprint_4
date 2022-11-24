@@ -11,10 +11,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
+public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
+
 
     Kenan_US_AZUL_1592_ActivityStreamPage activityStreamPage = new Kenan_US_AZUL_1592_ActivityStreamPage();
 
@@ -50,6 +49,17 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
 //        Thread.sleep(2000);
         BrowserUtils.sleep(3);
 
+//        while(true) {
+//            actions.sendKeys(Keys.PAGE_DOWN).perform();
+//            try {
+//                activityStreamPage.commentButton.click();
+//                break;
+//
+//            } catch (Exception e) {
+//                continue;
+//            }
+//
+//        }
 
 
 
@@ -427,4 +437,47 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
         BrowserUtils.sleep(3);
 
     }
+
+    @And("Users click the more button under their own comment")
+    public void usersClickTheMoreButtonUnderTheirOwnComment() {
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+    }
+
+
+    @And("Users click the copy link button;")
+    public void usersClickTheCopyLinkButton() {
+
+        activityStreamPage.copyLinkButtonUnderOwnComment.click();
+    }
+
+    @And("Users should be able to see the link is copied.")
+    public void usersShouldBeAbleToSeeTheLinkIsCopied() {
+
+        String copyLinkUrl = activityStreamPage.copyLinkATagUnderOwnComment.getAttribute("innerHTML");
+        System.out.println("copyLinkUrl = " + copyLinkUrl);
+
+        BrowserUtils.sleep(2);
+
+        Driver.getDriver().get(copyLinkUrl);
+        String actualLandingPageUrl = Driver.getDriver().getCurrentUrl();
+
+//        activityStreamPage.viewCommentButtonUnderOwnComment.click();
+//        Driver.getDriver().get("copyLinkUrl");
+//        String landingPageUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertTrue(copyLinkUrl.equals(actualLandingPageUrl));
+
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+        activityStreamPage.deleteButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(3);
+
+    }
+
+
 }

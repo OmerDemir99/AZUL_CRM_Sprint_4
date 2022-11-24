@@ -69,6 +69,27 @@ Feature: AZUL-1592 As a user, I should be able to interact with employees on the
     And Users click the send button
     Then Users should be able to see the own reply comment on the post
 
+    @AC4TC1
+    Scenario: After making a comment user should be able to "view comment", "copy link", "edit", "delete" and "create task"
+    by clicking more
+      When Users click the comment button on the post that employee posted
+      And Users write a comment on the opening comment box
+      And Users click the send button
+      And Users see their written comment on the post
+      And Users click the more button under their own comment
+      And Users click the copy link button;
+      And Users should be able to see the link is copied.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
