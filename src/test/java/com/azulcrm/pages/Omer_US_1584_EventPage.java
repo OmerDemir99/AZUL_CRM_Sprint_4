@@ -352,6 +352,17 @@ public class Omer_US_1584_EventPage {
         return infoFromCalender;
     }
 
+    public String getReminderText(){
+        upcomingEvents.click();
+        String text = reminderText.getText();
+        BrowserUtils.sleep(1);
+        sidePanelCloseButton.click();
+        BrowserUtils.sleep(1);
+        activityStreamButton.click();
+        return text;
+
+    }
+
 
     public static void main(String[] args) {
 

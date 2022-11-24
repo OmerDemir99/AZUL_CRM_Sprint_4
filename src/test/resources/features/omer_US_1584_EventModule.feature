@@ -162,22 +162,23 @@ Feature: "Event" module on the Home page
       | (UTC +05:00) Asia/Aqtau      | (UTC +02:00) Europe/Helsinki   |
       | (UTC -01:00) Atlantic/Azores | (UTC -03:00) America/Fortaleza |
 
-  @wippp
+
   Scenario: (AC-2) User should be able to set reminder.
     When verify that set reminder button is clickable
     Then verify that all options are selectable
     Then verify that reminder time is changeable by manually
 
-
+  @wippp
   Scenario Outline: (AC-2) User should be able to set reminder.
     When create an event with inappropriate reminder "<options>"
+    Then click send button
     And verify that user should not be able to create event
 
     Examples: Reminder options
       | options     |
       | -10         |
       | Ten         |
-      | *!?%/*      |
+      | *!?%&*      |
       | skfnskfnowr |
       | 1500        |
 

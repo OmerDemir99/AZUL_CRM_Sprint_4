@@ -747,7 +747,18 @@ public class Omer_US_1584_EventModule {
 
 
     @When("create an event with inappropriate reminder {string}")
-    public void create_an_event_with_inappropriate_reminder(String string) {
+    public void create_an_event_with_inappropriate_reminder(String reminderValue) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.doubleClick(eventPage.remindCounter).sendKeys(Keys.BACK_SPACE).perform();
+        BrowserUtils.sleep(1);
+        actions.sendKeys(eventPage.remindCounter,reminderValue).perform();
+
+        try {
+            Assert.fail(eventPage.getReminderText());
+        }catch (AssertionError r){
+            r.printStackTrace();
+            System.out.println("-----------Test Fail-----------");
+        }
 
 
     }
