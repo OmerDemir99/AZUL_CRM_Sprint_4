@@ -378,4 +378,53 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefination {
 
         Assert.assertTrue(activityStreamPage.wonderfulLifeMessage.isDisplayed());
     }
+
+
+    @And("Users write a reply comment to their own comment by clicking reply button under their own comment")
+    public void usersWriteAReplyCommentToTheirOwnCommentByClickingReplyButtonUnderTheirOwnComment() {
+
+        Driver.getDriver().switchTo().frame(1);
+
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,3500)");
+
+        activityStreamPage.iframeBody.sendKeys("I agree with you");
+
+        Driver.getDriver().switchTo().parentFrame();
+        BrowserUtils.sleep(2);
+    }
+
+    @And("Users click the reply button under their own comment")
+    public void usersClickTheReplyButtonUnderTheirOwnComment() {
+
+        activityStreamPage.replButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+    }
+
+    @Then("Users should be able to see the own reply comment on the post")
+    public void usersShouldBeAbleToSeeTheOwnReplyCommentOnThePost() {
+
+        Assert.assertTrue(activityStreamPage.IAgreeWithYouMessage.isDisplayed());
+
+
+
+        activityStreamPage.moreButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        activityStreamPage.deleteButtonUnderOwnComment.click();
+        BrowserUtils.sleep(2);
+
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+        BrowserUtils.sleep(5);
+
+        activityStreamPage.moreButtonUnderReplyButtonAc3.click();
+        BrowserUtils.sleep(2);
+        activityStreamPage.deleteButtonUnderReplyButtonAc3.click();
+        BrowserUtils.sleep(2);
+        Alert alert2 = Driver.getDriver().switchTo().alert();
+        alert2.accept();
+        BrowserUtils.sleep(3);
+
+    }
 }

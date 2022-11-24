@@ -59,11 +59,15 @@ Feature: AZUL-1592 As a user, I should be able to interact with employees on the
     Then Users should be able to see the like icon next to their own comment is being displayed
 
   @AC3TC2
-  Scenario: User should be able to replay his/her own comment.
-    When Users click the reply button under his/her own comment
+  Scenario: User should be able to reply his/her own comment.
+    When Users click the comment button on the post that employee posted
+    And Users write a comment on the opening comment box
+    And Users click the send button
+    And Users see their written comment on the post
+    And Users click the reply button under their own comment
     And Users write a reply comment to their own comment by clicking reply button under their own comment
     And Users click the send button
-    Then Users should be able to see the written comment on the post
+    Then Users should be able to see the own reply comment on the post
 
 
 

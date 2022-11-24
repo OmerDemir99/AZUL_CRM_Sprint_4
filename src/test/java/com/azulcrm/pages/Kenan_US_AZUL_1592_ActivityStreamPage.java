@@ -119,11 +119,39 @@ public class Kenan_US_AZUL_1592_ActivityStreamPage {
     @FindBy(xpath = "(//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG')]/div/div/span)[3]")
     public WebElement deleteButtonUnderOwnComment;
 
-    @FindBy(xpath = "(//a[starts-with(@id,'record-BLOG_2630-')])[4]")
+    @FindBy(xpath = "//a[@class='feed-post-more-link feed-post-more-link-Y-Y-N-Y']")
     public WebElement moreButtonUnderReplyButton;
 
-    @FindBy(xpath = "(//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG_2630')]/div/div/span)[3]")
+    @FindBy(xpath = "(//a[@class='feed-post-more-link feed-post-more-link-Y-Y-N-Y'])[2]")
+    public WebElement moreButtonUnderReplyButtonAc3;
+
+    @FindBy(xpath = "(//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG_')]/div/div/span)[3]")
     public WebElement deleteButtonUnderReplyButton;
+
+    @FindBy(xpath = "(//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG_')]/div/div/span)[3]")
+    public WebElement deleteButtonUnderReplyButtonAc3;
+
+    @FindBy(xpath = "//a[@bx-mpl-author-name='hr6@cybertekschool.com']")
+    public WebElement replButtonUnderOwnComment;
+
+//    @FindBy(xpath = "(//div[starts-with(@id,'record-BLOG_2630-')]/div/text())[3]")
+//    public WebElement IAgreeWithYouMessage;
+
+//    @FindBy(xpath = "//div[@bx-content-view-xml-id='BLOG_COMMENT-660']")
+//    public WebElement IAgreeWithYouMessage;
+
+    @FindBy(xpath = "(//div[starts-with(@bx-content-view-xml-id,'BLOG_COMMENT-6')])[2]")
+    public WebElement IAgreeWithYouMessage;
+
+
+
+
+
+
+
+
+
+
 
     //
 
