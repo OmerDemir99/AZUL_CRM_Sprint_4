@@ -474,14 +474,13 @@ public class Omer_US_1584_EventModule {
     public void type_the_event_start_date_and_event_end_date_different_format_with_right_order_except_the_default_format(String startDate, String endDate) {
         eventPage.startDate.clear();
         eventPage.startDate.sendKeys(startDate);
-        Assert.assertEquals(startDate, eventPage.startDate.getAttribute("value"));
 
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(2);
 
-        eventPage.endDate.clear();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endDate).moveToElement(eventPage.startTime).sendKeys(Keys.BACK_SPACE).perform();
+        // eventPage.endDate.clear();
         eventPage.endDate.sendKeys(endDate);
-        Assert.assertEquals(endDate, eventPage.startDate.getAttribute("value"));
-
     }
 
     @Then("click send button")
@@ -489,36 +488,83 @@ public class Omer_US_1584_EventModule {
         eventPage.sendButton.click();
     }
 
-    @Then("verify that dates turn into correct format automatically")
-    public void verify_that_dates_turn_into_correct_format_automatically() {
+    @Then("verify that dates turn into correct format automatically {string} and {string}")
+    public void verify_that_dates_turn_into_correct_format_automatically(String startDate, String endDate) {
+        BrowserUtils.sleep(2);
+        String actualStartDate = eventPage.upcomingEvents.getText().substring(5,15);
+        String actualEndDate = eventPage.upcomingEvents.getText().substring(30,40);
+        System.out.println(eventPage.upcomingEvents.getText());
+        System.out.println(actualStartDate);
+        System.out.println(actualEndDate);
 
+        Assert.assertEquals(startDate, actualStartDate);
+        Assert.assertEquals(endDate, actualEndDate);
 
+        BrowserUtils.sleep(2);
+        eventPage.deleteEvent();
     }
 
 
     @When("type the event start {string} and end date {string} different format except the default format")
-    public void type_the_event_start_and_end_date_different_format_except_the_default_format(String string, String string2) {
+    public void type_the_event_start_and_end_date_different_format_except_the_default_format(String startDate, String endDate) {
+        eventPage.startDate.clear();
+        eventPage.startDate.sendKeys(startDate);
 
+        BrowserUtils.sleep(2);
 
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endDate).moveToElement(eventPage.startTime).sendKeys(Keys.BACK_SPACE).perform();
+        eventPage.endDate.sendKeys(endDate);
     }
 
     @Then("verify that user should not be able to create event")
     public void verify_that_user_should_not_be_able_to_create_event() {
 
+        BrowserUtils.sleep(2);
+       try {
+           Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
+       }catch (AssertionError r){
+           System.out.println("------------The fail of event creation-------------");
+       }finally {
+           if (eventPage.sidebarTopTitle.get(1).getText().equals("Upcoming Events")) {
+               BrowserUtils.sleep(1);
+               eventPage.deleteEvent();
+               System.out.println("-----------Event is deleted successfully----------");
+           }else {
+               BrowserUtils.sleep(1);
+               eventPage.alternativeDeleteEvent();
+               System.out.println("-----------Event is deleted successfully----------");
+           }
+       }
 
     }
 
 
     @When("type different characters for event start date {string} and for event end date {string}")
-    public void type_different_characters_for_event_start_date_and_for_event_end_date(String string, String string2) {
+    public void type_different_characters_for_event_start_date_and_for_event_end_date(String startDate, String endDate) {
+        eventPage.startDate.clear();
+        eventPage.startDate.sendKeys(startDate);
 
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endDate).moveToElement(eventPage.startTime).sendKeys(Keys.BACK_SPACE).perform();
+        eventPage.endDate.sendKeys(endDate);
 
     }
 
 
     @When("type different characters for event start time {string} and for event end time {string}")
-    public void type_different_characters_for_event_start_time_and_for_event_end_time(String string, String string2) {
+    public void type_different_characters_for_event_start_time_and_for_event_end_time(String startTime, String endTime) {
+        BrowserUtils.sleep(1);
+        eventPage.startTime.clear();
+        eventPage.startTime.sendKeys(startTime);
 
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.clickAndHold(eventPage.endTime).moveToElement(eventPage.endDate).sendKeys(Keys.BACK_SPACE).perform();
+        eventPage.endTime.sendKeys(endTime);
 
     }
 

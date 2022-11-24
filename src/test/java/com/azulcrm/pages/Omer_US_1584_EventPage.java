@@ -1,9 +1,12 @@
 package com.azulcrm.pages;
 
+import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.Driver;
+import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -133,20 +136,32 @@ public class Omer_US_1584_EventPage {
 
 
 
-    @FindBy(xpath = "//div/a/span[@class='calendar-item-date']")
+    @FindBy(xpath = "//div/a/span[@class='calendar-item-icon']")
     public WebElement upcomingEvents;
 
     @FindBy(xpath = "//span[@class='calendar-slider-sidebar-remind-warning-name']")
     public WebElement reminderText; // for zero(minutes) ==> When event starts
 
-    @FindBy(id = "calendar_view_slider_271982_time_inner_wrap")
-    public WebElement calenderSlideBar;
+    @FindBy(xpath = "//div[@class='calendar-slider-sidebar-head-title']")
+    public WebElement calenderSlideBarText;
 
-    @FindBy(id = "calendar_view_slider_90418_but_del")
+    @FindBy(xpath = "//button[contains(@id,'but_del')]")
     public WebElement deleteButton;
+
+    @FindBy(xpath = "//a[@title='Calendar']")
+    public WebElement Calender;
 
     @FindBy(xpath = "(//span[@class='menu-item-link-text'])[1]")
     public WebElement activityStreamButton;
+
+    @FindBy(xpath = "//span[@class='side-panel-close-inner']")
+    public WebElement sidePanelCloseButton;
+
+    @FindBy(xpath = "//div[@class='sidebar-widget-top-title']")
+    public List<WebElement> sidebarTopTitle;
+
+    @FindBy(xpath = "//div[@class='calendar-timeline-stream-content-event-name']")
+    public WebElement forDeletingEventFromCalender;
 
 
 
@@ -248,6 +263,20 @@ public class Omer_US_1584_EventPage {
     public WebElement greyContent;
 
 
+    @FindBy(xpath = "//a[contains(@id,'feed-event-view-link-livefeed')]")
+    public WebElement eventNameInfo;
+
+    @FindBy(xpath = "//span[contains(@id,'feed-event-view-from-livefeed')]")
+    public WebElement eventDateInfo;
+
+    @FindBy(xpath = "(//td[@class='feed-calendar-view-text-cell-r'])[3]")
+    public WebElement locationInfo;
+
+    @FindBy(xpath = "//div[@class='feed-calendar-view-description']")
+    public WebElement eventDescriptionInfo;
+
+    @FindBy(xpath = "//a[@class='feed-add-post-destination-new']")
+    public WebElement addPostDestinationInfo;
 
 
     public void jsAlertAccept(){
@@ -290,14 +319,42 @@ public class Omer_US_1584_EventPage {
     }
 
     public void deleteEvent(){
-
+        upcomingEvents.click();
+        deleteButton.click();
+        BrowserUtils.sleep(1);
+        jsAlertAccept();
+        activityStreamButton.click();
+        event.click();
     }
 
+    public void alternativeDeleteEvent(){
+        Calender.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.doubleClick(forDeletingEventFromCalender).perform();
+        deleteButton.click();
+        BrowserUtils.sleep(1);
+        jsAlertAccept();
+        activityStreamButton.click();
+        event.click();
+    }
+
+    public List<String> getEventInfoFromCalender(){
+        upcomingEvents.click();
+        String reminder = reminderText.getText();
+        String dateInfo = calenderSlideBarText.getText();
+        sidePanelCloseButton.click();
+        activityStreamButton.click();
+        List<String> infoFromCalender = new ArrayList<>(Arrays.asList(reminder,dateInfo));
+        return infoFromCalender;
+    }
 
 
     public static void main(String[] args) {
 
-
+        String str="From 11/27/2022 10:00 am till 11/28/2022 11:00 am";
+        System.out.println(str.substring(5,15));
+        System.out.println(str.substring(30,41));
+/*
        String aa = "2022";
        Integer xx = Integer.valueOf(aa)-1;
         System.out.println(xx);
@@ -309,6 +366,8 @@ public class Omer_US_1584_EventPage {
 
         Integer neslihan = 312;
         System.out.println("neslihan = " + neslihan);
+
+ */
     }
 
 

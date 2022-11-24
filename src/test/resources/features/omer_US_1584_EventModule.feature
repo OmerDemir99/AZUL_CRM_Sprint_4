@@ -53,18 +53,17 @@ Feature: "Event" module on the Home page
     And verify event end hour is selected correctly
     And click all day option and verify that the button is clickable
 
-@wip
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type the event start date "<date1>" and event end date "<date2>" different format with right order except the default format
     Then click send button
-    And verify that dates turn into correct format automatically
+    And verify that dates turn into correct format automatically "<date3>" and "<date4>"
 
     Examples: Different format but correct order
-      | date1      | date2      |
-      | 11.25.2022 | 11.26.2022 |
-      | 11-28-2022 | 11-29-2022 |
+      | date1      | date2      |date3|date4|
+      | 11.27.2022 | 11-28-2022 |11/27/2022|11/28/2022|
 
-  @wip
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type the event start "<date1>" and end date "<date2>" different format except the default format
     Then click send button
@@ -75,7 +74,7 @@ Feature: "Event" module on the Home page
       | 26/11/2022 | 30/11/2022 |
       | 26.11.2022 | 30.11.2022 |
 
-  @wip
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type different characters for event start date "<char1>" and for event end date "<char2>"
     Then click send button
@@ -84,14 +83,13 @@ Feature: "Event" module on the Home page
     Examples: Date
       | char1  | char2   |
       | 098746 | qwtyhbv |
-      | "!'^&% | /()=?_  |
       | ,;.:@∑ | €®₺¥üi  |
       | öπ¨~ß∂ | ƒğ∆¬´`  |
       | <>Ω≈ç√ | ∫µ≤≥÷£  |
       | $½§{[] | }\  -ş  |
       |        |         |
 
-  @wip
+  @wippp
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type different characters for event start time "<char1>" and for event end time "<char2>"
     Then click send button
@@ -100,14 +98,13 @@ Feature: "Event" module on the Home page
     Examples: Time
       | char1  | char2   |
       | 098746 | qwtyhbv |
-      | "!'^&% | /()=?_  |
       | ,;.:@∑ | €®₺¥üi  |
       | öπ¨~ß∂ | ƒğ∆¬´`  |
       | <>Ω≈ç√ | ∫µ≤≥÷£  |
       | $½§{[] | }\  -ş  |
       |        |         |
 
-  @wip
+
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When for event end date select a date earlier than event start date
       | start date | 11/30/2022 |
@@ -115,13 +112,13 @@ Feature: "Event" module on the Home page
     Then click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When for event start date select a date earlier than current date
     Then click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When select impossible event start date and end date
       | start date | 11/26/1700 |
@@ -129,13 +126,13 @@ Feature: "Event" module on the Home page
     Then click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When for event end time select a time earlier than event start time
     Then click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When click specify time zone button
     Then click time zone start button
@@ -150,7 +147,7 @@ Feature: "Event" module on the Home page
       | (UTC -04:00) America/Halifax | (UTC -04:00) Atlantic/Bermuda   |
       | (UTC +01:00) Europe/Oslo     | (UTC +01:00) Europe/Zurich      |
 
-  @wip
+
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When click specify time zone button
     Then click time zone start button
@@ -165,13 +162,13 @@ Feature: "Event" module on the Home page
       | (UTC +05:00) Asia/Aqtau      | (UTC +02:00) Europe/Helsinki   |
       | (UTC -01:00) Atlantic/Azores | (UTC -03:00) America/Fortaleza |
 
-  @wip
+
   Scenario: (AC-2) User should be able to set reminder.
     When verify that set reminder button is clickable
     Then verify that all options are selectable
     Then verify that reminder time is changeable by manually
 
-  @wip
+
   Scenario Outline: (AC-2) User should be able to set reminder.
     When create an event with inappropriate reminder "<options>"
     And verify that user should not be able to create event
@@ -184,19 +181,19 @@ Feature: "Event" module on the Home page
       | skfnskfnowr |
       | 1500        |
 
-  @wip
+
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
     When click select meeting room button
     Then verify that all room options are selectable
     And verify that the event can be created for all room option
 
-  @wip
+
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
     When click select meeting room button
     Then type anything using keyboard by manually
     And verify that user should not be able to create event for different location
 
-  @wip
+
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then click to all employees option
@@ -205,7 +202,7 @@ Feature: "Event" module on the Home page
     And verify that all departments are added the member input box
     And delete all options from member input box
 
-  @wip
+
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then select one people from the list
@@ -215,7 +212,7 @@ Feature: "Event" module on the Home page
     And click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario Outline: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then type something for adding new people "<something>"
@@ -227,7 +224,7 @@ Feature: "Event" module on the Home page
       | 1234567890     |
       | "!'^^%&/()=?_" |
 
-  @wip
+
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then select one people from the list
@@ -239,7 +236,7 @@ Feature: "Event" module on the Home page
     And click time line resizer and increase the event time
     And click time line resizer and decrease the event time
 
-  @wip
+
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
     When click event name input box and give event name
     Then click event message input box and type something
@@ -248,7 +245,7 @@ Feature: "Event" module on the Home page
     Then click send button
     And verify that user should be able to create event
 
-  @wip
+
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
     Then click event message input box and type something
     Then click select meeting room button
@@ -256,14 +253,14 @@ Feature: "Event" module on the Home page
     Then click send button
     And verify that user should not be able to create event
 
-  @wip
+
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
     When click event name input box and give event name
     Then click event message input box and type something
     And verify that both of them accept all possible characters
 
 
-  @wip
+
   Scenario: (AC-6) User should be able to cancel sending event at any time before sending.
     Then click event message input box and type something
     Then click event message input box and type something
@@ -272,7 +269,7 @@ Feature: "Event" module on the Home page
     And click cancel button
     And verify that user should be able to access home page
 
-  @wip
+
   Scenario: (AC-6) User should be able to cancel sending event at any time before sending.
     Then click event message input box and type something
     Then click event message input box and type something
