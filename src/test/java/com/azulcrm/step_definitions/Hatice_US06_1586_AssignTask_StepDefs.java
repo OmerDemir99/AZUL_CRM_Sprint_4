@@ -21,6 +21,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
     @When("click TASK in the quick navigation menu")
     public void clickTASKInTheQuickNavigationMenu() {
         taskPage.taskMenu.click();
+        BrowserUtils.sleep(2);
     }
     @When("clicks task name field and write")
     public void clicks_task_name_field_and_write() {
@@ -184,6 +185,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         taskPage.yearList.click();
         BrowserUtils.sleep(2);
         taskPage.yearInput.sendKeys("2023");
+        BrowserUtils.sleep(2);
         taskPage.weekdays.click();
 
         taskPage.hourUpArrow.click();
@@ -192,7 +194,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         }
 
         taskPage.selectBtn.click();
-        Assert.assertEquals("01/03/2022 10:10 am", taskPage.startTaskInput.getAttribute("value"));
+        Assert.assertEquals("01/02/2023 10:10 am", taskPage.startTaskInput.getAttribute("value"));
 
         taskPage.finishInput.click();
         taskPage.monthsList.click();
@@ -200,7 +202,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         taskPage.anyMonth.click();
         taskPage.yearList.click();
         BrowserUtils.sleep(2);
-        taskPage.yearInput.sendKeys("2022");
+        taskPage.yearInput.sendKeys("2023");
         taskPage.weekdays.click();
 
         taskPage.hourUpArrow.click();
@@ -209,7 +211,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         }
 
         taskPage.selectBtn.click();
-        Assert.assertEquals("01/03/2022 07:30 pm", taskPage.finishInput.getAttribute("value"));
+        Assert.assertEquals("01/02/2023 07:30 pm", taskPage.finishInput.getAttribute("value"));
 
     }
     @Then("verify that time planning was added while creating the task")
