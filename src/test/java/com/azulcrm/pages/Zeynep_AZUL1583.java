@@ -23,7 +23,6 @@ public class Zeynep_AZUL1583 {
     public WebElement attachLink;
 
 
-
     @FindBy(xpath = "//input[@placeholder='Link text']")
     public WebElement linkText;
 
@@ -40,7 +39,7 @@ public class Zeynep_AZUL1583 {
     public WebElement sendButton;
 
     //div//a[.='Get Information From This Link']
-    @FindBy(xpath = "//div//a[.='Get Information From This Link-2']")
+   @FindBy(xpath = "//div//a[.='Get Information From This Link-2']")
     public WebElement info;
 
     @FindBy(xpath = "//span[@class='bxhtmled-top-bar-btn bxhtmled-button-video']")
@@ -56,12 +55,15 @@ public class Zeynep_AZUL1583 {
     public WebElement videoSaveButton;
 
     @FindBy(xpath = "//span[@title='Quote text']")
-    public WebElement addQuote;
-
+    public static WebElement quoteTextButton;
 
     @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
-    public WebElement quoteTextArea;
+    public static WebElement getQuoteTextRibbon;
 
+    @FindBy(xpath = "//div[@class='blog-post-quote']//td")
+    public static WebElement actualQuote;
+    @FindBy(xpath = "(//iframe[@class='bx-editor-iframe'])[1]")
+    public static WebElement messagesIframe;
 
 
 }

@@ -1,7 +1,7 @@
 
 Feature:  user, I should be able to add link, insert video, mention, quote, add tag in message.
 
-  Background: User in the home page
+    Background: User in the home page
     Given users should login with valid credentials as "hr"
     When user click Message field
 
@@ -31,15 +31,20 @@ Feature:  user, I should be able to add link, insert video, mention, quote, add 
     Then user click saveButton
 
 
-  @wip22
-  #4. User should be able to add quotes.
-  Scenario: User should be able to add quotes
-    And User click add quotes
-    And user write sentences in quotes
-    And user click sendButton
-    Then user verify adding new quotes
+
+   #4. User should be able to add quotes
+  Scenario Outline: User should be able to add quotes
+
+    When User clicks Quote Text button
+    When User enters a "<Quote>" in yellow quote ribbonn
+    When User clicks Send button at Messages Tabb
+    Then User sees the "<Quote>" in Activity Stream
+
+
+    Examples: The quotes are as following
+      | Quote                                                                       |
+      | As you know, madness is like gravity...all it takes is a little push.'      |
+      | Education is the most powerful weapon which you can use to change the world |
 
 
 
-  #5. User should be able to add tags in message.
-  #6. User should be able to remove tags before sending the message
