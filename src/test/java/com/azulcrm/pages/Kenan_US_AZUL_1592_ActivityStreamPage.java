@@ -154,6 +154,11 @@ public class Kenan_US_AZUL_1592_ActivityStreamPage {
 
     //https://qa.azulcrm.com/company/personal/user/693/blog/2630/?commentId=688#com688
 
+    @FindBy(xpath = "//a[@id='bp_2766']")
+    public WebElement cateNimalUserLink;
+
+
+
 
 
 

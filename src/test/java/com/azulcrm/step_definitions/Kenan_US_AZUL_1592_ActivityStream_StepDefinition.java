@@ -480,4 +480,27 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
     }
 
 
+    @When("Users click the username on the post")
+    public void usersClickTheUsernameOnThePost() {
+
+        activityStreamPage.cateNimalUserLink.click();
+        BrowserUtils.sleep(2);
+//        String cateNimalHref = activityStreamPage.cateNimalUserLink.getAttribute("href");
+
+
+    }
+
+    @And("Users navigate to the profile page of the user")
+    public void usersNavigateToTheProfilePageOfTheUser() {
+
+        Driver.getDriver().get("https://qa.azulcrm.com/company/personal/user/693/");
+        BrowserUtils.sleep(2);
+    }
+
+    @Then("Users should be able to see the name of the user on the page")
+    public void usersShouldBeAbleToSeeTheNameOfTheUserOnThePage() {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains("Cate Nimal"));
+        BrowserUtils.sleep(2);
+
+    }
 }

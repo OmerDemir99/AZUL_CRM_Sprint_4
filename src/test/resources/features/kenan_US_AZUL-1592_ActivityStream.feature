@@ -80,6 +80,18 @@ Feature: AZUL-1592 As a user, I should be able to interact with employees on the
       And Users click the copy link button;
       And Users should be able to see the link is copied.
 
+  @AC5TC1
+  Scenario: User should be able to see the reviewers' names and visit their profiles by clicking on reviewers' name
+    When Users click the username on the post
+    And Users navigate to the profile page of the user
+    Then Users should be able to see the name of the user on the page
+
+
+  @AC6TC1
+  Scenario: User should be able to see the reviewers' names and visit their profiles by clicking on reviewers' name
+
+
+
 
 
 
