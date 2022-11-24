@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_old.Ac;
 import io.cucumber.java.it.Ma;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -749,31 +750,46 @@ public class Omer_US_1584_EventModule {
     @When("create an event with inappropriate reminder {string}")
     public void create_an_event_with_inappropriate_reminder(String reminderValue) {
         Actions actions = new Actions(Driver.getDriver());
-        actions.doubleClick(eventPage.remindCounter).sendKeys(Keys.BACK_SPACE).perform();
+        actions.doubleClick(eventPage.remindCounter).perform();
+           actions.sendKeys(Keys.BACK_SPACE).perform();
         BrowserUtils.sleep(1);
         actions.sendKeys(eventPage.remindCounter,reminderValue).perform();
 
+        eventPage.sendButton.click();
+        BrowserUtils.sleep(1);
         try {
             Assert.fail(eventPage.getReminderText());
         }catch (AssertionError r){
             r.printStackTrace();
             System.out.println("-----------Test Fail-----------");
         }
-
+        BrowserUtils.sleep(1);
 
     }
 
 
     @When("click select meeting room button")
     public void click_select_meeting_room_button() {
-
+        eventPage.selectingMeetingRoomButton.click();
 
     }
 
     @Then("verify that all room options are selectable")
     public void verify_that_all_room_options_are_selectable() {
+        List<String> expectedResult = new ArrayList<>(Arrays.asList("Central Meeting Room", "East Meeting Room", "West Meeting Room"));
+        eventPage.centralMeetingRoom.click();
+        List<String> actualResult = new ArrayList<>();
+        actualResult.add(eventPage.selectingMeetingRoomButton.getAttribute("value"));
 
+        eventPage.selectingMeetingRoomButton.click();
+        eventPage.eastMeetingRoom.click();
+        actualResult.add(eventPage.selectingMeetingRoomButton.getAttribute("value"));
 
+        eventPage.selectingMeetingRoomButton.click();
+        eventPage.westMeetingRoom.click();
+        actualResult.add(eventPage.selectingMeetingRoomButton.getAttribute("value"));
+
+        Assert.assertEquals(expectedResult,actualResult);
     }
 
     @Then("verify that the event can be created for all room option")
@@ -784,105 +800,163 @@ public class Omer_US_1584_EventModule {
 
     @Then("type anything using keyboard by manually")
     public void type_anything_using_keyboard_by_manually() {
-
-
-    }
-
-    @Then("verify that user should not be able to create event for different location")
-    public void verify_that_user_should_not_be_able_to_create_event_for_different_location() {
-
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(eventPage.selectingMeetingRoomButton, "qwery0987#$½").perform();
+        eventPage.sendButton.click();
+        BrowserUtils.sleep(1);
+        try {
+            Assert.fail(eventPage.locationInfo.getText());
+        }catch (AssertionError r){
+            r.printStackTrace();
+            System.out.println("-----------Test Fail-----------");
+        }
+        BrowserUtils.sleep(1);
 
     }
 
 
     @When("click add person input box")
     public void click_add_person_input_box() {
-
-
+        eventPage.addPersonsInputBox.click();
     }
 
     @Then("click to all employees option")
     public void click_to_all_employees_option() {
-
-
+        eventPage.toAllEmployees.click();
     }
 
     @Then("click employees and department option")
     public void click_employees_and_department_option() {
-
-
+        eventPage.employeesAndDepartment.click();
     }
 
     @Then("click all departments and select all department options")
     public void click_all_departments_and_select_all_department_options() {
 
-
+        int sizeDepartments = eventPage.departments.size();
+        int sizeAllDepartments = eventPage.allDepartment.size();
+        for (int i = 1; i < sizeDepartments ; i++) {
+            eventPage.departments.get(i).click();
+            //BrowserUtils.sleep(1);
+        }
+        for (int j = 0; j < sizeAllDepartments ; j++) {
+            eventPage.allDepartment.get(j).click();
+            //BrowserUtils.sleep(1);
+        }
     }
 
     @Then("verify that all departments are added the member input box")
     public void verify_that_all_departments_are_added_the_member_input_box() {
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add(eventPage.toAllEmployees.getAttribute("textContent"));
+        int sizeDepartments = eventPage.departments.size();
+        for (int i = 1; i < sizeDepartments; i++) {
+            expectedResult.add(eventPage.departments.get(i).getText());
+        }
 
-
-    }
-
-    @Then("delete all options from member input box")
-    public void delete_all_options_from_member_input_box() {
-
-
+        List<String> actualResult = new ArrayList<>();
+        int sizeOfAddedMembers = eventPage.addedMembers.size();
+        for (int i = 0; i < sizeOfAddedMembers ; i++) {
+            actualResult.add(eventPage.addedMembers.get(i).getText());
+        }
+        Assert.assertEquals(expectedResult,actualResult);
     }
 
 
     @Then("select one people from the list")
     public void select_one_people_from_the_list() {
-
-
+        eventPage.peopleFromList.get(2).click();
     }
 
     @Then("click add more text")
     public void click_add_more_text() {
-
-
+        eventPage.closeButtonForAddMembers.click();
+        eventPage.addMoreText.click();
     }
 
     @Then("select two people from the list")
     public void select_two_people_from_the_list() {
-
+        eventPage.peopleFromList.get(1).click();
+        eventPage.peopleFromList.get(3).click();
 
     }
 
     @Then("click member input box and add new people by typing the email address manually")
     public void click_member_input_box_and_add_new_people_by_typing_the_email_address_manually() {
-
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(eventPage.addPersonsInputBox, "hr10").sendKeys(Keys.ENTER).perform();
 
     }
 
+    @Then("delete all options from member input box")
+    public void delete_all_options_from_member_input_box() {
+        for (WebElement each : eventPage.deleteMembers){
+                each.click();
+         }
+    }
+
+    @Then("verify that all members are deleted successfully")
+    public void verify_that_all_members_are_deleted_successfully() {
+        String expectedResult = "Add persons, groups or department";
+        Assert.assertEquals(expectedResult, eventPage.memberInputBoxText.getAttribute("innerText"));
+    }
+
     @Then("type something for adding new people {string}")
-    public void type_something_for_adding_new_people(String string) {
-
-
+    public void type_something_for_adding_new_people(String text) {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(eventPage.addPersonsInputBox, text).perform();
+        BrowserUtils.sleep(3);
     }
 
     @Then("verify that user should not be able to add new people if he or she not exist the member list")
     public void verify_that_user_should_not_be_able_to_add_new_people_if_he_she_not_exist_the_member_list() {
-
-
-    }
-
-
-    @Then("click time wrapper and slide it to right and left")
-    public void click_time_wrapper_and_slide_it_to_right_and_left() {
-
+        String expectedResult = "Add persons, groups or department";
+        Assert.assertEquals(expectedResult, eventPage.memberInputBoxText.getAttribute("innerText"));
 
     }
 
-    @Then("click time line selector and slide it to right and left")
-    public void click_time_line_selector_and_slide_it_to_right_and_left() {
+    String expectedEventEndTime = eventPage.endTime.getAttribute("value");
 
+    @Then("click time wrapper and slide it to left")
+    public void click_time_wrapper_and_slide_it_to_left() {
+        Actions actions = new Actions(Driver.getDriver());
+        for (int i = 0; i < 7; i++) {
+            actions.clickAndHold(eventPage.timeLineWrapper).sendKeys(Keys.ARROW_LEFT);
+        }
+    }
 
+    @Then("click time line selector and slide it to left")
+    public void click_time_line_selector_and_slide_it_to_left() {
+        Actions actions = new Actions(Driver.getDriver());
+        eventPage.timeLineSelector.click();
+        actions.clickAndHold(eventPage.timeLineSelector).moveToElement(eventPage.attendees).perform();
+
+    }
+
+    @Then("click time wrapper and slide it to right")
+    public void click_time_wrapper_and_slide_it_to_right() {
+        Actions actions = new Actions(Driver.getDriver());
+        for (int i = 0; i < 7; i++) {
+            actions.clickAndHold(eventPage.timeLineWrapper).sendKeys(Keys.ARROW_RIGHT);
+        }
+    }
+
+    @Then("click time line selector and slide it to right")
+    public void click_time_line_selector_and_slide_it_to_right() {
+        Actions actions = new Actions(Driver.getDriver());
+        eventPage.timeLineSelector.click();
+        actions.clickAndHold(eventPage.timeLineSelector).moveToElement(eventPage.popularPosts).perform();
     }
 
     @Then("verify that event start and end time change according to act of time line selector")
     public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_selector() {
+        String actualEventEndTime = eventPage.endTime.getAttribute("value");
+        Assert.assertEquals(expectedEventEndTime ,actualEventEndTime);
+
+    }
+
+    @Then("click time line selector and slide it to left and right")
+    public void click_time_line_selector_and_slide_it_to_left_and_right() {
 
 
     }
@@ -901,6 +975,12 @@ public class Omer_US_1584_EventModule {
 
     @Then("click time line resizer and decrease the event time")
     public void click_time_line_resizer_and_decrease_the_event_time() {
+
+
+    }
+
+    @Then("verify that event start and end time change according to act of time line resizer")
+    public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_resizer() {
 
 
     }

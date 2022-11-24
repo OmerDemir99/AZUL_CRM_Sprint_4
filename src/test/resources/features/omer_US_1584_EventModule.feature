@@ -60,8 +60,8 @@ Feature: "Event" module on the Home page
     And verify that dates turn into correct format automatically "<date3>" and "<date4>"
 
     Examples: Different format but correct order
-      | date1      | date2      |date3|date4|
-      | 11.27.2022 | 11-28-2022 |11/27/2022|11/28/2022|
+      | date1      | date2      | date3      | date4      |
+      | 11.27.2022 | 11-28-2022 | 11/27/2022 | 11/28/2022 |
 
 
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
@@ -168,19 +168,18 @@ Feature: "Event" module on the Home page
     Then verify that all options are selectable
     Then verify that reminder time is changeable by manually
 
-  @wippp
+
   Scenario Outline: (AC-2) User should be able to set reminder.
     When create an event with inappropriate reminder "<options>"
-    Then click send button
     And verify that user should not be able to create event
 
     Examples: Reminder options
-      | options     |
-      | -10         |
-      | Ten         |
-      | *!?%&*      |
-      | skfnskfnowr |
-      | 1500        |
+      | options |
+      | -10     |
+      | Ten     |
+      | *!?%&*  |
+      | snkfowr |
+      | 1500    |
 
 
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
@@ -192,7 +191,7 @@ Feature: "Event" module on the Home page
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
     When click select meeting room button
     Then type anything using keyboard by manually
-    And verify that user should not be able to create event for different location
+    And verify that user should not be able to create event
 
 
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
@@ -201,7 +200,6 @@ Feature: "Event" module on the Home page
     Then click employees and department option
     Then click all departments and select all department options
     And verify that all departments are added the member input box
-    And delete all options from member input box
 
 
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
@@ -210,8 +208,8 @@ Feature: "Event" module on the Home page
     Then click add more text
     Then select two people from the list
     Then click member input box and add new people by typing the email address manually
-    And click send button
-    And verify that user should not be able to create event
+    And delete all options from member input box
+    And verify that all members are deleted successfully
 
 
   Scenario Outline: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
@@ -223,19 +221,22 @@ Feature: "Event" module on the Home page
       | something      |
       | something      |
       | 1234567890     |
-      | "!'^^%&/()=?_" |
+      | !'.^%&()=?_ |
 
-
+  @wippp
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then select one people from the list
-    Then click time wrapper and slide it to right and left
-    Then click time line selector and slide it to right and left
+    Then click time line selector and slide it to left
+    Then click time wrapper and slide it to left
+    Then click time line selector and slide it to right
+    Then click time wrapper and slide it to right
     And verify that event start and end time change according to act of time line selector
-    Then click time line selector and slide it to right and left
+    Then click time line selector and slide it to left and right
     And verify that event start and end date change according to act of time line selector
     And click time line resizer and increase the event time
     And click time line resizer and decrease the event time
+    And verify that event start and end time change according to act of time line resizer
 
 
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
@@ -259,7 +260,6 @@ Feature: "Event" module on the Home page
     When click event name input box and give event name
     Then click event message input box and type something
     And verify that both of them accept all possible characters
-
 
 
   Scenario: (AC-6) User should be able to cancel sending event at any time before sending.

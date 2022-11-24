@@ -184,7 +184,7 @@ public class Omer_US_1584_EventPage {
     public WebElement questionMark;
 
 
-    @FindBy(id = "event-locationcal_3Jcl")
+    @FindBy(xpath = "//div/input[@id='event-locationcal_3Jcl']")
     public WebElement selectingMeetingRoomButton;
 
     @FindBy(id = "bxecmr_0")
@@ -204,7 +204,10 @@ public class Omer_US_1584_EventPage {
     @FindBy(id = "feed-event-dest-cont")
     public WebElement addPersonsInputBox;
 
-    @FindBy(xpath = "//div[.='To all employees']")
+    @FindBy(id = "feed-event-dest-add-link")
+    public WebElement memberInputBoxText;
+
+    @FindBy(xpath = "//div/div[@class='bx-finder-box-item-t7-name']")
     public WebElement toAllEmployees;
 
     @FindBy(id = "destDepartmentTab_calnAJEM3")
@@ -225,6 +228,11 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//div[@class='bx-finder-box-item-t7-name']")
     public List<WebElement> peopleFromList;
 
+    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
+    public WebElement closeButtonForAddMembers;
+
+    @FindBy(id = "feed-event-dest-add-link")
+    public WebElement addMoreText;
 
 
     @FindBy(xpath = "//div[@class='calendar-planner-timeline-selector']")
@@ -239,14 +247,14 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//div[@class='calendar-planner-timeline-wrapper']")
     public WebElement timeLineWrapper;
 
+    @FindBy(xpath = "//div[@class='calendar-planner-time-hour-item']")
+    public List<WebElement> timeHourItems;
+
     @FindBy(xpath = "//span[@class='calendar-planner-users-item']")
     public WebElement attendees;
 
     @FindBy(xpath = "(//div[@class='sidebar-widget-top-title'])[2]")
     public WebElement popularPosts;
-
-    @FindBy(xpath = "//span[@class='popup-window-close-icon']")
-    public WebElement closeButtonForAddMembers;
 
 
 
@@ -359,6 +367,7 @@ public class Omer_US_1584_EventPage {
         sidePanelCloseButton.click();
         BrowserUtils.sleep(1);
         activityStreamButton.click();
+        BrowserUtils.sleep(3);
         return text;
 
     }
