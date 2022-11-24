@@ -5,7 +5,7 @@ Feature: Task assign function in quick navigate menu.
     Given users should login with valid credentials as "hr"
     When click TASK in the quick navigation menu
 
-    #PASS
+  @AZUL-1660
   #ac1 - Mandatory fields: Task name, Responsible person
   Scenario: HR User should be able to create a "High priority" tasks with the mandatory fields.
     And clicks task name field and write
@@ -14,7 +14,7 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that the task was created with high priority
 
-    #PASS
+  @AZUL-1661
   #ac1/NEGATİVE - Error message:  "The task name is not specified."
   Scenario: HR user should get the error message if she forgets to type the task name.
     And ticks the high priority box
@@ -22,8 +22,8 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that you see error message
 
-
-  #ac2 PASS
+  @AZUL-1662
+  #ac2
   Scenario: HR User should be able to assign a task to more than one user (Test with adding 3 users max.)
     And clicks task name field and write
     And go to responsible person field remove the default value if any
@@ -35,7 +35,7 @@ Feature: Task assign function in quick navigate menu.
     Then click send button
     Then see task created alert
 
-  #PASS
+  @AZUL-1663
   #ac2/NEGATİVE - Error message: "A user specified in the field "Responsible Person" was not found."
   Scenario: HR user should get an error message if the responsible person field is empty.
     And clicks task name field and write
@@ -44,8 +44,8 @@ Feature: Task assign function in quick navigate menu.
     Then verify that you see responsible person error message
 
 
-  #@AZUL1586
-  #ac3 #PASS
+  @AZUL-1664
+  #ac3
   Scenario: When task(s) is(are) created, they can be seen on the count on the homepage under "MY TASKS" table.
     And check the number of tasks
     And clicks task name field and write
@@ -53,8 +53,8 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that the created task is in MY TASKS table
 
-
-  #ac4 PASS
+  @AZUL-1665
+  #ac4
   Scenario: Checklist should be able to be added while creating a task.
     And clicks task name field and write
     And go to responsible person field remove the default value if any and add user
@@ -63,8 +63,8 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that checklist has been added
 
-
-    #ac5 PASS
+  @AZUL-1666
+  #ac5
   Scenario: Deadline should be able to be added while creating a task.
     And clicks task name field and write
     And go to responsible person field remove the default value if any and add user
@@ -76,8 +76,8 @@ Feature: Task assign function in quick navigate menu.
     Then verify that the deadline is added while creating the task
 
 
-
-  #ac6 PASS
+  @AZUL-1667
+  #ac6
   Scenario: Time planning function should be able to be used in the setting of deadline.
     And clicks task name field and write
     And go to responsible person field remove the default value if any and add user
@@ -86,8 +86,8 @@ Feature: Task assign function in quick navigate menu.
     And click send button
     Then verify that time planning was added while creating the task
 
-
-  #ac6 PASS
+  @AZUL-1668
+  #ac6
   Scenario Outline: Time planning function should be able to be used in the setting of deadline.
     And clicks task name field and write
     And go to responsible person field remove the default value if any and add user
