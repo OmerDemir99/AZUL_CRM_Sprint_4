@@ -2,7 +2,6 @@ package com.azulcrm.pages;
 
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.Driver;
-import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -22,6 +21,7 @@ public class Omer_US_1584_EventPage {
     public Omer_US_1584_EventPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
 
 
     @FindBy(xpath = "(//div[@id='feed-add-post-form-tab']/span/span)[1]")
@@ -52,7 +52,7 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//input[@placeholder='Event name']")
     public WebElement eventNameInputBox;
 
-    @FindBy(xpath = "//body[@style='min-height: 70px;']")
+    @FindBy(xpath = "//body[@style='min-height: 104px;']")
     public WebElement eventMessageInputBox;
 
     @FindBy(id = "feed-cal-event-fromcal_3Jcl" )
@@ -180,8 +180,11 @@ public class Omer_US_1584_EventPage {
     @FindBy(id = "feed-cal-tz-tocal_3Jcl")
     public WebElement timeZoneEnd;
 
-    @FindBy(xpath = "//div[@class='bx-panel-tooltip-text']/span" )
+    @FindBy(id = "feed-cal-tz-tipcal_3Jcl" )
     public WebElement questionMark;
+
+    @FindBy(xpath = "//div[@class='bx-panel-tooltip-text']/span")
+    public WebElement getQuestionMarkText;
 
 
     @FindBy(xpath = "//div/input[@id='event-locationcal_3Jcl']")
@@ -289,6 +292,15 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//a[@class='feed-add-post-destination-new']")
     public WebElement addPostDestinationInfo;
 
+    @FindBy(xpath = "(//iframe[@class='bx-editor-iframe'])[2]")
+    public WebElement iframe;
+
+    @FindBy(xpath = "(//iframe)[2]")
+    public WebElement iframe2;
+
+    @FindBy(tagName = "iframe")
+    public List<WebElement> allIframes;
+
 
     public void jsAlertAccept(){
         Alert alert = Driver.getDriver().switchTo().alert();
@@ -371,31 +383,20 @@ public class Omer_US_1584_EventPage {
         return text;
 
     }
-
-
-    public static void main(String[] args) {
-
-        String str="From 11/27/2022 10:00 am till 11/28/2022 11:00 am";
-        System.out.println(str.substring(5,15));
-        System.out.println(str.substring(30,41));
-/*
-       String aa = "2022";
-       Integer xx = Integer.valueOf(aa)-1;
-        System.out.println(xx);
-        String qq = String.valueOf(xx);
-        System.out.println(qq);
-
-        Integer gizem = 232;
-        System.out.println("gizem = " + gizem);
-
-        Integer neslihan = 312;
-        System.out.println("neslihan = " + neslihan);
-
- */
+    public String getEventStartTime(){
+        String expectedEventStartTime = startTime.getAttribute("value");
+        return expectedEventStartTime;
     }
 
+    public String getEventEndTime(){
+        String expectedEventEndTime = endTime.getAttribute("value");
+        return expectedEventEndTime;
+    }
 
-
+    public String getEventEndDate(){
+        String expectedEventEndDate = endDate.getAttribute("value");
+        return expectedEventEndDate;
+    }
 
 
 }
