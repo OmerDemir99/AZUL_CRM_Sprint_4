@@ -12,7 +12,7 @@ Feature: Task assign function in quick navigate menu.
     And clicks task name field and write
     And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
-    And click send button
+    And click the send button
     Then verify that the task was created with high priority
 
   @AZUL-1661
@@ -20,7 +20,7 @@ Feature: Task assign function in quick navigate menu.
   Scenario: HR user should get the error message if she forgets to type the task name.
     And ticks the high priority box
     And go to responsible person field remove the default value if any and add user
-    And click send button
+    And click the send button
     Then verify that you see error message
 
   @AZUL-1662
@@ -33,7 +33,7 @@ Feature: Task assign function in quick navigate menu.
       | hr91@cybertekschool.com        |
       | marketing84@cybertekschool.com |
       | helpdesk29@cybertekschool.com  |
-    Then click send button
+    Then click the send button
     Then see task created alert
 
   @AZUL-1663
@@ -41,7 +41,7 @@ Feature: Task assign function in quick navigate menu.
   Scenario: HR user should get an error message if the responsible person field is empty.
     And clicks task name field and write
     And go to responsible person field remove the default value if any
-    And click send button
+    And click the send button
     Then verify that you see responsible person error message
 
 
@@ -51,7 +51,7 @@ Feature: Task assign function in quick navigate menu.
     And check the number of tasks
     And clicks task name field and write
     And go to responsible person field remove the default value if any and add user
-    And click send button
+    And click the send button
     Then verify that the created task is in MY TASKS table
 
   @AZUL-1665
@@ -61,7 +61,7 @@ Feature: Task assign function in quick navigate menu.
     And go to responsible person field remove the default value if any and add user
     And click on checklist and write something in the things to do
     And click on checkmark or add
-    And click send button
+    And click the send button
     Then verify that checklist has been added
 
   @AZUL-1666
@@ -73,7 +73,7 @@ Feature: Task assign function in quick navigate menu.
     And set valid day, month, year
     And set time using arrows
     And click the select button
-    And click send button
+    And click the send button
     Then verify that the deadline is added while creating the task
 
 
@@ -84,7 +84,7 @@ Feature: Task assign function in quick navigate menu.
     And go to responsible person field remove the default value if any and add user
     And click time planning button
     And set task start and finish time
-    And click send button
+    And click the send button
     Then verify that time planning was added while creating the task
 
   @AZUL-1668

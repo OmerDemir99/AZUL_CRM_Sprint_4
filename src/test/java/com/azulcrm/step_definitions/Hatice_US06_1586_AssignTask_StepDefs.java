@@ -41,8 +41,8 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         taskPage.responsiblePersonInputBox.click();
         BrowserUtils.sleep(2);
     }
-    @And("click send button")
-    public void click_send_button() {
+    @And("click the send button")
+    public void click_the_send_button() {
         taskPage.sendBtn.click();
     }
 
