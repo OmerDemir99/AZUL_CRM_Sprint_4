@@ -44,7 +44,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
 
         BrowserUtils.sleep(3);
 
-
         activityStreamPage.commentButton.click();
 //        Thread.sleep(2000);
         BrowserUtils.sleep(3);
@@ -78,8 +77,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Driver.getDriver().switchTo().parentFrame();
         BrowserUtils.sleep(2);
 
-
-
         //System.out.println(activityStreamPage.commentBoxFrame.getAttribute("style"));
         //activityStreamPage.commentBox.sendKeys("Wonderful Life");
 
@@ -101,9 +98,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
         BrowserUtils.sleep(3);
-
-
-
     }
 
     @When("Users click the like button on the post that employee posted")
@@ -141,7 +135,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Assert.assertTrue(activityStreamPage.kissEmojiReaction.isDisplayed());
         BrowserUtils.sleep(2);
 
-
         activityStreamPage.likeButton.click();
         BrowserUtils.sleep(2);
     }
@@ -164,13 +157,10 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         }
         BrowserUtils.sleep(2);
 
-
-
 //        jse.executeScript("window.scrollBy(0,100000)");
 //        BrowserUtils.sleep(2);
 //        jse.executeScript("window.scrollBy(0,100000)");
 //        BrowserUtils.sleep(2);
-
 
         actions.moveToElement(activityStreamPage.likeButton).perform();
         BrowserUtils.sleep(4);
@@ -213,7 +203,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         activityStreamPage.unfollowButton.click();
 
         BrowserUtils.sleep(2);
-
     }
 
 
@@ -280,8 +269,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         }
         BrowserUtils.sleep(2);
 
-//        JavascriptExecutor jse2 = (JavascriptExecutor) Driver.getDriver();
-//        jse2.executeScript("window.scrollBy(0,100000)");
 
         activityStreamPage.replyButton.click();
         BrowserUtils.sleep(2);
@@ -340,9 +327,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         activityStreamPage.likeButtonUnderOwnComment.click();
         BrowserUtils.sleep(2);
 
-
-
-
     }
 
     @Then("Users should be able to see the like icon next to their own comment is being displayed")
@@ -364,8 +348,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
         BrowserUtils.sleep(3);
-
-
     }
 
     @Then("Users should be able to see the reply comment on the post")
@@ -416,8 +398,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
 
         Assert.assertTrue(activityStreamPage.IAgreeWithYouMessage.isDisplayed());
 
-
-
         activityStreamPage.moreButtonUnderOwnComment.click();
         BrowserUtils.sleep(2);
 
@@ -462,10 +442,6 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Driver.getDriver().get(copyLinkUrl);
         String actualLandingPageUrl = Driver.getDriver().getCurrentUrl();
 
-//        activityStreamPage.viewCommentButtonUnderOwnComment.click();
-//        Driver.getDriver().get("copyLinkUrl");
-//        String landingPageUrl = Driver.getDriver().getCurrentUrl();
-
         Assert.assertTrue(copyLinkUrl.equals(actualLandingPageUrl));
 
         activityStreamPage.moreButtonUnderOwnComment.click();
@@ -476,18 +452,28 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
         BrowserUtils.sleep(3);
-
     }
 
 
     @When("Users click the username on the post")
     public void usersClickTheUsernameOnThePost() {
 
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+
+        BrowserUtils.sleep(3);
+
         activityStreamPage.cateNimalUserLink.click();
         BrowserUtils.sleep(2);
-//        String cateNimalHref = activityStreamPage.cateNimalUserLink.getAttribute("href");
-
-
     }
 
     @And("Users navigate to the profile page of the user")
@@ -503,4 +489,95 @@ public class Kenan_US_AZUL_1592_ActivityStream_StepDefinition {
         BrowserUtils.sleep(2);
 
     }
+
+    @When("Users click the add favorites button on top right of the post")
+    public void usersClickTheAddFavoritesButtonOnTopRightOfThePost() {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+//        jse.executeScript("arguments[0].scrollIntoView(true)",activityStreamPage.moreEventsButton);
+        jse.executeScript("window.scrollBy(0,50000)");
+
+        activityStreamPage.moreEventsButton.click();
+        BrowserUtils.sleep(2);
+
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        for (int i = 0; i < 300; i++) {
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+
+        BrowserUtils.sleep(3);
+
+        activityStreamPage.addFavoritesButton.click();
+        BrowserUtils.sleep(2);
+    }
+
+    @And("Users go to the their own profile page by clicking their username button on right top of the page")
+    public void usersGoToTheTheirOwnProfilePageByClickingTheirUsernameButtonOnRightTopOfThePage() {
+        activityStreamPage.usernameButton.click();
+        BrowserUtils.sleep(4);
+
+    }
+
+    @And("Users click My Profile button on the opening menu and navigate to profile page")
+    public void usersClickMyProfileButtonOnTheOpeningMenuAndNavigateToProfilePage() {
+
+        activityStreamPage.myProfileButtonUnderUsername.click();
+        BrowserUtils.sleep(4);
+    }
+
+    @And("Users navigate to Control Panel by clicking control panel button")
+    public void usersNavigateToControlPanelByClickingControlPanelButton() {
+        activityStreamPage.controlPanelButton.click();
+        BrowserUtils.sleep(3);
+    }
+
+    @Then("Users should be able to see the list of their own favorites that they added before")
+    public void usersShouldBeAbleToSeeTheListOfTheirOwnFavoritesThatTheyAddedBefore() {
+
+        String bookMarkList = activityStreamPage.bookMarkList.getText();
+        Assert.assertTrue(bookMarkList.contains("Cate Nimal"));
+        BrowserUtils.sleep(2);
+
+//        activityStreamPage.siteButton.click();
+//        BrowserUtils.sleep(2);
+//
+//        activityStreamPage.activityStreamButton.click();
+//        BrowserUtils.sleep(2);
+//
+//        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+////        jse.executeScript("arguments[0].scrollIntoView(true)",activityStreamPage.moreEventsButton);
+//        jse.executeScript("window.scrollBy(0,50000)");
+//
+//        activityStreamPage.moreEventsButton.click();
+//        BrowserUtils.sleep(2);
+//
+//
+//        Actions actions = new Actions(Driver.getDriver());
+//
+//        for (int i = 0; i < 300; i++) {
+//            actions.sendKeys(Keys.PAGE_DOWN).perform();
+//        }
+//
+//        BrowserUtils.sleep(3);
+//
+//        activityStreamPage.addFavoritesButton.click();
+//        BrowserUtils.sleep(2);
+    }
+
+
+    @And("Users click Settings button on Control Panel")
+    public void usersClickSettingsButtonOnControlPanel() {
+        activityStreamPage.settingsButtonOnProfile.click();
+        BrowserUtils.sleep(2);
+    }
+
+
+    @And("Users click Bookmarks button on Settings Panel")
+    public void usersClickBookmarksButtonOnSettingsPanel() {
+        activityStreamPage.bookmarksButtonOnProfile.click();
+        BrowserUtils.sleep(2);
+    }
+
+
 }
