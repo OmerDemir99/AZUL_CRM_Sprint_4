@@ -16,16 +16,17 @@ public class Sena_US05_CompanyStructure_StepDef {
 
     @When("users click the employee button")
     public void users_click_the_employee_button() {
+        BrowserUtils.sleep(2);
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(companyStructurePage.employeeButton).perform();
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(3);
         companyStructurePage.employeeButton.click();
 
     }
 
     @Then("verify that users should be able to see company structure")
     public void verify_that_users_should_be_able_to_see_company_structure() {
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(3);
         Assert.assertTrue(companyStructurePage.companyStructure.isDisplayed());
     }
 
@@ -297,12 +298,7 @@ public class Sena_US05_CompanyStructure_StepDef {
 
 
 
-
     }
 
-    @When("users click the {string} button")
-    public void usersClickTheButton(String string) {
 
-
-    }
 }

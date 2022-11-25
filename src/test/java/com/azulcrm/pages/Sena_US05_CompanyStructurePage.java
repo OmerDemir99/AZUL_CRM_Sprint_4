@@ -62,8 +62,6 @@ public class Sena_US05_CompanyStructurePage {
     @FindBy(xpath = "(//div[@class=\"structure-delete-icon\"])[2]")
     public WebElement xMark;
 
-    @FindBy()
-    public WebElement warningMessage;
 
     @FindBy(xpath = "(//span[@class=\"structure-dept-block structure-dept-third structure-dept-editable\"])[1]")
     public WebElement childDepartment;
