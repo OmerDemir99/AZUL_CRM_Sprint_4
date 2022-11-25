@@ -189,5 +189,41 @@ public class Adnan_AZUL_1584_sendMessage_StepDefs{
         messageModule.cancelBtn.click();
     }
 
+    @When("User searches the message that he wants to delete")
+    public void user_searches_the_message_that_he_wants_to_delete() {
+
+        messageModule.searchBox.sendKeys("jira test" + Keys.ENTER);
+        BrowserUtils.waitFor(1);
+    }
+
+
+    @Then("User clicks the MORE button at the bottom of that message")
+    public void user_clicks_the_more_button_at_the_bottom_of_that_message() {
+        BrowserUtils.sleep(2);
+        messageModule.moreBtn.click();
+
+    }
+    @Then("User clicks the Delete link")
+    public void user_clicks_the_delete_link() {
+        BrowserUtils.sleep(2);
+        messageModule.delBtn.click();
+
+    }
+    @Then("User clicks the OK button on the pop up window")
+    public void user_clicks_the_ok_button_on_the_pop_up_window() {
+        BrowserUtils.sleep(2);
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+
+    }
+    @Then("User sees {string} message on the window")
+    public void user_sees_message_on_the_window(String message) {
+        BrowserUtils.sleep(2);
+        System.out.println("Message: " + messageModule.postDeletedMessage.getText());
+        Assert.assertEquals(message, messageModule.postDeletedMessage.getText());
+
+    }
+
+
 
 }
