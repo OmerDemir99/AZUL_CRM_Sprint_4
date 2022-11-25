@@ -1,3 +1,4 @@
+@omer
 Feature: "Event" module on the Home page
   AZUL-1584 (US04): As a user, I should be able to create events
   by clicking on Event tab under Activity Stream.
@@ -89,7 +90,7 @@ Feature: "Event" module on the Home page
       | $½§{[] | }\  -ş  |
       |        |         |
 
-
+@smokes
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When type different characters for event start time "<char1>" and for event end time "<char2>"
     Then click send button
@@ -99,7 +100,6 @@ Feature: "Event" module on the Home page
       | char1  | char2   |
       | 098746 | qwtyhbv |
       | ,;.:@∑ | €®₺¥üi  |
-      | öπ¨~ß∂ | ƒğ∆¬´`  |
       | <>Ω≈ç√ | ∫µ≤≥÷£  |
       | $½§{[] | }\  -ş  |
       |        |         |
@@ -120,14 +120,6 @@ Feature: "Event" module on the Home page
 
 
   Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
-    When select impossible event start date and end date
-      | start date | 11/26/1700 |
-      | end date   | 11/27/2300 |
-    Then click send button
-    And verify that user should not be able to create event successfully
-
-
-  Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When for event end time select a time earlier than event start time
     Then click send button
     And verify that user should not be able to create event
@@ -136,31 +128,21 @@ Feature: "Event" module on the Home page
   Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When click specify time zone button
     Then click time zone start button
-    Then select appropriate time zone for beginning "<timeZoneStart>"
+    Then select appropriate time zone for beginning "<timeZoneStart>" and <index1>
     Then click time zone end button
-    Then select appropriate time zone for ending "<timeZoneEnd>"
-    And verify that user should be able to select time zones correctly "<timeZoneStart>" and "<timeZoneEnd>"
+    Then select appropriate time zone for ending "<timeZoneEnd>" and <index2>
 
     Examples: Time Zones
-      | timeZoneStart                | timeZoneEnd                     |
-      | (UTC -11:00) Pacific/Midway  | (UTC +14:00) Pacific/Kiritimati |
-      | (UTC -04:00) America/Halifax | (UTC -04:00) Atlantic/Bermuda   |
-      | (UTC +01:00) Europe/Oslo     | (UTC +01:00) Europe/Zurich      |
+      | timeZoneStart                | timeZoneEnd                     | index1 | index2 |
+      | (UTC -11:00) Pacific/Midway  | (UTC +14:00) Pacific/Kiritimati | 1      | 424    |
+      | (UTC -04:00) America/Halifax | (UTC -04:00) Atlantic/Bermuda   | 105    | 125    |
+      | (UTC +01:00) Europe/Oslo     | (UTC +01:00) Europe/Zurich      | 223    | 238    |
 
 
-  Scenario Outline: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
+  Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
     When click specify time zone button
-    Then click time zone start button
-    Then select appropriate time zone for beginning "<timeZoneStart>"
-    Then click time zone end button
-    Then select not appropriate time zone for ending "<timeZoneEnd>"
     And verify that user should be able to see information message of question mark
     Then click hide time zone button
-    And verify that user should not be able to create event if the times don't match with the time zones
-    Examples: Time Zones
-      | timeZoneStart                | timeZoneEnd                    |
-      | (UTC +05:00) Asia/Aqtau      | (UTC +02:00) Europe/Helsinki   |
-      | (UTC -01:00) Atlantic/Azores | (UTC -03:00) America/Fortaleza |
 
 
   Scenario: (AC-2) User should be able to set reminder.
@@ -217,9 +199,9 @@ Feature: "Event" module on the Home page
     And verify that user should not be able to add new people if he or she not exist the member list
 
     Examples: Type something
-      | something      |
-      | something      |
-      | 1234567890     |
+      | something   |
+      | something   |
+      | 1234567890  |
       | !'.^%&()=?_ |
 
 
@@ -277,7 +259,13 @@ Feature: "Event" module on the Home page
     And click send button right after click cancel button
     And verify that user should be able to cancel event sending
 
-
+  @ignore
+  Scenario: (AC-1) User should be able to add Event start and ending date and time, select "All day" and specify the time zone
+    When select impossible event start date and end date
+      | start date | 11/26/1700 |
+      | end date   | 11/27/2300 |
+    Then click send button
+    And verify that user should not be able to create event successfully
 
 
 

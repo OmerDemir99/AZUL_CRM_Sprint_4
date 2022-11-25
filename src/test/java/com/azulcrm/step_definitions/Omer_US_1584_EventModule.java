@@ -551,7 +551,7 @@ public class Omer_US_1584_EventModule {
 
     @When("type different characters for event start time {string} and for event end time {string}")
     public void type_different_characters_for_event_start_time_and_for_event_end_time(String startTime, String endTime) {
-        BrowserUtils.sleep(1);
+        BrowserUtils.sleep(2);
         eventPage.startTime.clear();
         eventPage.startTime.sendKeys(startTime);
 
@@ -647,65 +647,45 @@ public class Omer_US_1584_EventModule {
 
     @When("click specify time zone button")
     public void click_specify_time_zone_button() {
-
-
+        eventPage.specifyTimeZoneButton.click();
     }
 
 
-    @Then("select appropriate time zone for beginning {string}")
-    public void select_appropriate_time_zone_for_beginning(String string) {
-
+    @Then("select appropriate time zone for beginning {string} and {int}")
+    public void select_appropriate_time_zone_for_beginning_and(String timeZoneForBeginning, int index) {
+        eventPage.selectOption(eventPage.timeZoneStart, index, timeZoneForBeginning);
 
     }
 
     @Then("click time zone end button")
     public void click_time_zone_end_button() {
-
-
+        eventPage.timeZoneEnd.click();
     }
 
-    @Then("select appropriate time zone for ending {string}")
-    public void select_appropriate_time_zone_for_ending(String string) {
-
-
+    @Then("select appropriate time zone for ending {string} and {int}")
+    public void select_appropriate_time_zone_for_ending_and(String timeZoneForEnding, int index) {
+        eventPage.selectOption(eventPage.timeZoneStart, index, timeZoneForEnding);
     }
 
-    @Then("verify that user should be able to select time zones correctly {string} and {string}")
-    public void verify_that_user_should_be_able_to_select_time_zones_correctly_and(String string, String string2) {
-
-
-    }
-
-
-    @Then("select not appropriate time zone for ending {string}")
-    public void select_not_appropriate_time_zone_for_ending(String string) {
-
-
-    }
 
     @Then("verify that user should be able to see information message of question mark")
     public void verify_that_user_should_be_able_to_see_information_message_of_question_mark() {
-
-
+        String expectedInfoMessage = "If the event is going to take place in a different time zone, select one in the list. Different time zones for event start and end times are possible.";
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(eventPage.questionMark).perform();
+        String actualInfoMessage = eventPage.getQuestionMarkText.getText();;
+        Assert.assertEquals(expectedInfoMessage,actualInfoMessage);
     }
 
     @Then("click hide time zone button")
     public void click_hide_time_zone_button() {
-
-
-    }
-
-    @Then("verify that user should not be able to create event if the times don't match with the time zones")
-    public void verify_that_user_should_not_be_able_to_create_event_if_the_times_don_t_match_with_the_time_zones() {
-
-
+        eventPage.hideTimeZoneButton.click();
     }
 
 
     @Then("click time zone start button")
     public void click_time_zone_start_button() {
-
-
+        eventPage.timeZoneStart.click();
     }
 
 

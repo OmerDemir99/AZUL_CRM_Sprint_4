@@ -180,8 +180,11 @@ public class Omer_US_1584_EventPage {
     @FindBy(id = "feed-cal-tz-tocal_3Jcl")
     public WebElement timeZoneEnd;
 
-    @FindBy(xpath = "//div[@class='bx-panel-tooltip-text']/span" )
+    @FindBy(id = "feed-cal-tz-tipcal_3Jcl" )
     public WebElement questionMark;
+
+    @FindBy(xpath = "//div[@class='bx-panel-tooltip-text']/span")
+    public WebElement getQuestionMarkText;
 
 
     @FindBy(xpath = "//div/input[@id='event-locationcal_3Jcl']")
