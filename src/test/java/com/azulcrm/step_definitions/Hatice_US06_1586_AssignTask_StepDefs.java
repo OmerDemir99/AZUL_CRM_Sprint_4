@@ -82,7 +82,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
     @Then("verify that you see responsible person error message")
     public void verifyThatYouSeeResponsiblePersonErrorMessage() {
         Assert.assertTrue(taskPage.errorMessage.isDisplayed());
-        BrowserUtils.sleep(5);
+        BrowserUtils.sleep(2);
     }
 
     @And("check the number of tasks")
@@ -203,6 +203,7 @@ public class Hatice_US06_1586_AssignTask_StepDefs {
         taskPage.yearList.click();
         BrowserUtils.sleep(2);
         taskPage.yearInput.sendKeys("2023");
+        BrowserUtils.sleep(2);
         taskPage.weekdays.click();
 
         taskPage.hourUpArrow.click();

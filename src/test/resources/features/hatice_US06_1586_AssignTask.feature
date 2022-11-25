@@ -1,4 +1,4 @@
-@hatice
+
 Feature: Task assign function in quick navigate menu.
   AZUL-1586-US06: As a user, I should be able to assign tasks under Quick Navigate Menu.
 

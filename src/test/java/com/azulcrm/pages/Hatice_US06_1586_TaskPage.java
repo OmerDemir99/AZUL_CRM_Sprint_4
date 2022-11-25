@@ -19,9 +19,6 @@ public class Hatice_US06_1586_TaskPage {
     @FindBy(xpath = "//span[@class='if-not-no']")
     public WebElement highPriority;
 
-    @FindBy(xpath = "//div[@class='sidebar-widget sidebar-widget-tasks']")
-    public WebElement myTasks;
-
     @FindBy(xpath = "//span[@id='menu-counter-tasks_total']")
     public WebElement tasksCount;
 
@@ -96,12 +93,6 @@ public class Hatice_US06_1586_TaskPage {
 
     @FindBy(xpath = "//a[@class='bx-calendar-cell bx-calendar-active']")
     public WebElement activeDay;
-
-    @FindBy(xpath = "(//input[@class='bx-calendar-form-input'])[1]")
-    public WebElement hourInput;
-
-    @FindBy(xpath = "(//input[@class='bx-calendar-form-input'])[2]")
-    public WebElement minuteInput;
 
     @FindBy(xpath = "(//a[@class='bx-calendar-form-arrow bx-calendar-form-arrow-top'])[1]")
     public WebElement hourUpArrow;
