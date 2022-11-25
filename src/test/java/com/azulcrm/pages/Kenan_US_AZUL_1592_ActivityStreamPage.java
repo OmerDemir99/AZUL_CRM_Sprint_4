@@ -143,6 +143,58 @@ public class Kenan_US_AZUL_1592_ActivityStreamPage {
     @FindBy(xpath = "(//div[starts-with(@bx-content-view-xml-id,'BLOG_COMMENT-6')])[2]")
     public WebElement IAgreeWithYouMessage;
 
+    @FindBy(xpath = "//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG')]/div/div/a")
+    public WebElement viewCommentButtonUnderOwnComment;
+
+    @FindBy(xpath = "//div[starts-with(@id,'popup-window-content-menu-popup-action-BLOG')]/div/div/span")
+    public WebElement copyLinkButtonUnderOwnComment;
+
+    @FindBy(xpath = "/html/body/a")
+    public WebElement copyLinkATagUnderOwnComment;
+
+    //https://qa.azulcrm.com/company/personal/user/693/blog/2630/?commentId=688#com688
+
+    @FindBy(xpath = "//a[@id='bp_2766']")
+    public WebElement cateNimalUserLink;
+
+    @FindBy(xpath = "//*[@id=\"log_entry_favorites_4953\"]")
+    public WebElement addFavoritesButton;
+
+    @FindBy(xpath = "//*[@id=\"user-block\"]")
+    public WebElement usernameButton;
+
+    @FindBy(xpath = "//*[@id=\"popup-window-content-menu-popup-user-menu\"]/div/div/a[1]")
+    public WebElement myProfileButtonUnderUsername;
+
+    @FindBy(xpath = "//*[@id=\"bx-panel-admin-tab\"]")
+    public WebElement controlPanelButton;
+
+    @FindBy(xpath = "//*[@id=\"tbl_favorites\"]/tbody/tr/td")
+    public WebElement bookMarkList;
+
+    @FindBy(xpath = "//*[starts-with(@id,'bx_top_panel_button_')]")
+    public WebElement settingsButtonOnProfile;
+
+    @FindBy(xpath = "//*[@id=\"_global_menu_settings\"]/div/div/a")
+    public WebElement bookmarksButtonOnProfile;
+
+    @FindBy(xpath = "//*[@id=\"bx-panel-view-tab\"]")
+    public WebElement siteButton;
+
+    @FindBy(xpath = "//*[@id=\"bx_left_menu_menu_live_feed\"]/a")
+    public WebElement activityStreamButton;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
