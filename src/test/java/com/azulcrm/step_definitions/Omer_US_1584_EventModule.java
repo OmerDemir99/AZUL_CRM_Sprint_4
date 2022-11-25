@@ -267,7 +267,6 @@ public class Omer_US_1584_EventModule {
     }
 
 
-
     @Then("verify that the event end date is current date")
     public void verify_that_the_event_end_date_is_current_date() {
         BrowserUtils.sleep(1);
@@ -463,10 +462,6 @@ public class Omer_US_1584_EventModule {
         BrowserUtils.sleep(1);
         Assert.assertFalse(eventPage.allDayButton.isSelected());
     }
-
-
-
-
 
 
     @When("type the event start date {string} and event end date {string} different format with right order except the default format")
@@ -760,14 +755,11 @@ public class Omer_US_1584_EventModule {
             System.out.println("-----------Test Fail-----------");
         }
         BrowserUtils.sleep(1);
-
     }
-
 
     @When("click select meeting room button")
     public void click_select_meeting_room_button() {
         eventPage.selectingMeetingRoomButton.click();
-
     }
 
     @Then("verify that all room options are selectable")
@@ -788,12 +780,6 @@ public class Omer_US_1584_EventModule {
         Assert.assertEquals(expectedResult,actualResult);
     }
 
-    @Then("verify that the event can be created for all room option")
-    public void verify_that_the_event_can_be_created_for_all_room_option() {
-
-
-    }
-
     @Then("type anything using keyboard by manually")
     public void type_anything_using_keyboard_by_manually() {
         Actions actions = new Actions(Driver.getDriver());
@@ -807,9 +793,7 @@ public class Omer_US_1584_EventModule {
             System.out.println("-----------Test Fail-----------");
         }
         BrowserUtils.sleep(1);
-
     }
-
 
     @When("click add person input box")
     public void click_add_person_input_box() {
@@ -911,10 +895,6 @@ public class Omer_US_1584_EventModule {
 
     }
 
-    String expectedEventStartTime = eventPage.startTime.getAttribute("value");
-    String expectedEventEndTime = eventPage.endTime.getAttribute("value");
-    String expectedEventEndDate = eventPage.endDate.getAttribute("value");
-
     @Then("click time wrapper and slide it to left")
     public void click_time_wrapper_and_slide_it_to_left() {
         Actions actions = new Actions(Driver.getDriver());
@@ -949,9 +929,9 @@ public class Omer_US_1584_EventModule {
     @Then("verify that event start and end time change according to act of time line selector")
     public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_selector() {
         String actualEventEndTime = eventPage.endTime.getAttribute("value");
-        Assert.assertEquals(expectedEventEndTime ,actualEventEndTime);
+        Assert.assertEquals(eventPage.getEventEndTime() ,actualEventEndTime);
 
-        System.out.println("expectedEventEndTime = " + expectedEventEndTime);
+        System.out.println("expectedEventEndTime = " + eventPage.getEventEndTime() );
         System.out.println("actualEventEndTime = " + actualEventEndTime);
 
     }
@@ -975,8 +955,8 @@ public class Omer_US_1584_EventModule {
     @Then("verify that event start and end date change according to act of time line selector")
     public void verify_that_event_start_and_end_date_change_according_to_act_of_time_line_selector() {
         String actualEventEndDate = eventPage.endDate.getAttribute("value");
-        Assert.assertEquals(expectedEventEndDate ,actualEventEndDate);
-        System.out.println("expectedEventEndDate = " + expectedEventEndDate);
+        Assert.assertEquals(eventPage.getEventEndDate() ,actualEventEndDate);
+        System.out.println("expectedEventEndDate = " + eventPage.getEventEndDate());
         System.out.println("actualEventEndDate = " + actualEventEndDate);
 
     }
@@ -1013,64 +993,117 @@ public class Omer_US_1584_EventModule {
     @Then("verify that event start and end time change according to act of time line resizer")
     public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_resizer() {
         String actualEventStartTime = eventPage.startTime.getAttribute("value");
-        Assert.assertEquals(expectedEventStartTime ,actualEventStartTime );
-        System.out.println("expectedEventStartTime = " + expectedEventStartTime);
+        Assert.assertEquals(eventPage.getEventStartTime() ,actualEventStartTime );
+        System.out.println("expectedEventStartTime = " + eventPage.getEventStartTime());
         System.out.println("actualEventStartTime = " + actualEventStartTime);
 
         String actualEventEndTime = eventPage.endTime.getAttribute("value");
-        Assert.assertEquals(expectedEventEndTime ,actualEventEndTime);
-        System.out.println("expectedEventEndTime = " + expectedEventEndTime);
+        Assert.assertEquals(eventPage.getEventEndTime() ,actualEventEndTime);
+        System.out.println("expectedEventEndTime = " + eventPage.getEventEndTime());
         System.out.println("actualEventEndTime = " + actualEventEndTime);
 
     }
 
     @When("click event name input box and give event name")
     public void click_event_name_input_box_and_give_event_name() {
-
-
-    }
-
-
-    @Then("verify that user should be able to create event")
-    public void verify_that_user_should_be_able_to_create_event() {
-
-
+        eventPage.eventNameInputBox.click();
+        eventPage.eventNameInputBox.sendKeys("Wooden Spoon");
     }
 
 
     @Then("click event message input box and type something")
     public void click_event_message_input_box_and_type_something() {
+        Integer size = eventPage.allIframes.size();
+        System.out.println(size);
+        BrowserUtils.sleep(1);
+        eventPage.iframeChanger(1);
+        //Driver.getDriver().switchTo().frame(eventPage.iframe2);
+        BrowserUtils.sleep(1);
+        eventPage.eventMessageInputBox.click();
         String str = "1234567890*-\"é!'^^%&/()=?_,;.:<>£#$½§{[]}\\|@∑€®₺¥üiöπ¨~~ß∂ƒğ^∆¨¬´´``Ω≈ç√∫~µ≤≥qwertyuıopğüasdfghjklşizxcvbnmöç ";
+        eventPage.eventMessageInputBox.sendKeys(str);
+        BrowserUtils.sleep(1);
+        eventPage.parentIframe();
+    }
+
+    @When("click select east meeting room button")
+    public void click_select_east_meeting_room_button() {
+        eventPage.selectingMeetingRoomButton.click();
+        eventPage.eastMeetingRoom.click();
 
     }
 
+    @Then("select one people from the member list")
+    public void select_one_people_from_the_member_list() {
+        eventPage.addPersonsInputBox.click();
+        eventPage.peopleFromList.get(2).click();
+    }
+
+
+    @Then("verify that user should be able to create event")
+    public void verify_that_user_should_be_able_to_create_event() {
+        String  actualEventName = eventPage.eventNameInfo.getText();
+        Assert.assertEquals("Wooden Spoon", actualEventName);
+        Assert.assertTrue(eventPage.eventDateInfo.isDisplayed());
+        BrowserUtils.sleep(2);
+
+        try {
+            Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
+        }catch (AssertionError r){
+            r.printStackTrace();
+            System.out.println("------------The fail of event creation-------------");
+        }finally {
+            if (eventPage.sidebarTopTitle.get(0).getText().equalsIgnoreCase("Upcoming Events")) {
+                BrowserUtils.sleep(1);
+                eventPage.deleteEvent();
+                System.out.println("-----------Event is deleted successfully----------");
+            }else {
+                BrowserUtils.sleep(1);
+                eventPage.alternativeDeleteEvent();
+                System.out.println("-----------Event is deleted successfully----------");
+            }
+        }
+
+    }
+
+    @When("click event name input box and give event name by using different characters")
+    public void click_event_name_input_box_and_give_event_name_by_using_different_characters() {
+        eventPage.eventNameInputBox.click();
+        eventPage.eventNameInputBox.sendKeys("1234567890!'^^%&/()=?_-.:,;@∑€®₺₺¥qwerafdfbm  ~");
+    }
+
+
     @Then("verify that both of them accept all possible characters")
     public void verify_that_both_of_them_accept_all_possible_characters() {
-
+        String expectedEventName = "1234567890!'^^%&/()=?_-.:,;@∑€®₺₺¥qwerafdfm  b~";
+        String expectedEventMessage = "1234567890*-\"é!'^^%&/()=?_,;.:<>£#$½§{[]}\\|@∑€®₺¥üiöπ¨~~ß∂ƒğ^∆¨¬´´``Ω≈ç√∫~µ≤≥qwertyuıopğüasdfghjklşizxcvbnmöç ";
+        Assert.assertEquals(expectedEventName, eventPage.eventNameInputBox.getAttribute("value"));
+        Assert.assertEquals(expectedEventMessage, eventPage.eventMessageInputBox.getAttribute("textContent"));
 
     }
 
     @Then("click cancel button")
     public void click_cancel_button() {
-
-
+        eventPage.cancelButton.click();
     }
-    @Then("verify that user should be able to access home page")
-    public void verify_that_user_should_be_able_to_access_home_page() {
-
-
+    @Then("verify that user should be able to create an event")
+    public void verify_that_user_should_be_able_to_create_an_event() {
+        Assert.assertFalse(Driver.getDriver().getPageSource().contains("Event name:"));
+        Assert.assertFalse(Driver.getDriver().getPageSource().contains("Event date and time:"));
     }
 
     @Then("click send button right after click cancel button")
     public void click_send_button_right_after_click_cancel_button() {
+        eventPage.sendButton.click();
+        eventPage.cancelButton.click();
 
-
+        BrowserUtils.sleep(2);
     }
 
     @Then("verify that user should be able to cancel event sending")
     public void verify_that_user_should_be_able_to_cancel_event_sending() {
-
-
+        Assert.assertFalse(Driver.getDriver().getPageSource().contains("Event name:"));
+        Assert.assertFalse(Driver.getDriver().getPageSource().contains("Event date and time:"));
     }
 
 }

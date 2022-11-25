@@ -52,7 +52,7 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//input[@placeholder='Event name']")
     public WebElement eventNameInputBox;
 
-    @FindBy(xpath = "//body[@style='min-height: 70px;']")
+    @FindBy(xpath = "//body[@style='min-height: 104px;']")
     public WebElement eventMessageInputBox;
 
     @FindBy(id = "feed-cal-event-fromcal_3Jcl" )
@@ -289,6 +289,15 @@ public class Omer_US_1584_EventPage {
     @FindBy(xpath = "//a[@class='feed-add-post-destination-new']")
     public WebElement addPostDestinationInfo;
 
+    @FindBy(xpath = "(//iframe[@class='bx-editor-iframe'])[2]")
+    public WebElement iframe;
+
+    @FindBy(xpath = "(//iframe)[2]")
+    public WebElement iframe2;
+
+    @FindBy(tagName = "iframe")
+    public List<WebElement> allIframes;
+
 
     public void jsAlertAccept(){
         Alert alert = Driver.getDriver().switchTo().alert();
@@ -371,37 +380,20 @@ public class Omer_US_1584_EventPage {
         return text;
 
     }
-
-
-    public static void main(String[] args) {
-
-        String str="From 11/27/2022 10:00 am till 11/28/2022 11:00 am";
-        System.out.println(str.substring(5,15));
-        System.out.println(str.substring(30,41));
-
-       // Point point = timeLineSelector.getLocation().moveBy();
-       // int x = point.getX();
-       // int y = point.getY();
-       // System.out.println(x);
-      //  System.out.println(y);
-/*
-       String aa = "2022";
-       Integer xx = Integer.valueOf(aa)-1;
-        System.out.println(xx);
-        String qq = String.valueOf(xx);
-        System.out.println(qq);
-
-        Integer gizem = 232;
-        System.out.println("gizem = " + gizem);
-
-        Integer neslihan = 312;
-        System.out.println("neslihan = " + neslihan);
-
- */
+    public String getEventStartTime(){
+        String expectedEventStartTime = startTime.getAttribute("value");
+        return expectedEventStartTime;
     }
 
+    public String getEventEndTime(){
+        String expectedEventEndTime = endTime.getAttribute("value");
+        return expectedEventEndTime;
+    }
 
-
+    public String getEventEndDate(){
+        String expectedEventEndDate = endDate.getAttribute("value");
+        return expectedEventEndDate;
+    }
 
 
 }

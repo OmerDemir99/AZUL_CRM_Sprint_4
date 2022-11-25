@@ -185,7 +185,6 @@ Feature: "Event" module on the Home page
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
     When click select meeting room button
     Then verify that all room options are selectable
-    And verify that the event can be created for all room option
 
 
   Scenario: (AC-3) User should be able to select the event location from the dropdown.
@@ -211,7 +210,7 @@ Feature: "Event" module on the Home page
     And delete all options from member input box
     And verify that all members are deleted successfully
 
-  @wippp
+
   Scenario Outline: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then type something for adding new people "<something>"
@@ -223,7 +222,7 @@ Feature: "Event" module on the Home page
       | 1234567890     |
       | !'.^%&()=?_ |
 
-  @wippp
+
   Scenario: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then select one people from the list
@@ -242,40 +241,39 @@ Feature: "Event" module on the Home page
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
     When click event name input box and give event name
     Then click event message input box and type something
-    Then click select meeting room button
-    Then select one people from the list
+    Then click select east meeting room button
+    Then select one people from the member list
     Then click send button
     And verify that user should be able to create event
 
 
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
     Then click event message input box and type something
-    Then click select meeting room button
-    Then select one people from the list
+    Then click select east meeting room button
+    Then select one people from the member list
     Then click send button
     And verify that user should not be able to create event
 
 
   Scenario: (AC-5) User should be able to send messages by filling the mandatory fields.
-    When click event name input box and give event name
+    When click event name input box and give event name by using different characters
     Then click event message input box and type something
     And verify that both of them accept all possible characters
 
 
   Scenario: (AC-6) User should be able to cancel sending event at any time before sending.
     Then click event message input box and type something
-    Then click event message input box and type something
-    Then click select meeting room button
-    Then select one people from the list
+    Then click select east meeting room button
+    Then select one people from the member list
     And click cancel button
-    And verify that user should be able to access home page
+    And verify that user should be able to create an event
 
 
   Scenario: (AC-6) User should be able to cancel sending event at any time before sending.
     Then click event message input box and type something
     Then click event message input box and type something
-    Then click select meeting room button
-    Then select one people from the list
+    Then click select east meeting room button
+    Then select one people from the member list
     And click send button right after click cancel button
     And verify that user should be able to cancel event sending
 
