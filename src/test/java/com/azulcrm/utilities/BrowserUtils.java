@@ -1,6 +1,7 @@
 package com.azulcrm.utilities;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +19,19 @@ public class BrowserUtils {
         try {
             Thread.sleep(second);
         }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Performs a pause
+     *
+     * @param seconds
+     */
+    public static void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -71,7 +85,29 @@ public class BrowserUtils {
 
         return actualOptions;
     }
+    /**
+     * Waits for the provided element to be visible on the page
+     *
+     * @param element
+     * @param timeToWaitInSec
+     * @return
+     */
+    public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
 
+    /**
+     * Waits for element matching the locator to be visible on the page
+     *
+     * @param locator
+     * @param timeout
+     * @return
+     */
+    public static WebElement waitForVisibility(By locator, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 
     /**
      * This method will accept a group of WebElement.
