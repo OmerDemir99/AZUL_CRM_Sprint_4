@@ -21,6 +21,7 @@ import java.util.Map;
 
 public class Omer_US_1584_EventModule {
     Omer_US_1584_EventPage eventPage = new Omer_US_1584_EventPage();
+
     @When("users click Event {string} button")
     public void users_click_event_button(String titleOfBlog) {
         eventPage.clickMicroBlog(titleOfBlog);
