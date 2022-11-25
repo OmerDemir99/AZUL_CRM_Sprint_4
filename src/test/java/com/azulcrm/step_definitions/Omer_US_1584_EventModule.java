@@ -4,17 +4,15 @@ import com.azulcrm.pages.Omer_US_1584_EventPage;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
 import com.azulcrm.utilities.Driver;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
-import io.cucumber.java.it.Ma;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 
 
 import java.util.ArrayList;
@@ -915,7 +913,9 @@ public class Omer_US_1584_EventModule {
 
     }
 
+    String expectedEventStartTime = eventPage.startTime.getAttribute("value");
     String expectedEventEndTime = eventPage.endTime.getAttribute("value");
+    String expectedEventEndDate = eventPage.endDate.getAttribute("value");
 
     @Then("click time wrapper and slide it to left")
     public void click_time_wrapper_and_slide_it_to_left() {
@@ -953,35 +953,76 @@ public class Omer_US_1584_EventModule {
         String actualEventEndTime = eventPage.endTime.getAttribute("value");
         Assert.assertEquals(expectedEventEndTime ,actualEventEndTime);
 
+        System.out.println("expectedEventEndTime = " + expectedEventEndTime);
+        System.out.println("actualEventEndTime = " + actualEventEndTime);
+
     }
 
     @Then("click time line selector and slide it to left and right")
     public void click_time_line_selector_and_slide_it_to_left_and_right() {
-
-
+        Point point = eventPage.timeLineSelector.getLocation();
+        int x = point.getX();
+        int y = point.getY();
+        Actions actions = new Actions(Driver.getDriver());
+        try {
+            actions.dragAndDropBy(eventPage.timeLineSelector, 0, 1000).perform();
+            BrowserUtils.sleep(2);
+            actions.dragAndDropBy(eventPage.timeLineSelector, 0, 1750).perform();
+            BrowserUtils.sleep(2);
+        }catch (MoveTargetOutOfBoundsException m){
+            m.printStackTrace();
+        }
     }
 
     @Then("verify that event start and end date change according to act of time line selector")
     public void verify_that_event_start_and_end_date_change_according_to_act_of_time_line_selector() {
-
+        String actualEventEndDate = eventPage.endDate.getAttribute("value");
+        Assert.assertEquals(expectedEventEndDate ,actualEventEndDate);
+        System.out.println("expectedEventEndDate = " + expectedEventEndDate);
+        System.out.println("actualEventEndDate = " + actualEventEndDate);
 
     }
 
     @Then("click time line resizer and increase the event time")
     public void click_time_line_resizer_and_increase_the_event_time() {
+        Actions actions = new Actions(Driver.getDriver());
+        try {
+            actions.dragAndDropBy(eventPage.timeLineResizer, 0, 100).perform();
+            BrowserUtils.sleep(2);
+        }catch (MoveTargetOutOfBoundsException m){
+            m.printStackTrace();
+        }
+        BrowserUtils.sleep(2);
+        for (int i = 0; i < 5; i++) {
+            actions.clickAndHold(eventPage.timeLineWrapper).sendKeys(Keys.ARROW_RIGHT);
+        }
 
 
     }
 
     @Then("click time line resizer and decrease the event time")
     public void click_time_line_resizer_and_decrease_the_event_time() {
-
+        Actions actions = new Actions(Driver.getDriver());
+        try {
+            actions.dragAndDropBy(eventPage.timeLineResizer, 0, 20).perform();
+            BrowserUtils.sleep(2);
+        }catch (MoveTargetOutOfBoundsException m){
+            m.printStackTrace();
+        }
 
     }
 
     @Then("verify that event start and end time change according to act of time line resizer")
     public void verify_that_event_start_and_end_time_change_according_to_act_of_time_line_resizer() {
+        String actualEventStartTime = eventPage.startTime.getAttribute("value");
+        Assert.assertEquals(expectedEventStartTime ,actualEventStartTime );
+        System.out.println("expectedEventStartTime = " + expectedEventStartTime);
+        System.out.println("actualEventStartTime = " + actualEventStartTime);
 
+        String actualEventEndTime = eventPage.endTime.getAttribute("value");
+        Assert.assertEquals(expectedEventEndTime ,actualEventEndTime);
+        System.out.println("expectedEventEndTime = " + expectedEventEndTime);
+        System.out.println("actualEventEndTime = " + actualEventEndTime);
 
     }
 

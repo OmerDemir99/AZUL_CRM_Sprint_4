@@ -211,7 +211,7 @@ Feature: "Event" module on the Home page
     And delete all options from member input box
     And verify that all members are deleted successfully
 
-
+  @wippp
   Scenario Outline: (AC-4) User should be able to add members by selecting contacts individually or adding groups and departments.
     When click add person input box
     Then type something for adding new people "<something>"

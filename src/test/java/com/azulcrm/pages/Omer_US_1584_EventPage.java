@@ -2,7 +2,6 @@ package com.azulcrm.pages;
 
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.Driver;
-import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
@@ -22,6 +21,7 @@ public class Omer_US_1584_EventPage {
     public Omer_US_1584_EventPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
 
 
     @FindBy(xpath = "(//div[@id='feed-add-post-form-tab']/span/span)[1]")
@@ -378,6 +378,12 @@ public class Omer_US_1584_EventPage {
         String str="From 11/27/2022 10:00 am till 11/28/2022 11:00 am";
         System.out.println(str.substring(5,15));
         System.out.println(str.substring(30,41));
+
+       // Point point = timeLineSelector.getLocation().moveBy();
+       // int x = point.getX();
+       // int y = point.getY();
+       // System.out.println(x);
+      //  System.out.println(y);
 /*
        String aa = "2022";
        Integer xx = Integer.valueOf(aa)-1;
