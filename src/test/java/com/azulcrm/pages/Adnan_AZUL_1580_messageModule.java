@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Adnan_AZUL_1584_messageModule {
+public class Adnan_AZUL_1580_messageModule {
 
-    public Adnan_AZUL_1584_messageModule() {
+    public Adnan_AZUL_1580_messageModule() {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
@@ -89,7 +89,7 @@ public class Adnan_AZUL_1584_messageModule {
     @FindBy(css = "input[id=\"LIVEFEED_search\"]")
     public WebElement searchBox;
 
-    @FindBy(css = "span[id='feed-post-more-2786']")
+    @FindBy(css = "span[id='feed-post-more-2813']")
     public WebElement moreBtn;
 
     @FindBy(xpath = "(//span[@class='menu-popup-item-text'])[7]")

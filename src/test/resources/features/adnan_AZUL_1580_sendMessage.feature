@@ -76,7 +76,7 @@ Feature: Message functionality
     And User adds a "department" from the department list
     And User CANCELS sending this message
 
-  @wip
+    @adnan
   Scenario: User should be able to DELETE messages after sending.
     When User searches the message that he wants to delete
     Then User clicks the MORE button at the bottom of that message

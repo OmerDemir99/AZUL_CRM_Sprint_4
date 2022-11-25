@@ -1,6 +1,6 @@
 package com.azulcrm.step_definitions;
 
-import com.azulcrm.pages.Adnan_AZUL_1584_messageModule;
+import com.azulcrm.pages.Adnan_AZUL_1580_messageModule;
 import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.ConfigurationReader;
 import com.azulcrm.utilities.Driver;
@@ -13,9 +13,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
-public class Adnan_AZUL_1584_sendMessage_StepDefs{
+public class Adnan_AZUL_1580_sendMessage_StepDefs {
 
-    Adnan_AZUL_1584_messageModule messageModule = new Adnan_AZUL_1584_messageModule();
+    Adnan_AZUL_1580_messageModule messageModule = new Adnan_AZUL_1580_messageModule();
 
     // User should be able to send a message by filling in the mandatory fields.
     @When("User clicks MESSAGE module")
@@ -192,7 +192,7 @@ public class Adnan_AZUL_1584_sendMessage_StepDefs{
     @When("User searches the message that he wants to delete")
     public void user_searches_the_message_that_he_wants_to_delete() {
 
-        messageModule.searchBox.sendKeys("jira test" + Keys.ENTER);
+        messageModule.searchBox.sendKeys("JIRA" + Keys.ENTER);
         BrowserUtils.waitFor(1);
     }
 
