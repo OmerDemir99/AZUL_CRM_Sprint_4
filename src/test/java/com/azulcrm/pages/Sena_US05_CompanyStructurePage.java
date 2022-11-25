@@ -14,6 +14,9 @@ public class Sena_US05_CompanyStructurePage {
 
 
     @FindBy(xpath = "//a[@title='Employees']")
+
+            //span[@class=\"menu-item-link-text\"])[14]")
+
     public WebElement employeeButton;
 
     @FindBy(xpath = "//span[@id=\"pagetitle\"]")

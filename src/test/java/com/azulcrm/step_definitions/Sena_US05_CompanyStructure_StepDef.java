@@ -19,6 +19,9 @@ public class Sena_US05_CompanyStructure_StepDef {
         BrowserUtils.sleep(2);
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(companyStructurePage.employeeButton).perform();
+
+
+
         BrowserUtils.sleep(3);
         companyStructurePage.employeeButton.click();
 
