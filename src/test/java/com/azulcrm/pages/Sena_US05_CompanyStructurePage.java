@@ -13,7 +13,7 @@ import java.util.List;
 public class Sena_US05_CompanyStructurePage {
 
 
-    @FindBy(xpath = "(//span[@class=\"menu-item-link-text\"])[10]")
+    @FindBy(xpath = "//a[@title='Employees']")
     public WebElement employeeButton;
 
     @FindBy(xpath = "//span[@id=\"pagetitle\"]")
