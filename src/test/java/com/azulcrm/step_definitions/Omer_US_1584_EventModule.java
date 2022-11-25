@@ -14,16 +14,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class Omer_US_1584_EventModule {
-
     Omer_US_1584_EventPage eventPage = new Omer_US_1584_EventPage();
-
     @When("users click Event {string} button")
     public void users_click_event_button(String titleOfBlog) {
         eventPage.clickMicroBlog(titleOfBlog);
@@ -32,8 +29,8 @@ public class Omer_US_1584_EventModule {
 
     @Then("verify that the event start date is current date")
     public void verify_that_the_event_start_date_is_current_date() {
-      String actualDate =  eventPage.startDate.getAttribute("value");
-      String expectedDate = eventPage.currentDay();
+        String actualDate =  eventPage.startDate.getAttribute("value");
+        String expectedDate = eventPage.currentDay();
         BrowserUtils.sleep(1);
         Assert.assertEquals(expectedDate, actualDate);
 
@@ -71,7 +68,7 @@ public class Omer_US_1584_EventModule {
     @Then("click selected month and verify that all months are in the correct order")
     public void click_selected_month_and_verify_that_all_months_are_in_the_correct_order() {
         eventPage.topMonth.click();
-        List <String> expectedResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
         expectedResult.addAll(Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"));
         List <String> actualResult = new ArrayList<>();
         List <WebElement> months = eventPage.monthContents;
@@ -147,12 +144,12 @@ public class Omer_US_1584_EventModule {
         BrowserUtils.sleep(2);
         List<WebElement> calenderCells = eventPage.calenderCells;
         for (WebElement calenderCell : calenderCells) {
-                if (calenderCell.getText().equals(dayOfMonth)){
-                    calenderCell.click();
-                    String actualDate = eventPage.startDate.getAttribute("value");
-                    Assert.assertEquals("11/29/2022", actualDate);
-                    break;
-                }
+            if (calenderCell.getText().equals(dayOfMonth)){
+                calenderCell.click();
+                String actualDate = eventPage.startDate.getAttribute("value");
+                Assert.assertEquals("11/29/2022", actualDate);
+                break;
+            }
         }
 
         BrowserUtils.sleep(2);
@@ -522,22 +519,22 @@ public class Omer_US_1584_EventModule {
     public void verify_that_user_should_not_be_able_to_create_event() {
 
         BrowserUtils.sleep(2);
-       try {
-           Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
-       }catch (AssertionError r){
-           r.printStackTrace();
-           System.out.println("------------The fail of event creation-------------");
-       }finally {
-           if (eventPage.sidebarTopTitle.get(0).getText().equalsIgnoreCase("Upcoming Events")) {
-               BrowserUtils.sleep(1);
-               eventPage.deleteEvent();
-               System.out.println("-----------Event is deleted successfully----------");
-           }else {
-               BrowserUtils.sleep(1);
-               eventPage.alternativeDeleteEvent();
-               System.out.println("-----------Event is deleted successfully----------");
-           }
-       }
+        try {
+            Assert.assertFalse(eventPage.eventDateInfo.isDisplayed());
+        }catch (AssertionError r){
+            r.printStackTrace();
+            System.out.println("------------The fail of event creation-------------");
+        }finally {
+            if (eventPage.sidebarTopTitle.get(0).getText().equalsIgnoreCase("Upcoming Events")) {
+                BrowserUtils.sleep(1);
+                eventPage.deleteEvent();
+                System.out.println("-----------Event is deleted successfully----------");
+            }else {
+                BrowserUtils.sleep(1);
+                eventPage.alternativeDeleteEvent();
+                System.out.println("-----------Event is deleted successfully----------");
+            }
+        }
 
     }
 
@@ -642,11 +639,11 @@ public class Omer_US_1584_EventModule {
 
     @When("for event end time select a time earlier than event start time")
     public void for_event_end_time_select_a_time_earlier_than_event_start_time() {
-    eventPage.endTime.click();
-    eventPage.decreaseDownButtons.get(0).click();
-    BrowserUtils.sleep(1);
-    eventPage.decreaseDownButtons.get(0).click();
-    eventPage.setTimeButtons.get(0).click();
+        eventPage.endTime.click();
+        eventPage.decreaseDownButtons.get(0).click();
+        BrowserUtils.sleep(1);
+        eventPage.decreaseDownButtons.get(0).click();
+        eventPage.setTimeButtons.get(0).click();
 
     }
 
@@ -749,7 +746,7 @@ public class Omer_US_1584_EventModule {
     public void create_an_event_with_inappropriate_reminder(String reminderValue) {
         Actions actions = new Actions(Driver.getDriver());
         actions.doubleClick(eventPage.remindCounter).perform();
-           actions.sendKeys(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.BACK_SPACE).perform();
         BrowserUtils.sleep(1);
         actions.sendKeys(eventPage.remindCounter,reminderValue).perform();
 
@@ -889,8 +886,8 @@ public class Omer_US_1584_EventModule {
     @Then("delete all options from member input box")
     public void delete_all_options_from_member_input_box() {
         for (WebElement each : eventPage.deleteMembers){
-                each.click();
-         }
+            each.click();
+        }
     }
 
     @Then("verify that all members are deleted successfully")
@@ -1042,7 +1039,7 @@ public class Omer_US_1584_EventModule {
 
     @Then("click event message input box and type something")
     public void click_event_message_input_box_and_type_something() {
-       String str = "1234567890*-\"é!'^^%&/()=?_,;.:<>£#$½§{[]}\\|@∑€®₺¥üiöπ¨~~ß∂ƒğ^∆¨¬´´``Ω≈ç√∫~µ≤≥qwertyuıopğüasdfghjklşizxcvbnmöç ";
+        String str = "1234567890*-\"é!'^^%&/()=?_,;.:<>£#$½§{[]}\\|@∑€®₺¥üiöπ¨~~ß∂ƒğ^∆¨¬´´``Ω≈ç√∫~µ≤≥qwertyuıopğüasdfghjklşizxcvbnmöç ";
 
     }
 
@@ -1076,3 +1073,4 @@ public class Omer_US_1584_EventModule {
     }
 
 }
+
