@@ -1,6 +1,5 @@
 package com.azulcrm.pages;
 
-import com.azulcrm.utilities.BrowserUtils;
 import com.azulcrm.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -24,10 +23,24 @@ public class Gulsum_US07_1587_pollPage {
     @FindBy(xpath = "//div[@class='bx-finder-box-tabs']/a[2]" )
     public WebElement employeesAndDepartments;
 
+//    @FindBy(xpath = "//div[@class='bx-finder-box-tabs']/a[3]" )
+//    public WebElement employeesAndDepartments;
 
-    @FindBy(xpath ="//div[@class='bx-finder-company-department-employee-name']\n" )
-    public List<WebElement> multipleContacts;
+    @FindBy(xpath = "//div[@class='bx-finder-company-department-employee-info']//div[.='hr38@cybertekschool.com']" )
+    public WebElement hrUsername;
 
+    @FindBy(xpath = "//div[@class='bx-finder-company-department-employee-info']//div[.='marketing85@cybertekschool.com']" )
+    public WebElement marketingUsername;
+
+    @FindBy(xpath = "//div[@class='bx-finder-company-department-employee-info']//div[.='helpdesk28@cybertekschool.com']" )
+    public WebElement helpdeskUsername;
+
+//    @FindBy(xpath ="//div[@class='bx-finder-company-department-employee-name']\n" )
+//    public List<WebElement> multipleContacts;
+
+
+    @FindBy(xpath="//div[@class='feed-add-post-destination-wrap']")
+    public WebElement toBox;
 
     @FindBy(xpath = "//input[@id='question_0']" )
     public WebElement question1;
@@ -68,19 +81,27 @@ public class Gulsum_US07_1587_pollPage {
 //   @FindBy (xpath = "//button[@id='blog-submit-button-save']")
 //   public WebElement sendButton;
 
-//   @FindBy (xpath = "//body[@contenteditable='true']")
+   @FindBy (xpath = "//body[@contenteditable='true']")
+    public WebElement pollMessage;
+
+    //    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
 //    public WebElement pollBox;
 
    @FindBy (xpath = "//span[@class='feed-add-post-del-but']")
     public WebElement removeAllEmployees;
 
+    @FindBy (xpath = "//span[@class='popup-window-close-icon']")
+    public  WebElement closeIcon;
+
+    @FindBy (xpath = "//span[@class='feed-add-info-text']")
+    public  WebElement titleErrorMessage;
    @FindBy (xpath = "//span[@class='feed-add-info-text']")
     public  WebElement personErrorMessage;
 
-    @FindBy (xpath = "")
+    @FindBy (xpath = "//span[@class='feed-add-info-text']")
     public  WebElement questionErrorMessage;
 
-    @FindBy (xpath = "")
+    @FindBy (xpath = "//span[@class='feed-add-info-text']")
     public  WebElement answerErrorMessage;
 
 
