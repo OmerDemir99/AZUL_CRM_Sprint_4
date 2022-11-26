@@ -13,10 +13,13 @@ import java.util.List;
 public class Sena_US05_CompanyStructurePage {
 
 
+    public Sena_US05_CompanyStructurePage(){
+
+        PageFactory.initElements(Driver.getDriver(), this);
+
+    }
+
     @FindBy(xpath = "//a[@title='Employees']")
-
-            //span[@class=\"menu-item-link-text\"])[14]")
-
     public WebElement employeeButton;
 
     @FindBy(xpath = "//span[@id=\"pagetitle\"]")
