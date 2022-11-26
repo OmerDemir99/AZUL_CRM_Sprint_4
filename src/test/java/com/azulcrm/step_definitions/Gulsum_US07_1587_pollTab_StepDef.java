@@ -37,35 +37,28 @@ public class Gulsum_US07_1587_pollTab_StepDef {
 
     }
 
-    @When("user adds {string} by selecting multiple contacts")
-    public void user_adds_by_selecting_multiple_contacts(String users) {
-
-        for (WebElement each : pollPage.multipleContacts) {
-            if (each.getText().equals(users)) {
-                each.click();
-            }
-        }
+    @And("user adds on usernames {string} and {string} and {string}")
+    public void userAddsOnUsernamesAndAnd(String user1, String user2, String user3) {
+        pollPage.helpdeskUsername.click();
         BrowserUtils.sleep(2);
+        pollPage.hrUsername.click();
+        BrowserUtils.sleep(2);
+        pollPage.marketingUsername.click();
+        BrowserUtils.sleep(2);
+    }
 
-
-
-        //        for (WebElement each : pollPage.multipleContacts) {
+//    @When("user adds {string} by selecting multiple contacts")
+//    public void user_adds_by_selecting_multiple_contacts(String users) {
+//
+//        for (WebElement each : pollPage.multipleContacts) {
 //            if (each.getText().equals(users)) {
 //                each.click();
-//                BrowserUtils.sleep(1);
-////                Assert.assertTrue(pollPage.toBox.getText().contains(users));
-//                Assert.assertEquals(pollPage.toBox.getText().contains(users), pollPage.denme.getText());
-//                BrowserUtils.sleep(1);
-//
 //            }
 //        }
+//        BrowserUtils.sleep(3);
+//
+//    }
 
-    }
-
-    @Then("user sees the added users")
-    public void user_sees_the_added_users() {
-
-    }
 
     @When("user adds question {string}")
     public void userAddsQuestion(String firstQuestion) {
@@ -173,11 +166,16 @@ public class Gulsum_US07_1587_pollTab_StepDef {
         BrowserUtils.sleep(2);
     }
 
-//     @When("user writes message {string} in poll box")
-//    public void userWritesMessageInPollBox(String message) {
-//        pollPage.pollBox.sendKeys(message);
-//        BrowserUtils.sleep(2);
-//    }
+     @When("user writes message {string} in poll box")
+    public void userWritesMessageInPollBox(String message) {
+        Driver.getDriver().switchTo().frame(0);
+
+        pollPage.pollMessage.sendKeys(message);
+
+        Driver.getDriver().switchTo().parentFrame();
+
+         BrowserUtils.sleep(2);
+    }
 
     @And("user removes All employees at To box")
     public void userRemovesAllEmployeesAtToBox() {
@@ -185,41 +183,54 @@ public class Gulsum_US07_1587_pollTab_StepDef {
         BrowserUtils.sleep(2);
     }
 
+    @And("user closes the opened users window")
+    public void userUserClosesTheOpenedUsersWindow() {
+        pollPage.closeIcon.click();
+        BrowserUtils.sleep(4);
+    }
 
     @Then("user should see title error message {string}")
-    public void userShouldSeeTitleErrorMessage(String arg0 ) {
+    public void userShouldSeeTitleErrorMessage(String titleError ) {
+        String expectedString = "The message title is not specified";
+        String actualString = pollPage.titleErrorMessage.getText();
 
+        Assert.assertEquals(expectedString,actualString);
+        BrowserUtils.sleep(2);
     }
 
     @Then("user should see person error message {string}")
-    public void userShouldSeePersonErrorMessage(String arg0) {
+    public void userShouldSeePersonErrorMessage(String personError) {
 //        Assert.assertTrue(pollPage.personErrorMessage.isDisplayed());
 //        BrowserUtils.sleep(2);
 
+        String expectedString = "Please specify at least one person.";
+        String actualString = pollPage.personErrorMessage.getText();
 
-
-
-//        String expectedTitle = "Please specify at least one person.";
-//        String actualTitle = Driver.getDriver().getTitle();
-//
-//        Assert.assertEquals(expectedTitle,actualTitle);
-//        BrowserUtils.sleep(2);
+        Assert.assertEquals(expectedString,actualString);
+        Assert.assertTrue(pollPage.personErrorMessage.isDisplayed());
+        BrowserUtils.sleep(2);
     }
 
     @Then("user should see question error message {string}")
     public void userShouldSeeQuestionErrorMessage(String questionError) {
 
+        String expectedString = "Please specify at least one question.";
+        String actualString = pollPage.questionErrorMessage.getText();
+
+        Assert.assertEquals(expectedString,actualString);
+        BrowserUtils.sleep(2);
     }
 
 
+    @Then("user should see answer error message {string}")
+    public void userShouldSeeAnswerErrorMessage(String answerError) {
+        String expected= "Please specify at least two answers.";
+        String actual=pollPage.answerErrorMessage.getText();
 
-//    @Then("user should see answer error message {string}")
-//    public void userShouldSeeAnswerErrorMessage(String string) {
-//        String expected= questionErrorMessage;
-//        String actual=pollPage.questionErrorMessage.getText();
-//
-//        Assert.assertEquals(expected,actual);
-//    }
+        Assert.assertEquals(expected,actual);
+        BrowserUtils.sleep(2);
+    }
+
 
 }
 
