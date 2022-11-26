@@ -56,23 +56,25 @@ public class Sena_US05_CompanyStructurePage {
     @FindBy(xpath = "//*[@id=\"BXStructure\"]/div[3]/span[2]")
     public WebElement closeButton;
 
-    @FindBy(xpath = "(//span[@class=\"popup-window-close-icon popup-window-titlebar-close-icon\"])[2]")
+    @FindBy(xpath = "//*[@id=\"BXStructure\"]/span")
     public WebElement xForClose;
 
-    @FindBy(xpath = "(//div[@class=\"structure-edit-icon\"])[2]")
+
+    @FindBy(xpath = "(//div[@class='structure-edit-icon'])[2]")
     public WebElement pencilMark;
 
-    @FindBy(xpath = "(//div[@title=\"Add child department\"])[2]")
+    @FindBy(xpath = "(//div[@title='Add child department'])[2]")
     public WebElement plusMark;
 
     @FindBy(xpath = "(//div[@class=\"structure-delete-icon\"])[2]")
     public WebElement xMark;
 
 
-    @FindBy(xpath = "(//span[@class=\"structure-dept-block structure-dept-third structure-dept-editable\"])[1]")
+    @FindBy(xpath = "(//span[@class='structure-dept-block structure-dept-third structure-dept-editable'])[1]")
     public WebElement childDepartment;
 
-    @FindBy(xpath = "(//span[@class=\"structure-dept-block structure-dept-second structure-dept-editable\"])[1]")
+
+    @FindBy(xpath = "//span[@class='structure-dept-block structure-dept-first structure-dept-editable structure-dept-top']")
     public WebElement newDepartment;
 
     @FindBy(xpath = "(//div[@class=\"finder-box-item-text\"])[1]")
