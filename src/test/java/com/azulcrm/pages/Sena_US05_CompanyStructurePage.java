@@ -12,7 +12,6 @@ import java.util.List;
 
 public class Sena_US05_CompanyStructurePage {
 
-
     public Sena_US05_CompanyStructurePage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
@@ -55,10 +54,8 @@ public class Sena_US05_CompanyStructurePage {
 
     @FindBy(xpath = "//*[@id=\"BXStructure\"]/div[3]/span[2]")
     public WebElement closeButton;
-
     @FindBy(xpath = "//*[@id=\"BXStructure\"]/span")
     public WebElement xForClose;
-
 
     @FindBy(xpath = "(//div[@class='structure-edit-icon'])[2]")
     public WebElement pencilMark;

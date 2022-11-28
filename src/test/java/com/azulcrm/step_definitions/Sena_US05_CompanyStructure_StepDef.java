@@ -291,13 +291,10 @@ public class Sena_US05_CompanyStructure_StepDef {
 
         BrowserUtils.sleep(2);
         companyStructurePage.xMark.click();
-
         BrowserUtils.sleep(2);
 
         Driver.getDriver().switchTo().alert().accept();
-
         BrowserUtils.sleep(2);
-
 
     }
 

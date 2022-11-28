@@ -187,7 +187,7 @@ Feature: Functions on Company Structure under Employee menu
     And users click the x mark on new department
     And users should be able to see warning message
 
-  @AZUL-1724
+  @AZUL-1724 @smoke
   Scenario: US05-AC-7 Hr user should be able to drag and drop the existing department under another department as a sub-department
     Given users should login with valid credentials as "hr"
     When users click the employee button
