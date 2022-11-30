@@ -14,11 +14,13 @@ public class Sena_US05_CompanyStructure_StepDef {
 
     Sena_US05_CompanyStructurePage companyStructurePage = new Sena_US05_CompanyStructurePage();
 
+
     @When("users click the employee button")
     public void users_click_the_employee_button() {
         BrowserUtils.sleep(2);
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(companyStructurePage.employeeButton).perform();
+
         BrowserUtils.sleep(3);
         companyStructurePage.employeeButton.click();
 
@@ -165,7 +167,9 @@ public class Sena_US05_CompanyStructure_StepDef {
     @Then("verify that users should be able to click x button and pop-up closed")
     public void verifyThatUsersShouldBeAbleToClickXButtonAndPopUpClosed() {
 
-        BrowserUtils.sleep(1);
+        Actions acts = new Actions(Driver.getDriver());
+        acts.moveToElement(companyStructurePage.xForClose).perform();
+        BrowserUtils.sleep(3);
         companyStructurePage.xForClose.click();
     }
 
@@ -224,7 +228,6 @@ public class Sena_US05_CompanyStructure_StepDef {
     }
 
 
-
     @And("verify that user should be able to see child class")
     public void verifyThatUserShouldBeAbleToSeeChildClass() {
         BrowserUtils.sleep(2);
@@ -237,9 +240,9 @@ public class Sena_US05_CompanyStructure_StepDef {
 
         Actions actions = new Actions(Driver.getDriver());
         actions.dragAndDrop(companyStructurePage.childDepartment, companyStructurePage.newDepartment).build().perform();
-        //JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        // jse.executeScript("window.scrollBy(0,150)");
-        //actions.clickAndHold(companyStructurePage.childDepartment).moveToElement(companyStructurePage.newDepartment).release().perform();
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        jse.executeScript("window.scrollBy(0,150)");
+        actions.clickAndHold(companyStructurePage.childDepartment).moveToElement(companyStructurePage.newDepartment).release().perform();
         BrowserUtils.sleep(1);
 
     }
@@ -251,7 +254,7 @@ public class Sena_US05_CompanyStructure_StepDef {
 
         try {
             Assert.assertFalse(companyStructurePage.addDepartmentButton.isDisplayed());
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             System.out.println("Test passed! Add Department button not exist.");
         }
 
@@ -268,6 +271,7 @@ public class Sena_US05_CompanyStructure_StepDef {
         BrowserUtils.sleep(1);
         companyStructurePage.getRecent.click();
     }
+
 
     @And("verify that user see  and click the select from structure article")
     public void verifyThatUserSeeAndClickTheSelectFromStructureArticle() {
@@ -288,15 +292,10 @@ public class Sena_US05_CompanyStructure_StepDef {
 
         BrowserUtils.sleep(2);
         companyStructurePage.xMark.click();
-
         BrowserUtils.sleep(2);
 
         Driver.getDriver().switchTo().alert().accept();
-
         BrowserUtils.sleep(2);
-
-
-
 
     }
 
