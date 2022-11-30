@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class Sena_US05_CompanyStructurePage {
 
     public Sena_US05_CompanyStructurePage(){

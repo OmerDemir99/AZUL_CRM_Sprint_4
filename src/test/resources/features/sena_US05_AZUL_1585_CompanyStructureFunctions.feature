@@ -180,6 +180,7 @@ Feature: Functions on Company Structure under Employee menu
     And users write "Catch The Bug" in department name input box
     And users click the add button
 
+
   @AZUL-1723
   Scenario: US05-AC-6 Hr user should be able to delete departments after adding the department
     Given users should login with valid credentials as "hr"

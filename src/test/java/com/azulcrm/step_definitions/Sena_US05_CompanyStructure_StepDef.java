@@ -272,6 +272,7 @@ public class Sena_US05_CompanyStructure_StepDef {
         companyStructurePage.getRecent.click();
     }
 
+
     @And("verify that user see  and click the select from structure article")
     public void verifyThatUserSeeAndClickTheSelectFromStructureArticle() {
         Assert.assertTrue(companyStructurePage.structureArticle.isDisplayed());
